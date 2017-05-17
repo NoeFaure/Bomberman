@@ -68,16 +68,16 @@ public class Main {
 			}
 			//Affichage timer
 			if (Time_seconde < 10 && Time_minute < 10){
-				StdDraw.text(1150, 110,"0" + Long.toString(Time_minute) + " : 0" + Long.toString(Time_seconde));
+				StdDraw.text(1150, 116,"0" + Long.toString(Time_minute) + " : 0" + Long.toString(Time_seconde));
 			}
 			else if(Time_seconde >= 10 && Time_minute < 10){
-				StdDraw.text(1150, 110,"0" + Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
+				StdDraw.text(1150, 116,"0" + Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 			}
 			else if(Time_seconde < 10 && Time_minute >= 10){
-				StdDraw.text(1150, 110,Long.toString(Time_minute) + " : 0" + Long.toString(Time_seconde));
+				StdDraw.text(1150, 116,Long.toString(Time_minute) + " : 0" + Long.toString(Time_seconde));
 			}
 			else if(Time_seconde >= 10 && Time_minute >= 10){
-				StdDraw.text(1150, 110,Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
+				StdDraw.text(1150, 116,Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 			}
 			
 			
@@ -142,6 +142,7 @@ public class Main {
 				Bombe bombe = new Bombe(Joueur1.getX(),Joueur1.getY(), Joueur1);
 				Plateau_1.map[Joueur1.getY()][Joueur1.getX()] = 3;
 				Joueur1.setNbBombe(Joueur1.getNbBombe() - 1);
+				bombe.Affiche_bomb(Joueur1.getX(), Joueur1.getY());
 			}
 			
 			StdDraw.show();
