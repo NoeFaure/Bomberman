@@ -25,7 +25,7 @@ public class Main {
 			{0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		
-		//SET TIMER
+		//SET TIMER //
 		Long Heure_debut = System.currentTimeMillis();
 		Long Time_minute = 0l;
 		
