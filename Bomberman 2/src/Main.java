@@ -29,6 +29,7 @@ public class Main {
 		Long Heure_debut = System.currentTimeMillis();
 		Long Time_minute = 0l;
 		
+		Menu Menu = new Menu();
 		Plateau Plateau_1 = new Plateau(map);
 		Personnage Joueur1 = new Personnage(1,15);
 		Personnage Joueur2 = new Personnage(19,1);
@@ -79,8 +80,11 @@ public class Main {
 				StdDraw.text(1150, 116,Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 			}
 			
-			
-			
+			//Affiche menu
+			if (StdDraw.isKeyPressed(27)){
+				
+				Menu.Affiche_Menu(map,Plateau_1,Joueur1,Joueur2);
+			}
 			
 			//DEPLACEMENT PERSO
 			
