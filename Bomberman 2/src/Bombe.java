@@ -3,15 +3,15 @@ import edu.princeton.cs.introcs.StdDraw;
 public class Bombe {
 	private int x;
 	private int y;
-	private int delai = 500;
+	private int delai = 25;
 	private int portee = 1;
-	private Personnage joueur;
+	//private Personnage joueur;
 	
-	public Bombe(int x, int y, Personnage joueur)
+	public Bombe(int x, int y/*, Personnage joueur*/)
 	{
 		this.x = x;
 		this.y = y;
-		this.joueur = joueur;
+		//this.joueur = joueur;
 	}
 
 	public int getX() {
@@ -46,18 +46,22 @@ public class Bombe {
 		this.portee = portee;
 	}
 
-	public Personnage getJoueur() {
+	/*public Personnage getJoueur() {
 		return joueur;
 	}
 
 	public void setJoueur(Personnage joueur) {
 		this.joueur = joueur;
-	}
+	}*/
 	
 	public void Affiche_bomb(int x, int y){
 		StdDraw.picture(50*(x)+25, y*40+37, "Grass Block 2.png",50,85);
 		StdDraw.picture(50*(x)+25, y*40+37, "Bomb.png",50,85);
 	}
 	
-
+	public int[] retourCoordonnee()
+	{
+		int[] resultat = {this.x, this.y};
+		return resultat;
+	}
 }

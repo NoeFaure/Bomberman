@@ -4,9 +4,10 @@ public class Personnage {
 	
 	private int vie = 3;
 	private int vitesse = 1;
-	private int nbBombe = 1;
+	private int nbBombe = 3;
 	private int x;
 	private int y;
+	private Bombe[] listeBombe = new Bombe[10];
 	public Personnage(int vie, int vitesse, int nbBombe, int x, int y) 
 	{
 		this.vie = vie;
@@ -80,12 +81,40 @@ public class Personnage {
 		StdDraw.picture(50*x+25, 40*y+17, texture,50,85);
 	}
 	
-	/*public void PoserBombe()
+	public void PoserBombe() 
 	{
-		Bombe bombe = new Bombe(this.x, this.y, this);
-		StdDraw.picture(50*this.x+25, 40*this.y+17, "Gem Green.png",50,85);
+		int assigne = 0;
+		for(int i = 0; i < 10; i++)
+		{
+			if(this.listeBombe[i] == null && assigne == 0) // Verifie qu'un emplacement pour bombe est dispo
+			{
+				Bombe bombe = new Bombe(this.x, this.y);
+				this.listeBombe[i] = bombe;
+				assigne = 1;
+			}
+		}
 		
-	}*/
+	}
+	
+	public int[] CompteARebourd()
+	{
+		int[] coordonnees = {-1,-1};
+		for(int i = 0; i < 10; i++)
+		{
+			if(this.listeBombe[i] != null)
+			{
+				this.listeBombe[i].setDelai(this.listeBombe[i].getDelai() - 1);
+				if(this.listeBombe[i].getDelai() == 0)
+				{
+					coordonnees = this.listeBombe[i].retourCoordonnee();
+					this.listeBombe[i] = null;
+					this.nbBombe += 1;
+					System.out.println("bombe explosée à l'emplacement : " + coordonnees[0] + " " + coordonnees[1]);
+				}
+			}
+		}
+		return coordonnees;
+	}
 	
 }
 

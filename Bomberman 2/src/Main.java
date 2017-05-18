@@ -136,14 +136,25 @@ public class Main {
 			{
 				Joueur2.DeplacerGauche();
 			}
-			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Joueur1.getY()][Joueur1.getX()] != 3) ) // espace //
+			
+			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Joueur1.getY()][Joueur1.getX()] != 3) && (Joueur1.getNbBombe() > 0) ) // espace //
 			{
 				System.out.println(Plateau_1.map[Joueur1.getY()][Joueur1.getX()]);
-				Bombe bombe = new Bombe(Joueur1.getX(),Joueur1.getY(), Joueur1);
+				//Bombe bombe = new Bombe(Joueur1.getX(),Joueur1.getY()/*, Joueur1*/);
 				Plateau_1.map[Joueur1.getY()][Joueur1.getX()] = 3;
 				Joueur1.setNbBombe(Joueur1.getNbBombe() - 1);
-				bombe.Affiche_bomb(Joueur1.getX(), Joueur1.getY());
+				//bombe.Affiche_bomb(Joueur1.getX(), Joueur1.getY());
+				Joueur1.PoserBombe();
 			}
+			
+			// à faire au propre plus tard //
+			int[] coordonneesExplosion = Joueur1.CompteARebourd();
+			if(coordonneesExplosion[0] != -1)
+			{
+				Plateau_1.map[coordonneesExplosion[1]][coordonneesExplosion[0]] = 1;
+			}
+			
+			
 			
 			StdDraw.show();
 			StdDraw.pause(50);
