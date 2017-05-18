@@ -146,27 +146,52 @@ public class Main {
 			}
 			
 			// � faire au propre plus tard //
-			int[] coordonneesExplosion = Joueur1.CompteARebourd();
-			if(coordonneesExplosion[0] != -1)
+			Bombe coordonneesExplosion = Joueur1.CompteARebourd(); //renommer plus tard //
+			if(coordonneesExplosion.getX() != -1)
 			{
-				Plateau_1.map[coordonneesExplosion[1]][coordonneesExplosion[0]] = 1;
+				Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()] = 1;
 				///Destruction des environs de la bombe///
-				if(Plateau_1.map[coordonneesExplosion[1]+1][coordonneesExplosion[0]] == 2)
+				int gauche = 0;
+				int droite = 0;
+				int haut = 0;
+				int bas = 0;
+				for(int r = 1; r <= coordonneesExplosion.getPortee(); r++)
 				{
-					Plateau_1.map[coordonneesExplosion[1]+1][coordonneesExplosion[0]] = 1;
+					if(coordonneesExplosion.getY() + r < 16)
+					{
+						if((Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] == 2) && (bas == 0) && Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] < 16)
+						{
+							Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] = 1;
+							bas = 1;
+						}
+					}					
+					if(coordonneesExplosion.getY() - r > 0)
+					{
+						if((Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] == 2) && (haut == 0) && Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] > 0)
+						{
+							Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] = 1;
+							haut = 1;
+						}
+					}
+					if(coordonneesExplosion.getX() + r < 20)
+					{
+						if((Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] == 2) && droite == 0 && Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] < 20)
+						{
+							Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] = 1;
+							droite = 1;
+						}
+					}
+					if(coordonneesExplosion.getX() - r > 0)
+					{
+						if((Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] == 2) && gauche == 0)
+						{
+							Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] = 1;
+							gauche = 1;
+						}
+					}
+					
 				}
-				if(Plateau_1.map[coordonneesExplosion[1]-1][coordonneesExplosion[0]] == 2)
-				{
-					Plateau_1.map[coordonneesExplosion[1]-1][coordonneesExplosion[0]] = 1;
-				}
-				if(Plateau_1.map[coordonneesExplosion[1]][coordonneesExplosion[0]+1] == 2)
-				{
-					Plateau_1.map[coordonneesExplosion[1]][coordonneesExplosion[0]+1] = 1;
-				}
-				if(Plateau_1.map[coordonneesExplosion[1]][coordonneesExplosion[0]-1] == 2)
-				{
-					Plateau_1.map[coordonneesExplosion[1]][coordonneesExplosion[0]-1] = 1;
-				}
+				
 			}
 			
 			

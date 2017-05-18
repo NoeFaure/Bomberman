@@ -104,9 +104,9 @@ public class Personnage {
 		
 	}
 	
-	public int[] CompteARebourd() //Renvoi les coordonnees d'une bombe qui explose
+	public Bombe CompteARebourd() //Renvoi les coordonnees d'une bombe qui explose
 	{
-		int[] coordonnees = {-1,-1};
+		Bombe bombe = new Bombe(-1,-1);
 		for(int i = 0; i < 10; i++)
 		{
 			if(this.listeBombe[i] != null)
@@ -114,15 +114,16 @@ public class Personnage {
 				this.listeBombe[i].setDelai(this.listeBombe[i].getDelai() - 1);
 				if(this.listeBombe[i].getDelai() == 0)
 				{
-					coordonnees = this.listeBombe[i].retourCoordonnee();
+					bombe = this.listeBombe[i];
 					this.listeBombe[i] = null;
 					this.nbBombe += 1;
-					System.out.println("bombe explos�e � l'emplacement : " + coordonnees[0] + " " + coordonnees[1]);
-					/// Destruction de ce qu'il y a autour de la bombe ///				
+					System.out.println("bombe explos�e � l'emplacement : " + bombe.getX() + " " + bombe.getY());
+					/// Destruction de ce qu'il y a autour de la bombe ///	
+					
 				}
 			}
 		}
-		return coordonnees;
+		return bombe;
 	}
 	
 }

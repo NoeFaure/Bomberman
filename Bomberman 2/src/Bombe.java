@@ -4,7 +4,7 @@ public class Bombe {
 	private int x;
 	private int y;
 	private int delai = 25;
-	private int portee = 1;
+	private int portee = 3;
 	//private Personnage joueur;
 	
 	public Bombe(int x, int y/*, Personnage joueur*/)
