@@ -44,7 +44,6 @@ public class Main {
 			StdDraw.clear();
 			Plateau_1.Afficher_map(map,Joueur1,Joueur2);
 			//Joueur1.Affiche_perso(Joueur1.getX(), Joueur1.getY(), "Character Boy.png");
-			
 			// VARIABLES A AFFICHER
 			
 			//Paramètres Polices

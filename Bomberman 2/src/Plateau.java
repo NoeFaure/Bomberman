@@ -75,13 +75,8 @@ public class Plateau {
 				// Bombes // // Plus utile ? //
 				if (map[i][j] == 3)
 				{
-					for (int k = 0;i<Joueur1.getListeBombe().length;i++){
-						
-						int [] coordonnes_bombe = Joueur1.getListeBombe()[k].retourCoordonnee();
-						
-						if (j == coordonnes_bombe[0] && i == coordonnes_bombe[1]){
-							Joueur1.getListeBombe()[k].Affiche_bomb(j, i);
-						}
+					StdDraw.picture(50*(j)+25, i*40+37, "Grass Block 2.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+37, "Bomb.png",50,85);
 					
 						//Affiche perso
 						//Joueur 1
@@ -100,7 +95,6 @@ public class Plateau {
 						{
 							StdDraw.picture(50*(j)+25, i*40+35, "Shadow North.png",50,85);
 						}
-					}
 					
 				}
 
