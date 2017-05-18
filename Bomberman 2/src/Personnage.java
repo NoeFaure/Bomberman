@@ -104,7 +104,7 @@ public class Personnage {
 		
 	}
 	
-	public int[] CompteARebourd()
+	public int[] CompteARebourd() //Renvoi les coordonnees d'une bombe qui explose
 	{
 		int[] coordonnees = {-1,-1};
 		for(int i = 0; i < 10; i++)
@@ -118,6 +118,7 @@ public class Personnage {
 					this.listeBombe[i] = null;
 					this.nbBombe += 1;
 					System.out.println("bombe explos�e � l'emplacement : " + coordonnees[0] + " " + coordonnees[1]);
+					/// Destruction de ce qu'il y a autour de la bombe ///				
 				}
 			}
 		}

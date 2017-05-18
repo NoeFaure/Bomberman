@@ -150,6 +150,23 @@ public class Main {
 			if(coordonneesExplosion[0] != -1)
 			{
 				Plateau_1.map[coordonneesExplosion[1]][coordonneesExplosion[0]] = 1;
+				///Destruction des environs de la bombe///
+				if(Plateau_1.map[coordonneesExplosion[1]+1][coordonneesExplosion[0]] == 2)
+				{
+					Plateau_1.map[coordonneesExplosion[1]+1][coordonneesExplosion[0]] = 1;
+				}
+				if(Plateau_1.map[coordonneesExplosion[1]-1][coordonneesExplosion[0]] == 2)
+				{
+					Plateau_1.map[coordonneesExplosion[1]-1][coordonneesExplosion[0]] = 1;
+				}
+				if(Plateau_1.map[coordonneesExplosion[1]][coordonneesExplosion[0]+1] == 2)
+				{
+					Plateau_1.map[coordonneesExplosion[1]][coordonneesExplosion[0]+1] = 1;
+				}
+				if(Plateau_1.map[coordonneesExplosion[1]][coordonneesExplosion[0]-1] == 2)
+				{
+					Plateau_1.map[coordonneesExplosion[1]][coordonneesExplosion[0]-1] = 1;
+				}
 			}
 			
 			
