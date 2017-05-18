@@ -8,6 +8,8 @@ public class Personnage {
 	private int x;
 	private int y;
 	private Bombe[] listeBombe = new Bombe[10];
+	
+	/// Constructeur ///
 	public Personnage(int vie, int vitesse, int nbBombe, int x, int y) 
 	{
 		this.vie = vie;
@@ -117,7 +119,7 @@ public class Personnage {
 					bombe = this.listeBombe[i];
 					this.listeBombe[i] = null;
 					this.nbBombe += 1;
-					System.out.println("bombe explos�e � l'emplacement : " + bombe.getX() + " " + bombe.getY());
+					System.out.println("La bombe explose a l'emplacement : " + bombe.getX() + " " + bombe.getY());
 					/// Destruction de ce qu'il y a autour de la bombe ///	
 					
 				}
