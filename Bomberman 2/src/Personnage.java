@@ -17,6 +17,14 @@ public class Personnage {
 		this.y = y;
 	}
 	
+	public Bombe[] getListeBombe() {
+		return listeBombe;
+	}
+
+	public void setListeBombe(Bombe[] listeBombe) {
+		this.listeBombe = listeBombe;
+	}
+
 	public Personnage(int x, int y)
 	{
 		this.x = x;
@@ -109,7 +117,7 @@ public class Personnage {
 					coordonnees = this.listeBombe[i].retourCoordonnee();
 					this.listeBombe[i] = null;
 					this.nbBombe += 1;
-					System.out.println("bombe explosée à l'emplacement : " + coordonnees[0] + " " + coordonnees[1]);
+					System.out.println("bombe explosï¿½e ï¿½ l'emplacement : " + coordonnees[0] + " " + coordonnees[1]);
 				}
 			}
 		}

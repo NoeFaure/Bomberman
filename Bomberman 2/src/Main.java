@@ -139,7 +139,6 @@ public class Main {
 			
 			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Joueur1.getY()][Joueur1.getX()] != 3) && (Joueur1.getNbBombe() > 0) ) // espace //
 			{
-				System.out.println(Plateau_1.map[Joueur1.getY()][Joueur1.getX()]);
 				//Bombe bombe = new Bombe(Joueur1.getX(),Joueur1.getY()/*, Joueur1*/);
 				Plateau_1.map[Joueur1.getY()][Joueur1.getX()] = 3;
 				Joueur1.setNbBombe(Joueur1.getNbBombe() - 1);
@@ -147,7 +146,7 @@ public class Main {
 				Joueur1.PoserBombe();
 			}
 			
-			// à faire au propre plus tard //
+			// ï¿½ faire au propre plus tard //
 			int[] coordonneesExplosion = Joueur1.CompteARebourd();
 			if(coordonneesExplosion[0] != -1)
 			{
