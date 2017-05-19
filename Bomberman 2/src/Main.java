@@ -270,7 +270,7 @@ public class Main {
 	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Super_Mario_Sunshine_Music_-_Delfino_Plaza.wav").getAbsoluteFile()); // Golden_Sun_Soundtrack-_Isaac_Battle_Theme
 	        Clip clip = AudioSystem.getClip();
 	        clip.open(audioInputStream);
-	        clip.loop(0);
+	        clip.loop(2);
 	    	} 
 	    catch(Exception ex) 
 	    {
