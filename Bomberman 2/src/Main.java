@@ -163,7 +163,7 @@ public class Main {
 				{
 					if(coordonneesExplosion.getY() + r < 16)
 					{
-						if((Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] == 2) && (bas == 0) && Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] < 16)
+						if((Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] == 2) && (bas == 0))
 						{
 							Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] = 1;
 							bas = 1;
@@ -171,7 +171,7 @@ public class Main {
 					}					
 					if(coordonneesExplosion.getY() - r > 0)
 					{
-						if((Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] == 2) && (haut == 0) && Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] > 0)
+						if((Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] == 2) && (haut == 0))
 						{
 							Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] = 1;
 							haut = 1;
@@ -179,7 +179,7 @@ public class Main {
 					}
 					if(coordonneesExplosion.getX() + r < 20)
 					{
-						if((Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] == 2) && droite == 0 && Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] < 20)
+						if((Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] == 2) && droite == 0)
 						{
 							Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] = 1;
 							droite = 1;
