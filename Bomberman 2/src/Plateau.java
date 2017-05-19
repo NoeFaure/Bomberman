@@ -122,7 +122,10 @@ public class Plateau {
 					}
 					
 					StdDraw.picture(50*(j)+25, i*40+17, "Flamme.png",50,85);
+					
 				}
+				
+				
 
 			}
 	
