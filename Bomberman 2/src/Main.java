@@ -1,9 +1,9 @@
 import java.awt.Font;
-//import java.io.File;
+import java.io.File;
 
-//import javax.sound.sampled.AudioInputStream;
-//import javax.sound.sampled.AudioSystem;
-//import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 import edu.princeton.cs.introcs.StdDraw;
 
@@ -39,7 +39,7 @@ public class Main {
 		Plateau Plateau_1 = new Plateau(map);
 		Personnage Joueur1 = new Personnage(1,15);
 		Personnage Joueur2 = new Personnage(19,1);
-		//playSound();
+		playSound();
 		
 		//Plateau_1.Afficher_map(map);
 		
@@ -253,17 +253,17 @@ public class Main {
 		
 	}
 	/// Musique ///
-	/*public static void playSound() {
+	public static void playSound() {
 	    try {
-	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Golden_Sun_Soundtrack-_Isaac_Battle_Theme.wav").getAbsoluteFile());
+	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Super_Mario_Sunshine_Music_-_Delfino_Plaza.wav").getAbsoluteFile()); // Golden_Sun_Soundtrack-_Isaac_Battle_Theme
 	        Clip clip = AudioSystem.getClip();
 	        clip.open(audioInputStream);
-	        clip.start();
+	        clip.loop(0);
 	    	} 
 	    catch(Exception ex) 
 	    {
 	        System.out.println("Une erreur est survenue lors du lancement de la musique.");
 	        ex.printStackTrace();
 	    }
-	}*/
+	}
 }
