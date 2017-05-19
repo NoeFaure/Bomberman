@@ -87,7 +87,7 @@ public class Plateau {
 						}
 						//Joueur 2
 						if(Joueur2.getX() == j && Joueur2.getY() == i){
-							Joueur1.Affiche_perso(j, i, "Bomberman.png");
+							Joueur1.Affiche_perso(j, i, "Bomberman Perso 2.png");
 						}
 						
 						//Gestion de l'ombre
