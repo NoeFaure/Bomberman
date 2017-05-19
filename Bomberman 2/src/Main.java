@@ -1,5 +1,4 @@
 import java.awt.Font;
-
 import edu.princeton.cs.introcs.StdDraw;
 
 public class Main {
@@ -33,7 +32,9 @@ public class Main {
 		Plateau Plateau_1 = new Plateau(map);
 		Personnage Joueur1 = new Personnage(1,15);
 		Personnage Joueur2 = new Personnage(19,1);
+		
 		//Plateau_1.Afficher_map(map);
+		
 		StdDraw.enableDoubleBuffering();
 		StdDraw.setCanvasSize(1250,690);
 		StdDraw.setXscale(0,1250);

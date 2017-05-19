@@ -121,7 +121,7 @@ public class Menu {
 			
 			//QUIT PRESS
 			if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 2){
-				
+				System.exit(1);
 				
 			}
 			
