@@ -132,4 +132,28 @@ public class Plateau {
 		}
 	
 	}
+	
+	public void Verif_Touche(int [][] map, Personnage Joueur1, Personnage Joueur2){
+		
+		int x1 = Joueur1.getX();
+		int y1 = Joueur1.getY();
+		
+		int x2 = Joueur2.getX();
+		int y2 = Joueur2.getY();
+		
+		for (int i=0;i < map.length; i++)
+		{
+			for (int j=0;j < map[i].length; j++)
+			{
+				if(map[i][j] == 5 && j == x1 && i == y1){
+					Joueur1.setVie(Joueur1.getVie() - 1);
+				}
+				
+				if(map[i][j] == 5 && j == x2 && i == y2){
+					Joueur1.setVie(Joueur1.getVie() - 1);
+				}
+			}
+		}
+		
+	}
 }

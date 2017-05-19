@@ -39,7 +39,7 @@ public class Main {
 		Plateau Plateau_1 = new Plateau(map);
 		Personnage Joueur1 = new Personnage(1,15);
 		Personnage Joueur2 = new Personnage(19,1);
-		playSound();
+		//playSound();
 		
 		//Plateau_1.Afficher_map(map);
 		
@@ -88,6 +88,9 @@ public class Main {
 			else if(Time_seconde >= 10 && Time_minute >= 10){
 				StdDraw.text(1150, 116,Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 			}
+			
+			// Verifie si les joueurs ont été touché par une explosion
+			Plateau_1.Verif_Touche(map, Joueur1, Joueur2);
 			
 			//Affiche menu
 			if (StdDraw.isKeyPressed(27)){
