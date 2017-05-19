@@ -162,7 +162,7 @@ public class Main {
 			Bombe coordonneesExplosion = Joueur1.CompteARebourd(); //renommer plus tard //
 			if(coordonneesExplosion.getX() != -1)
 			{
-				Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()] = 1;
+				Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()] = 5;
 				///Destruction des environs de la bombe///
 				int gauche = 0;
 				int droite = 0;
@@ -172,71 +172,83 @@ public class Main {
 				{
 					if(coordonneesExplosion.getY() + r < 16)
 					{
-						if(bas == 0)
-						{
-							StdDraw.picture(coordonneesExplosion.getX()*40+17,50*(coordonneesExplosion.getY()+r)+25,"Flamme.png",50,85);
-						}
 						if(Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] == 4)
 						{
 							bas = 1;
 						}
 						if((Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] == 2) && (bas == 0))
 						{
-							Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] = 1;
+							Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] = 5;
+							//Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] = 1;
 							bas = 1;
 						}
+						
+						if(bas == 0)
+						{
+							map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] = 5;
+						}
+						
 						
 					}					
 					if(coordonneesExplosion.getY() - r > 0)
 					{
-						if(haut == 0)
-						{
-							StdDraw.picture(coordonneesExplosion.getX()*40+17,50*(coordonneesExplosion.getY()-r)+25,"Flamme.png",50,85);
-						}
 						if(Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] == 4)
 						{
 							haut = 1;
 						}
 						if((Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] == 2) && (haut == 0))
 						{
-							Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] = 1;
+							Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] = 5;
+							//Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] = 1;
 							haut = 1;
-							StdDraw.picture(coordonneesExplosion.getX()*40+17,50*(coordonneesExplosion.getY()-r)+25,"Flamme.png",50,85);
+				
 						}
+						if(haut == 0)
+						{
+							map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] = 5;
+						}
+						
+						
 					}
 					if(coordonneesExplosion.getX() + r < 20)
 					{
-						if(droite == 0)
-						{
-							StdDraw.picture((coordonneesExplosion.getX()+r)*50+25,40*(coordonneesExplosion.getY())+17,"Flamme.png",50,85);
-						}
 						if(Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] == 4)
 						{
 							droite = 1;
 						}
 						if((Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] == 2) && droite == 0)
 						{
-							Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] = 1;
+							Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] = 5;
+							//Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] = 1;
 							droite = 1;
-							StdDraw.picture((coordonneesExplosion.getX()+r)*50+25,40*coordonneesExplosion.getY()+17,"Flamme.png",50,85);
+
 						}
+						if(droite == 0)
+						{
+							map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] = 5;
+						}
+						
+						
 					}
 					if(coordonneesExplosion.getX() - r > 0)
 					{
-						if(gauche == 0)
-						{
-							StdDraw.picture((coordonneesExplosion.getX()-r)*50+25,40*(coordonneesExplosion.getY())+17,"Flamme.png",50,85);
-						}
 						if(Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] == 4)
 						{
 							gauche = 1;
 						}
 						if((Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] == 2) && gauche == 0)
 						{
-							Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] = 1;
+							map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] = 5;
+							//Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] = 1;
 							gauche = 1;
-							StdDraw.picture((coordonneesExplosion.getX()-r)*50+25,40*(coordonneesExplosion.getY())+17,"Flamme.png",50,85);
+							
 						}
+						if(gauche == 0)
+						{
+							map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] = 5;
+						}
+						
+						
 					}
 					
 				}

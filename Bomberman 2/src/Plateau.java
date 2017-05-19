@@ -97,6 +97,32 @@ public class Plateau {
 						}
 					
 				}
+				
+				//Flamme
+				if (map[i][j] == 5)
+				{
+					StdDraw.picture(50*(j)+25, i*40+37, "Grass Block 2.png",50,85);
+					
+					//Affiche perso
+					//Joueur 1
+					if(Joueur1.getX() == j && Joueur1.getY() == i){
+						Joueur1.Affiche_perso(j, i, "Bomberman Perso 1.png");
+						//System.out.println(j+" "+i);
+						
+					}
+					//Joueur 2
+					if(Joueur2.getX() == j && Joueur2.getY() == i){
+						Joueur1.Affiche_perso(j, i, "Bomberman Perso 2.png");
+					}
+					
+					//Gestion de l'ombre
+					if (map[i-1][j] == 4 || map[i-1][j] == 2 || map[i-1][j] == 0)
+					{
+						StdDraw.picture(50*(j)+25, i*40+35, "Shadow North.png",50,85);
+					}
+					
+					StdDraw.picture(50*(j)+25, i*40+17, "Flamme.png",50,85);
+				}
 
 			}
 	
