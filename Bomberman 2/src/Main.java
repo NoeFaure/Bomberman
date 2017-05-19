@@ -1,4 +1,10 @@
 import java.awt.Font;
+//import java.io.File;
+
+//import javax.sound.sampled.AudioInputStream;
+//import javax.sound.sampled.AudioSystem;
+//import javax.sound.sampled.Clip;
+
 import edu.princeton.cs.introcs.StdDraw;
 
 public class Main {
@@ -23,6 +29,7 @@ public class Main {
 			{0,1,4,1,4,2,4,2,4,2,4,2,4,2,4,2,4,2,4,2,0},
 			{0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+
 		
 		//SET TIMER //
 		Long Heure_debut = System.currentTimeMillis();
@@ -32,6 +39,7 @@ public class Main {
 		Plateau Plateau_1 = new Plateau(map);
 		Personnage Joueur1 = new Personnage(1,15);
 		Personnage Joueur2 = new Personnage(19,1);
+		//playSound();
 		
 		//Plateau_1.Afficher_map(map);
 		
@@ -244,4 +252,18 @@ public class Main {
 		
 		
 	}
+	/// Musique ///
+	/*public static void playSound() {
+	    try {
+	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Golden_Sun_Soundtrack-_Isaac_Battle_Theme.wav").getAbsoluteFile());
+	        Clip clip = AudioSystem.getClip();
+	        clip.open(audioInputStream);
+	        clip.start();
+	    	} 
+	    catch(Exception ex) 
+	    {
+	        System.out.println("Une erreur est survenue lors du lancement de la musique.");
+	        ex.printStackTrace();
+	    }
+	}*/
 }

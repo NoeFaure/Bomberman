@@ -12,7 +12,7 @@ public class Menu {
 		
 		while(boucle == true){
 			
-			//Gestion sourie
+			//Gestion souris
 			if(StdDraw.mouseX() >= 707 && StdDraw.mouseX() < 750 && StdDraw.mouseY() < 200 && StdDraw.mouseY() >= 153){
 				if (choix == 0 && Affichage_ok == 0){
 					Plateau_1.Afficher_map(map,Joueur1,Joueur2);
@@ -138,7 +138,7 @@ public class Menu {
 			}
 			
 			
-			//LA SOURIE N'EST PAS SUR LA CROIX
+			//LA SOURIS N'EST PAS SUR LA CROIX
 			else{
 				if (choix == 0 && Affichage_ok == 0){
 					Plateau_1.Afficher_map(map,Joueur1,Joueur2);
