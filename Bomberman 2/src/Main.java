@@ -83,7 +83,7 @@ public class Main {
 			//Affiche menu
 			if (StdDraw.isKeyPressed(27)){
 				
-				Menu.Affiche_Menu(map,Plateau_1,Joueur1,Joueur2);
+				Menu.Affiche_Menu(map,Plateau_1,Joueur1,Joueur2,Time_seconde,Time_minute);
 			}
 			
 			//DEPLACEMENT PERSO
