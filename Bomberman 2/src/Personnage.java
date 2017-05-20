@@ -93,8 +93,9 @@ public class Personnage {
 	
 	public void PoserBombe() 
 	{
+		int nbBombeMax = 10;
 		int assigne = 0;
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < nbBombeMax; i++)
 		{
 			if(this.listeBombe[i] == null && assigne == 0) // Verifie qu'un emplacement pour bombe est dispo
 			{
@@ -109,7 +110,8 @@ public class Personnage {
 	public Bombe CompteARebourd() //Renvoi les coordonnees d'une bombe qui explose
 	{
 		Bombe bombe = new Bombe(-1,-1);
-		for(int i = 0; i < 10; i++)
+		int rangeMax = 10;
+		for(int i = 0; i < rangeMax; i++)
 		{
 			if(this.listeBombe[i] != null)
 			{
