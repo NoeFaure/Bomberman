@@ -61,6 +61,10 @@ public class Main {
 			StdDraw.setFont(font);
 			StdDraw.setPenColor(StdDraw.WHITE);
 			
+			//Bonus
+			Joueur1.Affiche_bonus_Joueur1();
+			Joueur2.Affiche_bonus_Joueur2();
+			
 			//Nombre de vies
 			StdDraw.text(1213, 249, Integer.toString((Joueur1.getVie())));
 			StdDraw.text(1213, 454, Integer.toString((Joueur2.getVie())));
