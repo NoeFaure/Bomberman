@@ -40,13 +40,14 @@ public class Main {
 		//JouerMusique();
 		
 		//Affiche Ecran Titre
+		//JouerMusiqueAccueil();
 		Ecran_Titre Ecran_titre_1 = new Ecran_Titre();
 		Ecran_titre_1.Affiche_Ecran_Titre();
 		
 		//SET TIMER //
 		Long Heure_debut = System.currentTimeMillis();
 		Long Time_minute = 0l;
-		
+
 		Menu Menu = new Menu();
 		Plateau Plateau_1 = new Plateau(map);
 		Personnage Joueur1 = new Personnage(1,15);
@@ -100,7 +101,7 @@ public class Main {
 			//Joueur 1
 			Joueur1.DeplacerJoueur1(Plateau_1);
 			
-			//COMMANDE DEVELOPPEUR ( Je la nettoie pas parce qu'elle est vouée à être effacée *niark*)
+			//COMMANDE DEVELOPPEUR ( Je la nettoie pas parce qu'elle est vouï¿½e ï¿½ ï¿½tre effacï¿½e *niark*)
 				if (StdDraw.isKeyPressed(73) && map[Joueur1.getY()-1][Joueur1.getX()] != 0){
 					map[Joueur1.getY()-1][Joueur1.getX()] = 1;
 				}
@@ -137,6 +138,20 @@ public class Main {
 	public static void JouerMusique() {
 	    try {
 	        AudioInputStream Musique = AudioSystem.getAudioInputStream(new File("Super_Mario_Sunshine_Music_-_Delfino_Plaza.wav").getAbsoluteFile()); // Golden_Sun_Soundtrack-_Isaac_Battle_Theme
+	        Clip clip = AudioSystem.getClip();
+	        clip.open(Musique);
+	        clip.loop(5);
+	    	} 
+	    catch(Exception ex) 
+	    {
+	        System.out.println("Une erreur est survenue lors du lancement de la musique.");
+	        ex.printStackTrace();
+	    }
+	}
+	
+	public static void JouerMusiqueAccueil() {
+	    try {
+	        AudioInputStream Musique = AudioSystem.getAudioInputStream(new File("Bomberman - Accueil.wav").getAbsoluteFile());
 	        Clip clip = AudioSystem.getClip();
 	        clip.open(Musique);
 	        clip.loop(5);
