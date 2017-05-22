@@ -113,17 +113,26 @@ public class Menu {
 				
 				//RESUME PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 0){
+					StdDraw.picture(500, 242, "Press Resume.png");
+					StdDraw.show();
+					StdDraw.pause(30);
 					boucle = false;
 					
 				}
 				
 				//RESTART PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 1){
+					StdDraw.picture(500, 299, "Press Restart.png");
+					StdDraw.show();
+					StdDraw.pause(30);
 					
 				}
 				
 				//QUIT PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 2){
+					StdDraw.picture(500, 397, "Press Quit.png");
+					StdDraw.show();
+					StdDraw.pause(30);
 					System.exit(1);
 					
 				}
@@ -239,17 +248,26 @@ public class Menu {
 				
 				//RESUME PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 0){
+					StdDraw.picture(500, 242, "Press Resume.png");
+					StdDraw.show();
+					StdDraw.pause(30);
 					boucle = false;
 					
 				}
 				
 				//RESTART PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 1){
+					StdDraw.picture(500, 299, "Press Restart.png");
+					StdDraw.show();
+					StdDraw.pause(30);
 					
 				}
 				
 				//QUIT PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 2){
+					StdDraw.picture(500, 397, "Press Quit.png");
+					StdDraw.show();
+					StdDraw.pause(30);
 					System.exit(1);
 					
 				}

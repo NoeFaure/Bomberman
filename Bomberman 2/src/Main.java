@@ -30,6 +30,18 @@ public class Main {
 			{0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 
+		//Création de la fenêtre
+		StdDraw.enableDoubleBuffering();
+		StdDraw.setCanvasSize(1250,690);
+		StdDraw.setXscale(0,1250);
+		StdDraw.setYscale(690, 0);
+		
+		//Lancement de la musique
+		JouerMusique();
+		
+		//Affiche Ecran Titre
+		Ecran_Titre Ecran_titre_1 = new Ecran_Titre();
+		Ecran_titre_1.Affiche_Ecran_Titre();
 		
 		//SET TIMER //
 		Long Heure_debut = System.currentTimeMillis();
@@ -39,14 +51,6 @@ public class Main {
 		Plateau Plateau_1 = new Plateau(map);
 		Personnage Joueur1 = new Personnage(1,15);
 		Personnage Joueur2 = new Personnage(19,1);
-		JouerMusique();
-		
-		//Plateau_1.Afficher_map(map);
-		
-		StdDraw.enableDoubleBuffering();
-		StdDraw.setCanvasSize(1250,690);
-		StdDraw.setXscale(0,1250);
-		StdDraw.setYscale(690, 0);
 		
 		//Boucle infinie
 		while(true)
