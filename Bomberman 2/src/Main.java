@@ -37,7 +37,7 @@ public class Main {
 		StdDraw.setYscale(690, 0);
 		
 		//Lancement de la musique
-		JouerMusique();
+		//JouerMusique();
 		
 		//Affiche Ecran Titre
 		Ecran_Titre Ecran_titre_1 = new Ecran_Titre();
@@ -57,25 +57,14 @@ public class Main {
 		{
 			StdDraw.clear();
 			Plateau_1.Afficher_map(map,Joueur1,Joueur2);
-			//Joueur1.Affiche_perso(Joueur1.getX(), Joueur1.getY(), "Character Boy.png");
 			// VARIABLES A AFFICHER
 			
-			//ParamÃ¨tres Polices
-			Font font = new Font("Arial", Font.BOLD, 30);
-			StdDraw.setFont(font);
-			StdDraw.setPenColor(StdDraw.WHITE);
+			
 			
 			//Bonus
 			Joueur1.Affiche_bonus_Joueur1();
 			Joueur2.Affiche_bonus_Joueur2();
-			
-			//Nombre de vies
-			StdDraw.text(1213, 249, Integer.toString((Joueur1.getVie())));
-			StdDraw.text(1213, 454, Integer.toString((Joueur2.getVie())));
-			
-			//Nombre de bombes
-			StdDraw.text(1125, 249, Integer.toString((Joueur1.getNbBombe())));
-			StdDraw.text(1125, 454, Integer.toString((Joueur2.getNbBombe())));
+
 			
 			//Timer
 			Long Time_seconde = (System.currentTimeMillis() - Heure_debut)/1000;
@@ -109,24 +98,9 @@ public class Main {
 			//DEPLACEMENT PERSO
 			
 			//Joueur 1
-			if(StdDraw.isKeyPressed(39) && (Plateau_1.map[Joueur1.getY()][Joueur1.getX()+1] != 0) && (Plateau_1.map[Joueur1.getY()][Joueur1.getX()+1] != 2) && (Plateau_1.map[Joueur1.getY()][Joueur1.getX()+1] != 4))
-			{			
-				Joueur1.DeplacerDroite();
-			}
-			if(StdDraw.isKeyPressed(38) && (Plateau_1.map[Joueur1.getY() - 1][Joueur1.getX()] != 0) && (Plateau_1.map[Joueur1.getY() - 1][Joueur1.getX()] != 2) && (Plateau_1.map[Joueur1.getY()-1][Joueur1.getX()] != 4))
-			{
-				Joueur1.DeplacerHaut();
-			}
-			if(StdDraw.isKeyPressed(40)&& (Plateau_1.map[Joueur1.getY()+1][Joueur1.getX()] != 0) && (Plateau_1.map[Joueur1.getY()+1][Joueur1.getX()] != 2) && (Plateau_1.map[Joueur1.getY()+1][Joueur1.getX()] != 4))
-			{
-				Joueur1.DeplacerBas();
-			}
-			if(StdDraw.isKeyPressed(37)&& (Plateau_1.map[Joueur1.getY()][Joueur1.getX()-1] != 0) && (Plateau_1.map[Joueur1.getY()][Joueur1.getX()-1] != 2) && (Plateau_1.map[Joueur1.getY()][Joueur1.getX()-1] != 4))
-			{
-				Joueur1.DeplacerGauche();
-			}
+			Joueur1.DeplacerJoueur1(Plateau_1);
 			
-			//COMMANDE DEVELOPPEUR
+			//COMMANDE DEVELOPPEUR ( Je la nettoie pas parce qu'elle est vouée à être effacée *niark*)
 				if (StdDraw.isKeyPressed(73) && map[Joueur1.getY()-1][Joueur1.getX()] != 0){
 					map[Joueur1.getY()-1][Joueur1.getX()] = 1;
 				}
@@ -143,128 +117,12 @@ public class Main {
 			
 			
 			//Joueur 2
-			if(StdDraw.isKeyPressed(68) && (Plateau_1.map[Joueur2.getY()][Joueur2.getX()+1] != 0) && (Plateau_1.map[Joueur2.getY()][Joueur2.getX()+1] != 2) && (Plateau_1.map[Joueur2.getY()][Joueur2.getX()+1] != 4))
-			{			
-				Joueur2.DeplacerDroite();
-			}
-			if(StdDraw.isKeyPressed(90) && (Plateau_1.map[Joueur2.getY()-1][Joueur2.getX()] != 0) && (Plateau_1.map[Joueur2.getY() - 1][Joueur2.getX()] != 2) && (Plateau_1.map[Joueur2.getY()-1][Joueur2.getX()] != 4))
-			{
-				Joueur2.DeplacerHaut();
-			}
-			if(StdDraw.isKeyPressed(83) && (Plateau_1.map[Joueur2.getY()+1][Joueur2.getX()] != 0) && (Plateau_1.map[Joueur2.getY() + 1][Joueur2.getX()] != 2) && (Plateau_1.map[Joueur2.getY()+1][Joueur2.getX()] != 4))
-			{
-				Joueur2.DeplacerBas();
-			}
-			if(StdDraw.isKeyPressed(81) && (Plateau_1.map[Joueur2.getY()][Joueur2.getX()-1] != 0) && (Plateau_1.map[Joueur2.getY()][Joueur2.getX()-1] != 2) && (Plateau_1.map[Joueur2.getY()][Joueur2.getX()-1] != 4))
-			{
-				Joueur2.DeplacerGauche();
-			}
-			
-			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Joueur1.getY()][Joueur1.getX()] != 3) && (Joueur1.getNbBombe() > 0) ) // espace //
-			{
-				//Bombe bombe = new Bombe(Joueur1.getX(),Joueur1.getY()/*, Joueur1*/);
-				Plateau_1.map[Joueur1.getY()][Joueur1.getX()] = 3;
-				Joueur1.setNbBombe(Joueur1.getNbBombe() - 1);
-				//bombe.Affiche_bomb(Joueur1.getX(), Joueur1.getY());
-				Joueur1.PoserBombe();
-			}
+			Joueur2.DeplacerJoueur2(Plateau_1);
+			Joueur1.PoserBombe(Plateau_1);
 			
 			// A faire au propre plus tard //
-			Bombe coordonneesExplosion = Joueur1.CompteARebourd(); //renommer plus tard //
-			if(coordonneesExplosion.getX() != -1)
-			{
-				Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()] = 5;
-				///Destruction des environs de la bombe///
-				int gauche = 0;
-				int droite = 0;
-				int haut = 0;
-				int bas = 0;
-				for(int r = 1; r <= coordonneesExplosion.getPortee(); r++)
-				{
-					if(coordonneesExplosion.getY() + r < 16)
-					{
-						if(Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] == 4)
-						{
-							bas = 1;
-						}
-						if((Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] == 2) && (bas == 0))
-						{
-							Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] = 5;
-							//Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] = 1;
-							bas = 1;
-						}
-						
-						if(bas == 0)
-						{
-							map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] = 5;
-						}
-						
-						
-					}					
-					if(coordonneesExplosion.getY() - r > 0)
-					{
-						if(Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] == 4)
-						{
-							haut = 1;
-						}
-						if((Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] == 2) && (haut == 0))
-						{
-							Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] = 5;
-							//Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] = 1;
-							haut = 1;
-				
-						}
-						if(haut == 0)
-						{
-							map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] = 5;
-						}
-						
-						
-					}
-					if(coordonneesExplosion.getX() + r < 20)
-					{
-						if(Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] == 4)
-						{
-							droite = 1;
-						}
-						if((Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] == 2) && droite == 0)
-						{
-							Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] = 5;
-							//Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] = 1;
-							droite = 1;
-
-						}
-						if(droite == 0)
-						{
-							map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] = 5;
-						}
-						
-						
-					}
-					if(coordonneesExplosion.getX() - r > 0)
-					{
-						if(Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] == 4)
-						{
-							gauche = 1;
-						}
-						if((Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] == 2) && gauche == 0)
-						{
-							map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] = 5;
-							//Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] = 1;
-							gauche = 1;
-							
-						}
-						if(gauche == 0)
-						{
-							map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] = 5;
-						}
-						
-						
-					}
-					
-				}
-				
-			}
+			Joueur1.CompteARebourd(Plateau_1); //renommer plus tard //
+			
 			
 			
 			

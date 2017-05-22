@@ -1,3 +1,5 @@
+import java.awt.Font;
+
 import edu.princeton.cs.introcs.StdDraw;
 
 public class Plateau {
@@ -8,9 +10,28 @@ public class Plateau {
 	public Plateau(int [][] map){
 		this.map = map;
 	}
+	
+	
+
+	public int[][] getMap() {
+		return map;
+	}
+
+
+
+	public void setMap(int[][] map) {
+		this.map = map;
+	}
+
+
 
 	public  void Afficher_map(int map [][],Personnage Joueur1,Personnage Joueur2)
 	{
+		
+		//Paramètres Polices
+		Font font = new Font("Arial", Font.BOLD, 30);
+		StdDraw.setFont(font);
+		StdDraw.setPenColor(StdDraw.WHITE);
 		
 		// Taille de la map (1050 x 850)
 		/*StdDraw.enableDoubleBuffering();

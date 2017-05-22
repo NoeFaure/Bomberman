@@ -75,48 +75,33 @@ public class Personnage {
 	}
 	
 	/// Methodes ///
-	
-	public void DeplacerDroite()
-	{
-		this.x += 1;
-	}
-	
-	public void DeplacerGauche()
-	{
-		this.x -= 1;
-	}
-	
-	public void DeplacerHaut()
-	{
-		this.y -= 1;
-	}
-	
-	public void DeplacerBas()
-	{
-		this.y += 1;
-	}
-	
+
 	public void Affiche_perso(int x, int y,String texture){
 		StdDraw.picture(50*x+25, 40*y+17, texture,50,85);
 	}
 	
-	public void PoserBombe() 
+	public void PoserBombe(Plateau Plateau_1) 
 	{
-		int nbBombeMax = 10;
-		int assigne = 0;
-		for(int i = 0; i < nbBombeMax; i++)
+		if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[y][x] != 3) && (nbBombe > 0) ) // espace //
 		{
-			if(this.listeBombe[i] == null && assigne == 0) // Verifie qu'un emplacement pour bombe est dispo
+			Plateau_1.map[y][x] = 3;
+			nbBombe -= 1;
+		
+			int nbBombeMax = 10;
+			int assigne = 0;
+			for(int i = 0; i < nbBombeMax; i++)
 			{
-				Bombe bombe = new Bombe(this.x, this.y);
-				this.listeBombe[i] = bombe;
-				assigne = 1;
+				if(this.listeBombe[i] == null && assigne == 0) // Verifie qu'un emplacement pour bombe est dispo
+				{
+					Bombe bombe = new Bombe(this.x, this.y);
+					this.listeBombe[i] = bombe;
+					assigne = 1;
+				}
 			}
 		}
-		
 	}
 	
-	public Bombe CompteARebourd() //Renvoi les coordonnees d'une bombe qui explose
+	public void CompteARebourd(Plateau Plateau_1) //Renvoi les coordonnees d'une bombe qui explose
 	{
 		Bombe bombe = new Bombe(-1,-1);
 		int rangeMax = 10;
@@ -136,8 +121,145 @@ public class Personnage {
 				}
 			}
 		}
-		return bombe;
+		if(bombe.getX() != -1)
+		{
+			Plateau_1.map[bombe.getY()][bombe.getX()] = 5;
+			///Destruction des environs de la bombe///
+			int gauche = 0;
+			int droite = 0;
+			int haut = 0;
+			int bas = 0;
+			for(int r = 1; r <= bombe.getPortee(); r++)
+			{
+				if(bombe.getY() + r < 16)
+				{
+					if(Plateau_1.map[bombe.getY()+r][bombe.getX()] == 4)
+					{
+						bas = 1;
+					}
+					if((Plateau_1.map[bombe.getY()+r][bombe.getX()] == 2) && (bas == 0))
+					{
+						Plateau_1.map[bombe.getY()+r][bombe.getX()] = 5;
+						//Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] = 1;
+						bas = 1;
+					}
+					
+					if(bas == 0)
+					{
+						Plateau_1.getMap()[bombe.getY()+r][bombe.getX()] = 5;
+					}
+					
+					
+				}					
+				if(bombe.getY() - r > 0)
+				{
+					if(Plateau_1.getMap()[bombe.getY()-r][bombe.getX()] == 4)
+					{
+						haut = 1;
+					}
+					if((Plateau_1.getMap()[bombe.getY()-r][bombe.getX()] == 2) && (haut == 0))
+					{
+						Plateau_1.getMap()[bombe.getY()-r][bombe.getX()] = 5;
+						//Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] = 1;
+						haut = 1;
+			
+					}
+					if(haut == 0)
+					{
+						Plateau_1.getMap()[bombe.getY()-r][bombe.getX()] = 5;
+					}
+					
+					
+				}
+				if(bombe.getX() + r < 20)
+				{
+					if(Plateau_1.getMap()[bombe.getY()][bombe.getX()+r] == 4)
+					{
+						droite = 1;
+					}
+					if((Plateau_1.getMap()[bombe.getY()][bombe.getX()+r] == 2) && droite == 0)
+					{
+						Plateau_1.getMap()[bombe.getY()][bombe.getX()+r] = 5;
+						//Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] = 1;
+						droite = 1;
+
+					}
+					if(droite == 0)
+					{
+						Plateau_1.getMap()[bombe.getY()][bombe.getX()+r] = 5;
+					}
+					
+					
+				}
+				if(bombe.getX() - r > 0)
+				{
+					if(Plateau_1.getMap()[bombe.getY()][bombe.getX()-r] == 4)
+					{
+						gauche = 1;
+					}
+					if((Plateau_1.getMap()[bombe.getY()][bombe.getX()-r] == 2) && gauche == 0)
+					{
+						Plateau_1.getMap()[bombe.getY()][bombe.getX()-r] = 5;
+						//Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] = 1;
+						gauche = 1;
+						
+					}
+					if(gauche == 0)
+					{
+						Plateau_1.getMap()[bombe.getY()][bombe.getX()-r] = 5;
+					}
+					
+					
+				}
+				
+			}
+			
+		}
 	}
+	
+	// Deplacement du joueur 1 //
+	public void DeplacerJoueur1(Plateau Plateau_1)
+	{
+		if(StdDraw.isKeyPressed(39) && (Plateau_1.map[y][x + 1] != 0) && (Plateau_1.map[y][x + 1] != 2) && (Plateau_1.map[y][x + 1] != 4))
+		{			
+			x += 1;
+		}
+		if(StdDraw.isKeyPressed(38) && (Plateau_1.map[y - 1][x] != 0) && (Plateau_1.map[y - 1][x] != 2) && (Plateau_1.map[y - 1][x] != 4))
+		{
+			y -= 1;
+		}
+		if(StdDraw.isKeyPressed(40)&& (Plateau_1.map[y + 1][x] != 0) && (Plateau_1.map[y + 1][x] != 2) && (Plateau_1.map[y + 1][x] != 4))
+		{
+			y += 1;
+		}
+		if(StdDraw.isKeyPressed(37)&& (Plateau_1.map[y][x - 1] != 0) && (Plateau_1.map[y][x - 1] != 2) && (Plateau_1.map[y][x - 1] != 4))
+		{
+			x -= 1;
+		}
+	}
+	
+	// Deplacement du joueur 2 //
+	
+	public void DeplacerJoueur2(Plateau Plateau_1)
+	{
+		if(StdDraw.isKeyPressed(68) && (Plateau_1.map[y][x + 1] != 0) && (Plateau_1.map[y][x + 1] != 2) && (Plateau_1.map[y][x + 1] != 4))
+		{			
+			x += 1;
+		}
+		if(StdDraw.isKeyPressed(90) && (Plateau_1.map[y - 1][x] != 0) && (Plateau_1.map[y - 1][x] != 2) && (Plateau_1.map[y - 1][x] != 4))
+		{
+			y -= 1;
+		}
+		if(StdDraw.isKeyPressed(83)&& (Plateau_1.map[y + 1][x] != 0) && (Plateau_1.map[y + 1][x] != 2) && (Plateau_1.map[y + 1][x] != 4))
+		{
+			y += 1;
+		}
+		if(StdDraw.isKeyPressed(81)&& (Plateau_1.map[y][x - 1] != 0) && (Plateau_1.map[y][x - 1] != 2) && (Plateau_1.map[y][x - 1] != 4))
+		{
+			x -= 1;
+		}
+	}
+	
 	
 	//Affiche Bonus
 	public void Affiche_bonus_Joueur1()
@@ -197,6 +319,11 @@ public class Personnage {
 		if(listeBonus[7] == 1){
 		StdDraw.picture(1217,343, "Shield.png");
 		}
+		// Nb de vie
+		StdDraw.text(1213, 249, Integer.toString((vie)));
+		
+		// Nb de bombes
+		StdDraw.text(1125, 249, Integer.toString((nbBombe)));
 	}
 	
 	public void Affiche_bonus_Joueur2()
@@ -256,6 +383,11 @@ public class Personnage {
 		if(listeBonus[7] == 1){
 		StdDraw.picture(1217,547, "Shield.png");
 		}
+		// Nb de vie
+		StdDraw.text(1213, 454, Integer.toString((vie)));
+		
+		// Nb de bombes
+		StdDraw.text(1125, 454, Integer.toString((nbBombe)));
 	}
 }
 
