@@ -46,7 +46,7 @@ public class Plateau {
 					}
 					//Joueur 2
 					if(Joueur2.getX() == j && Joueur2.getY() == i){
-						Joueur1.Affiche_perso(j, i, "Bomberman Perso 2.png");
+						Joueur2.Affiche_perso(j, i, "Bomberman Perso 2.png");
 					}
 					
 					
@@ -112,7 +112,7 @@ public class Plateau {
 					}
 					//Joueur 2
 					if(Joueur2.getX() == j && Joueur2.getY() == i){
-						Joueur1.Affiche_perso(j, i, "Bomberman Perso 2.png");
+						Joueur2.Affiche_perso(j, i, "Bomberman Perso 2.png");
 					}
 					
 					//Gestion de l'ombre
@@ -150,7 +150,7 @@ public class Plateau {
 				}
 				
 				if(map[i][j] == 5 && j == x2 && i == y2){
-					Joueur1.setVie(Joueur1.getVie() - 1);
+					Joueur2.setVie(Joueur2.getVie() - 1);
 				}
 			}
 		}

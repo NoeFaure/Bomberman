@@ -39,7 +39,7 @@ public class Main {
 		Plateau Plateau_1 = new Plateau(map);
 		Personnage Joueur1 = new Personnage(1,15);
 		Personnage Joueur2 = new Personnage(19,1);
-		//playSound();
+		JouerMusique();
 		
 		//Plateau_1.Afficher_map(map);
 		
@@ -272,12 +272,12 @@ public class Main {
 		
 	}
 	/// Musique ///
-	public static void playSound() {
+	public static void JouerMusique() {
 	    try {
-	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Super_Mario_Sunshine_Music_-_Delfino_Plaza.wav").getAbsoluteFile()); // Golden_Sun_Soundtrack-_Isaac_Battle_Theme
+	        AudioInputStream Musique = AudioSystem.getAudioInputStream(new File("Super_Mario_Sunshine_Music_-_Delfino_Plaza.wav").getAbsoluteFile()); // Golden_Sun_Soundtrack-_Isaac_Battle_Theme
 	        Clip clip = AudioSystem.getClip();
-	        clip.open(audioInputStream);
-	        clip.loop(2);
+	        clip.open(Musique);
+	        clip.loop(5);
 	    	} 
 	    catch(Exception ex) 
 	    {
