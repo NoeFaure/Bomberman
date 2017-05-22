@@ -12,6 +12,7 @@ public class Ecran_Titre {
 		
 		int choix = 0;
 		boolean boucle = true;
+		boolean boucle2 = false;
 		
 		while(boucle == true){
 			
@@ -34,6 +35,22 @@ public class Ecran_Titre {
 			if(choix == 2){
 				StdDraw.picture(625, 345, "Ecran Titre.png");
 				StdDraw.picture(623, 517, "Skins Selection.png");
+				
+				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+					
+					boucle2 = true;
+					
+					while(boucle2 == true){
+						StdDraw.picture(625, 345, "Ecran Skins.png");
+						StdDraw.pause(50);
+						StdDraw.show();
+						
+						if (StdDraw.isKeyPressed(27)){
+							boucle2 = false;
+						}
+					
+					}
+				}
 
 			}
 			
