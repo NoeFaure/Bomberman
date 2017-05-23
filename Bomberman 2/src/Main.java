@@ -37,7 +37,7 @@ public class Main {
 		StdDraw.setYscale(690, 0);
 		
 		//Lancement de la musique
-		//JouerMusique();
+		JouerMusique();
 		
 		//Affiche Ecran Titre
 		//JouerMusiqueAccueil();
