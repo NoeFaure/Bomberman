@@ -33,7 +33,7 @@ public class Bombe {
 
 
 
-	public Flamme[] getListeFlamme() {
+	public  Flamme[] getListeFlamme() {
 		return listeFlamme;
 	}
 
@@ -119,8 +119,8 @@ public class Bombe {
 		int compteur = 1; // compte le nombre de flamme pour la listeFlamme //
 		
 		///Destruction des environs de la bombe///
-		int gauche = 0; // Permet de verifier si la flamme s'arrete à gauche //
-		int droite = 0; // Permet de verifier si la flamme s'arrete à droite //
+		int gauche = 0; // Permet de verifier si la flamme s'arrete ï¿½ gauche //
+		int droite = 0; // Permet de verifier si la flamme s'arrete ï¿½ droite //
 		int haut = 0; // Permet de verifier si la flamme s'arrete en haut //
 		int bas = 0; // Permet de verifier si la flamme s'arrete en bas //
 		
@@ -130,7 +130,7 @@ public class Bombe {
 			// Flammes du bas //
 			if(y + r < 16) // on verifie que la flamme est dans les limites du terrain //
 			{
-				if(Plateau_1.getMap()[y+r][x] == 4) // Si l'explosion rencontre un mur incassable : arrêt immédiat
+				if(Plateau_1.getMap()[y+r][x] == 4) // Si l'explosion rencontre un mur incassable : arrï¿½t immï¿½diat
 				{
 					bas = 1;
 				}
@@ -140,7 +140,7 @@ public class Bombe {
 					listeFlamme[compteur] = new Flamme(x,y+r); // Ajout de flammes //
 					compteur += 1;
 					bas = 1;
-					if(Joueur1.identificationBombe(x, y+r).x != -1) // On identifie si la bombe touchée appartient au joueur 1 ou au joueur 2 //
+					if(Joueur1.identificationBombe(x, y+r).x != -1) // On identifie si la bombe touchï¿½e appartient au joueur 1 ou au joueur 2 //
 					{
 						Joueur1.identificationBombe(x, y+r).exploserBombe(Plateau_1, Joueur1, Joueur2); // On fait exploser la bombe rencontree //
 					}
@@ -184,7 +184,7 @@ public class Bombe {
 					listeFlamme[compteur] = new Flamme(x,y-r);
 					compteur += 1;
 					haut = 1;
-					if(Joueur1.identificationBombe(x, y-r).x != -1) // On identifie si la bombe touchée appartient au joueur 1 ou au joueur 2 //
+					if(Joueur1.identificationBombe(x, y-r).x != -1) // On identifie si la bombe touchï¿½e appartient au joueur 1 ou au joueur 2 //
 					{
 						Joueur1.identificationBombe(x, y-r).exploserBombe(Plateau_1, Joueur1, Joueur2); //On fait exploser la bombe rencontree
 					}
@@ -222,7 +222,7 @@ public class Bombe {
 					listeFlamme[compteur] = new Flamme(x+r,y);
 					compteur += 1;
 					droite = 1;
-					if(Joueur1.identificationBombe(x+r, y).x != -1) // On identifie si la bombe touchée appartient au joueur 1 ou au joueur 2 //
+					if(Joueur1.identificationBombe(x+r, y).x != -1) // On identifie si la bombe touchï¿½e appartient au joueur 1 ou au joueur 2 //
 					{
 						Joueur1.identificationBombe(x+r, y).exploserBombe(Plateau_1, Joueur1, Joueur2); // On fait exploser la bombe rencontree
 					}
@@ -258,7 +258,7 @@ public class Bombe {
 					listeFlamme[compteur] = new Flamme(x-r,y);
 					compteur += 1;
 					gauche = 1;
-					if(Joueur1.identificationBombe(x-r, y).x != -1) // On identifie si la bombe touchée appartient au joueur 1 ou au joueur 2 //
+					if(Joueur1.identificationBombe(x-r, y).x != -1) // On identifie si la bombe touchï¿½e appartient au joueur 1 ou au joueur 2 //
 					{
 						Joueur1.identificationBombe(x-r, y).exploserBombe(Plateau_1, Joueur1, Joueur2); // On fait exploser la bombe rencontree
 					}
