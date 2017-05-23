@@ -104,12 +104,14 @@ public class Bombe {
 		{
 			Joueur1.setNbBombe(Joueur1.getNbBombe() + 1);
 			int positionListeJ1 = Joueur1.positionBombe(x,y);
-			Joueur1.getListeBombe()[positionListeJ1].setExplose(true);;
+			Joueur1.getListeBombe()[positionListeJ1].setExplose(true);
 			System.out.println(" +1 ! " + x + " " + y);
 		}
 		else if(Joueur2.identificationBombe(x, y).x != -1) // Si la bombe appartient au joueur2
 		{
 			Joueur2.setNbBombe(Joueur2.getNbBombe() + 1);
+			int positionListeJ2 = Joueur2.positionBombe(x,y);
+			Joueur2.getListeBombe()[positionListeJ2].setExplose(true);
 		}
 		
 		Plateau_1.getMap()[y][x] = 5;
