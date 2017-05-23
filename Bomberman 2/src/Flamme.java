@@ -55,15 +55,12 @@ public class Flamme {
 
 	public boolean Retirer_Flamme(Plateau Plateau_1){
 		boolean bool = false;
-		System.out.println("Coucou !" + duree_de_vie);
 		duree_de_vie = duree_de_vie - System.currentTimeMillis();
-		System.out.println("Coucou !" + duree_de_vie);
 		
 		
 		if(duree_de_vie < 0)
 		{
 			Plateau_1.getMap()[coordonnee_y][coordonnee_x] = 1;
-			//System.out.println("Coucou !" + duree_de_vie);
 			bool = true;
 		}
 		return bool;

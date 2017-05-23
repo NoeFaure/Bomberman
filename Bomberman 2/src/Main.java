@@ -119,6 +119,8 @@ public class Main {
 			
 			//Joueur 2
 			Joueur2.DeplacerJoueur2(Plateau_1);
+			//
+			
 			Joueur1.PoserBombe(Plateau_1);
 			
 			// A faire au propre plus tard //

@@ -104,24 +104,28 @@ public class Personnage {
 	public void CompteARebourd(Plateau Plateau_1, Personnage Joueur1, Personnage Joueur2) //Renvoi les coordonnees d'une bombe qui explose
 	{
 		Bombe bombe = new Bombe(-1,-1);
-		int rangeMax = 10;
-		for(int i = 0; i < rangeMax; i++)
+		int nbBombeMax = 10;
+		for(int i = 0; i < nbBombeMax; i++)
 		{
 			if(this.listeBombe[i] != null)
 			{
 				this.listeBombe[i].setDelai(this.listeBombe[i].getDelai() - 1);
-				if(this.listeBombe[i].getDelai() == 0)
+				if(this.listeBombe[i].getDelai() == 0 && this.listeBombe[i].isExplose() == false)
 				{
+					this.listeBombe[i].setExplose(true);
 					bombe = this.listeBombe[i];
 					//this.listeBombe[i] = null;
 					//this.nbBombe += 1;
+					bombe.exploserBombe(Plateau_1, Joueur1, Joueur2);
 					System.out.println("La bombe explose a l'emplacement : " + bombe.getX() + " " + bombe.getY());
-					/// Destruction de ce qu'il y a autour de la bombe ///	
-					
 				}
 			}
 		}
-		bombe.exploserBombe(Plateau_1, Joueur1, Joueur2);
+		/*if(bombe.getX() != -1)
+		{
+			bombe.exploserBombe(Plateau_1, Joueur1, Joueur2);
+		}*/
+		
 	}
 	
 	public void EnleverFlamme(Plateau Plateau_1)
@@ -330,12 +334,31 @@ public class Personnage {
 		int nbBombeMax = 10;
 		for(int i = 0; i < nbBombeMax; i++)
 		{
-			if((listeBombe[i].getX() == xBombe) && (listeBombe[i].getY() == yBombe))
+			if(listeBombe[i] != null)
 			{
-				return listeBombe[i];
-			}
+				if((listeBombe[i].getX() == xBombe) && (listeBombe[i].getY() == yBombe))
+				{
+					return listeBombe[i];
+				}
+			}	
 		}
 		return bombe;
+	}
+	
+	public int positionBombe(int xBombe, int yBombe)
+	{
+		int nbBombeMax = 10;
+		for(int i = 0; i < nbBombeMax; i++)
+		{
+			if(listeBombe[i] != null)
+			{
+				if((listeBombe[i].getX() == xBombe) && (listeBombe[i].getY() == yBombe))
+				{
+					return i;
+				}
+			}	
+		}
+		return -1;
 	}
 }
 
