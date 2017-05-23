@@ -8,7 +8,7 @@ public class Personnage {
 	private int x;
 	private int y;
 	private Bombe[] listeBombe = new Bombe[10];
-	private int[] listeBonus = {0,0,0,0,1,0,0,0};
+	private int[] listeBonus = {0,0,0,0,0,0,0,0};
 	
 	public int[] getListeBonus() {
 		return listeBonus;
