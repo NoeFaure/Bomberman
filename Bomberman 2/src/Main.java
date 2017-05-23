@@ -93,8 +93,12 @@ public class Main {
 			//Affiche menu
 			if (StdDraw.isKeyPressed(27)){
 				
+				StdDraw.picture(625, 345, "Player 1 WIN.png");
+				StdDraw.show();
+				StdDraw.pause(6000);
 				Menu.Affiche_Menu(map,Plateau_1,Joueur1,Joueur2,Time_seconde,Time_minute);
 			}
+			
 			
 			//DEPLACEMENT PERSO
 			
