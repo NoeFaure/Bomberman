@@ -114,7 +114,7 @@ public class Personnage {
 				{
 					bombe = this.listeBombe[i];
 					//this.listeBombe[i] = null;
-					this.nbBombe += 1;
+					//this.nbBombe += 1;
 					System.out.println("La bombe explose a l'emplacement : " + bombe.getX() + " " + bombe.getY());
 					/// Destruction de ce qu'il y a autour de la bombe ///	
 					
@@ -122,116 +122,6 @@ public class Personnage {
 			}
 		}
 		bombe.exploserBombe(Plateau_1, Joueur1, Joueur2);
-		/*if(bombe.getX() != -1)
-		{
-			
-			Plateau_1.map[bombe.getY()][bombe.getX()] = 5;
-			bombe.getListeFlamme()[0] = new Flamme(bombe.getX(),bombe.getY());
-			int compteur = 1; // compte le nombre de flamme pour la listeFlamme //
-			
-			///Destruction des environs de la bombe///
-			int gauche = 0;
-			int droite = 0;
-			int haut = 0;
-			int bas = 0;
-			for(int r = 1; r <= bombe.getPortee(); r++)
-			{
-				if(bombe.getY() + r < 16)
-				{
-					if(Plateau_1.map[bombe.getY()+r][bombe.getX()] == 4)
-					{
-						bas = 1;
-					}
-					if((Plateau_1.map[bombe.getY()+r][bombe.getX()] == 2) && (bas == 0))
-					{
-						Plateau_1.map[bombe.getY()+r][bombe.getX()] = 5;
-						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX(),bombe.getY()+r);
-						compteur += 1;
-						bas = 1;
-					}
-					
-					else if(bas == 0)
-					{
-						Plateau_1.getMap()[bombe.getY()+r][bombe.getX()] = 5;
-						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX(),bombe.getY()+r);
-						compteur += 1;
-					}
-					
-					
-				}					
-				if(bombe.getY() - r > 0)
-				{
-					if(Plateau_1.getMap()[bombe.getY()-r][bombe.getX()] == 4)
-					{
-						haut = 1;
-					}
-					if((Plateau_1.getMap()[bombe.getY()-r][bombe.getX()] == 2) && (haut == 0))
-					{
-						Plateau_1.getMap()[bombe.getY()-r][bombe.getX()] = 5;
-						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX(),bombe.getY()-r);
-						compteur += 1;
-						haut = 1;
-			
-					}
-					else if(haut == 0)
-					{
-						Plateau_1.getMap()[bombe.getY()-r][bombe.getX()] = 5;
-						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX(),bombe.getY()-r);
-						compteur += 1;
-					}
-					
-					
-				}
-				if(bombe.getX() + r < 20)
-				{
-					if(Plateau_1.getMap()[bombe.getY()][bombe.getX()+r] == 4)
-					{
-						droite = 1;
-					}
-					if((Plateau_1.getMap()[bombe.getY()][bombe.getX()+r] == 2) && droite == 0)
-					{
-						Plateau_1.getMap()[bombe.getY()][bombe.getX()+r] = 5;
-						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX()+r,bombe.getY());
-						compteur += 1;
-						droite = 1;
-
-					}
-					else if(droite == 0)
-					{
-						Plateau_1.getMap()[bombe.getY()][bombe.getX()+r] = 5;
-						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX()+r,bombe.getY());
-						compteur += 1;
-					}
-					
-					
-				}
-				if(bombe.getX() - r > 0)
-				{
-					if(Plateau_1.getMap()[bombe.getY()][bombe.getX()-r] == 4)
-					{
-						gauche = 1;
-					}
-					if((Plateau_1.getMap()[bombe.getY()][bombe.getX()-r] == 2) && gauche == 0)
-					{
-						Plateau_1.getMap()[bombe.getY()][bombe.getX()-r] = 5;
-						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX()-r,bombe.getY());
-						compteur += 1;
-						gauche = 1;
-						
-					}
-					else if(gauche == 0)
-					{
-						Plateau_1.getMap()[bombe.getY()][bombe.getX()-r] = 5;
-						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX()-r,bombe.getY());
-						compteur += 1;
-					}
-					
-					
-				}
-				
-			}
-			
-		}*/
 	}
 	
 	public void EnleverFlamme(Plateau Plateau_1)
