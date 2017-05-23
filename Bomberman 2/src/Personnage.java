@@ -101,7 +101,7 @@ public class Personnage {
 		}
 	}
 	
-	public void CompteARebourd(Plateau Plateau_1) //Renvoi les coordonnees d'une bombe qui explose
+	public void CompteARebourd(Plateau Plateau_1, Personnage Joueur1, Personnage Joueur2) //Renvoi les coordonnees d'une bombe qui explose
 	{
 		Bombe bombe = new Bombe(-1,-1);
 		int rangeMax = 10;
@@ -113,7 +113,7 @@ public class Personnage {
 				if(this.listeBombe[i].getDelai() == 0)
 				{
 					bombe = this.listeBombe[i];
-					this.listeBombe[i] = null;
+					//this.listeBombe[i] = null;
 					this.nbBombe += 1;
 					System.out.println("La bombe explose a l'emplacement : " + bombe.getX() + " " + bombe.getY());
 					/// Destruction de ce qu'il y a autour de la bombe ///	
@@ -121,9 +121,14 @@ public class Personnage {
 				}
 			}
 		}
-		if(bombe.getX() != -1)
+		bombe.exploserBombe(Plateau_1, Joueur1, Joueur2);
+		/*if(bombe.getX() != -1)
 		{
+			
 			Plateau_1.map[bombe.getY()][bombe.getX()] = 5;
+			bombe.getListeFlamme()[0] = new Flamme(bombe.getX(),bombe.getY());
+			int compteur = 1; // compte le nombre de flamme pour la listeFlamme //
+			
 			///Destruction des environs de la bombe///
 			int gauche = 0;
 			int droite = 0;
@@ -140,13 +145,16 @@ public class Personnage {
 					if((Plateau_1.map[bombe.getY()+r][bombe.getX()] == 2) && (bas == 0))
 					{
 						Plateau_1.map[bombe.getY()+r][bombe.getX()] = 5;
-						//Plateau_1.map[coordonneesExplosion.getY()+r][coordonneesExplosion.getX()] = 1;
+						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX(),bombe.getY()+r);
+						compteur += 1;
 						bas = 1;
 					}
 					
-					if(bas == 0)
+					else if(bas == 0)
 					{
 						Plateau_1.getMap()[bombe.getY()+r][bombe.getX()] = 5;
+						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX(),bombe.getY()+r);
+						compteur += 1;
 					}
 					
 					
@@ -160,13 +168,16 @@ public class Personnage {
 					if((Plateau_1.getMap()[bombe.getY()-r][bombe.getX()] == 2) && (haut == 0))
 					{
 						Plateau_1.getMap()[bombe.getY()-r][bombe.getX()] = 5;
-						//Plateau_1.map[coordonneesExplosion.getY()-r][coordonneesExplosion.getX()] = 1;
+						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX(),bombe.getY()-r);
+						compteur += 1;
 						haut = 1;
 			
 					}
-					if(haut == 0)
+					else if(haut == 0)
 					{
 						Plateau_1.getMap()[bombe.getY()-r][bombe.getX()] = 5;
+						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX(),bombe.getY()-r);
+						compteur += 1;
 					}
 					
 					
@@ -180,13 +191,16 @@ public class Personnage {
 					if((Plateau_1.getMap()[bombe.getY()][bombe.getX()+r] == 2) && droite == 0)
 					{
 						Plateau_1.getMap()[bombe.getY()][bombe.getX()+r] = 5;
-						//Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()+r] = 1;
+						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX()+r,bombe.getY());
+						compteur += 1;
 						droite = 1;
 
 					}
-					if(droite == 0)
+					else if(droite == 0)
 					{
 						Plateau_1.getMap()[bombe.getY()][bombe.getX()+r] = 5;
+						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX()+r,bombe.getY());
+						compteur += 1;
 					}
 					
 					
@@ -200,18 +214,46 @@ public class Personnage {
 					if((Plateau_1.getMap()[bombe.getY()][bombe.getX()-r] == 2) && gauche == 0)
 					{
 						Plateau_1.getMap()[bombe.getY()][bombe.getX()-r] = 5;
-						//Plateau_1.map[coordonneesExplosion.getY()][coordonneesExplosion.getX()-r] = 1;
+						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX()-r,bombe.getY());
+						compteur += 1;
 						gauche = 1;
 						
 					}
-					if(gauche == 0)
+					else if(gauche == 0)
 					{
 						Plateau_1.getMap()[bombe.getY()][bombe.getX()-r] = 5;
+						bombe.getListeFlamme()[compteur] = new Flamme(bombe.getX()-r,bombe.getY());
+						compteur += 1;
 					}
 					
 					
 				}
 				
+			}
+			
+		}*/
+	}
+	
+	public void EnleverFlamme(Plateau Plateau_1)
+	{
+		int nbBombeMax = 10;
+		for(int i = 0; i < nbBombeMax; i++)
+		{
+			Bombe bombei = listeBombe[i];
+			if(bombei != null)
+			{
+				int tailleFlamme = bombei.getListeFlamme().length; // le nombre de case dans listeFlamme //
+				for(int j = 0; j < tailleFlamme; j++)
+				{
+					if(bombei.getListeFlamme()[j] != null)
+					{
+						boolean isDissipe = bombei.getListeFlamme()[j].Retirer_Flamme(Plateau_1);
+						if(isDissipe == true)
+						{
+							listeBombe[i] = null;
+						}
+					}	
+				}
 			}
 			
 		}
@@ -388,6 +430,22 @@ public class Personnage {
 		
 		// Nb de bombes
 		StdDraw.text(1125, 454, Integer.toString((nbBombe)));
+	}
+	
+	// Permet l'identification d'une bombe touchée par une flamme //
+	
+	public Bombe identificationBombe(int xBombe, int yBombe)
+	{
+		Bombe bombe = new Bombe(-1,-1);
+		int nbBombeMax = 10;
+		for(int i = 0; i < nbBombeMax; i++)
+		{
+			if((listeBombe[i].getX() == xBombe) && (listeBombe[i].getY() == yBombe))
+			{
+				return listeBombe[i];
+			}
+		}
+		return bombe;
 	}
 }
 

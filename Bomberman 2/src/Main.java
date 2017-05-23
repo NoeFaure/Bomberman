@@ -101,7 +101,7 @@ public class Main {
 			//Joueur 1
 			Joueur1.DeplacerJoueur1(Plateau_1);
 			
-			//COMMANDE DEVELOPPEUR ( Je la nettoie pas parce qu'elle est vou�e � �tre effac�e *niark*)
+			//COMMANDE DEVELOPPEUR ( Je la nettoie pas parce qu'elle est vouee a etre effacee *niark*)
 				if (StdDraw.isKeyPressed(73) && map[Joueur1.getY()-1][Joueur1.getX()] != 0){
 					map[Joueur1.getY()-1][Joueur1.getX()] = 1;
 				}
@@ -122,7 +122,8 @@ public class Main {
 			Joueur1.PoserBombe(Plateau_1);
 			
 			// A faire au propre plus tard //
-			Joueur1.CompteARebourd(Plateau_1); //renommer plus tard //
+			Joueur1.CompteARebourd(Plateau_1, Joueur1, Joueur2); //renommer plus tard //
+			Joueur1.EnleverFlamme(Plateau_1);
 			
 			
 			
