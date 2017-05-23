@@ -93,12 +93,8 @@ public class Main {
 			//Affiche menu
 			if (StdDraw.isKeyPressed(27)){
 				
-				StdDraw.picture(625, 345, "Player 1 WIN.png");
-				StdDraw.show();
-				StdDraw.pause(6000);
 				Menu.Affiche_Menu(map,Plateau_1,Joueur1,Joueur2,Time_seconde,Time_minute);
 			}
-			
 			
 			//DEPLACEMENT PERSO
 			
@@ -129,8 +125,15 @@ public class Main {
 			Joueur1.CompteARebourd(Plateau_1, Joueur1, Joueur2); //renommer plus tard //
 			Joueur1.EnleverFlamme(Plateau_1);
 			
-			
-			
+			/*if(Joueur1.getVie() < 0)
+			{
+				StdDraw.picture(625, 345, "Player 2 WIN.png");
+			}
+			if(Joueur2.getVie() < 0)
+			{
+				StdDraw.picture(625, 345, "Player 1 WIN.png");
+			}
+			*/
 			
 			StdDraw.show();
 			StdDraw.pause(50);
