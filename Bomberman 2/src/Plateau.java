@@ -177,4 +177,28 @@ public class Plateau {
 		}
 		
 	}
+	
+	public void Verifie_WIN(Personnage Joueur1, Personnage Joueur2){
+		
+		int Vie_Joueur1 = Joueur1.getVie();
+		int Vie_Joueur2 = Joueur2.getVie();
+		
+		if (Vie_Joueur1 == 0 && Vie_Joueur2 != 0){
+			StdDraw.picture(625, 345, "Player 2 WIN.png");
+			StdDraw.show();
+			StdDraw.pause(5000);
+			
+		}
+		if (Vie_Joueur2 == 0 && Vie_Joueur1 != 0){
+			StdDraw.picture(625, 345, "Player 1 WIN.png");
+			StdDraw.show();
+			StdDraw.pause(5000);
+		}
+		if (Vie_Joueur1 == 0 && Vie_Joueur2 == 0){
+			StdDraw.picture(625, 345, "Draw.png");
+			StdDraw.show();
+			StdDraw.pause(5000);
+		}
+		
+	}
 }

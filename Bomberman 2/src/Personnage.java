@@ -326,7 +326,7 @@ public class Personnage {
 		StdDraw.text(1125, 454, Integer.toString((nbBombe)));
 	}
 	
-	// Permet l'identification d'une bombe touchée par une flamme //
+	// Permet l'identification d'une bombe touchï¿½e par une flamme //
 	
 	public Bombe identificationBombe(int xBombe, int yBombe)
 	{
@@ -360,6 +360,8 @@ public class Personnage {
 		}
 		return -1;
 	}
+	
+	
 }
 
 

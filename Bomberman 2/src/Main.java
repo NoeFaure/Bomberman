@@ -72,6 +72,7 @@ public class Main {
 			if(Time_seconde > 59){
 				Heure_debut = System.currentTimeMillis();
 				Time_minute = Time_minute + 1;
+				
 			}
 			//Affichage timer
 			if (Time_seconde < 10 && Time_minute < 10){
@@ -89,6 +90,9 @@ public class Main {
 			
 			// Verifie si les joueurs ont été touché par une explosion
 			Plateau_1.Verif_Touche(map, Joueur1, Joueur2);
+			
+			// Vérifie si un joueur a gagné
+			Plateau_1.Verifie_WIN(Joueur1, Joueur2);
 			
 			//Affiche menu
 			if (StdDraw.isKeyPressed(27)){
