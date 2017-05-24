@@ -21,11 +21,19 @@ public class Main {
 		
 		//Affiche Ecran Titre
 		//JouerMusiqueAccueil();
+		
+		//Création des personnages
+		Personnage Joueur1 = new Personnage(1,15);
+		Joueur1.setSkin("Bomberman Perso 1.png");
+		
+		Personnage Joueur2 = new Personnage(19,1);
+		Joueur2.setSkin("Bomberman Perso 2.png");
+		
 		Ecran_Titre Ecran_titre_1 = new Ecran_Titre();
-		Ecran_titre_1.Affiche_Ecran_Titre();
+		Ecran_titre_1.Affiche_Ecran_Titre(Joueur1,Joueur2);
 		
 		Jeu Partie_1 = new Jeu();
-		Partie_1.Jouer();
+		Partie_1.Jouer(Joueur1, Joueur2);
 		
 	}
 	

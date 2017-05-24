@@ -8,7 +8,7 @@ public class Ecran_Titre {
 		
 	}
 
-	public void Affiche_Ecran_Titre(){
+	public void Affiche_Ecran_Titre(Personnage Joueur1, Personnage Joueur2){
 		
 		// Attributs 
 		int choix = 0;
@@ -50,16 +50,19 @@ public class Ecran_Titre {
 						//Condition de selection
 						if(choix_skins_cursor_player_1 == 0 ){
 							StdDraw.picture(136, 389, "Cadre Selection.png");
+							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
 						if(choix_skins_cursor_player_1 == 1 ){
 							StdDraw.picture(326, 389, "Cadre Selection.png");
+							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
 						if(choix_skins_cursor_player_1 == 2 ){
 							StdDraw.picture(511, 389, "Cadre Selection.png");
+							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
@@ -69,16 +72,19 @@ public class Ecran_Titre {
 						
 						if(choix_skins_cursor_player_2 == 0 ){
 							StdDraw.picture(738, 389, "Cadre Selection.png");
+							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
 						if(choix_skins_cursor_player_2 == 1 ){
 							StdDraw.picture(928, 389, "Cadre Selection.png");
+							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
 						if(choix_skins_cursor_player_2 == 2 ){
 							StdDraw.picture(1112, 389, "Cadre Selection.png");
+							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
@@ -156,5 +162,38 @@ public class Ecran_Titre {
 			StdDraw.pause(50);
 			StdDraw.show();
 		}
+	}
+	
+	public void Change_skin_joueur(int choix_skins_cursor_player_1,int choix_skins_cursor_player_2, Personnage Joueur1, Personnage Joueur2){
+		
+		//Joueur 1
+		
+		if(choix_skins_cursor_player_1 == 0){
+			Joueur1.setSkin("Bomberman Perso 1.png");
+		}
+		
+		if(choix_skins_cursor_player_1 == 1){
+			Joueur1.setSkin("Skin 404.png");
+		}
+		
+		if(choix_skins_cursor_player_1 == 2){
+			Joueur1.setSkin("Skin 404.png");
+		}
+		
+		//Joueur 2
+		
+		if(choix_skins_cursor_player_2 == 0){
+			Joueur2.setSkin("Bomberman Perso 2.png");
+		}
+		
+		if(choix_skins_cursor_player_2 == 1){
+			Joueur2.setSkin("Skin 404.png");
+		}
+		
+		if(choix_skins_cursor_player_2 == 2){
+			Joueur2.setSkin("Skin 404.png");
+		}
+		
+		
 	}
 }
