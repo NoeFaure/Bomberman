@@ -33,12 +33,6 @@ public class Plateau {
 		StdDraw.setFont(font);
 		StdDraw.setPenColor(StdDraw.WHITE);
 		
-		// Taille de la map (1050 x 850)
-		/*StdDraw.enableDoubleBuffering();
-		StdDraw.setCanvasSize(1250,690);
-		StdDraw.setXscale(0,1250);
-		StdDraw.setYscale(690, 0);*/
-		
 		StdDraw.clear(StdDraw.BLACK);
 		StdDraw.picture(1150,345, "Interface_bomber.png");
 		
