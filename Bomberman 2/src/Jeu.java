@@ -44,8 +44,12 @@ public class Jeu {
 		
 		Menu Menu = new Menu();
 		Plateau Plateau_1 = new Plateau(map);
+		
 		Personnage Joueur1 = new Personnage(1,15);
+		Joueur1.setSkin("Bomberman Perso 1.png");
+		
 		Personnage Joueur2 = new Personnage(19,1);
+		Joueur2.setSkin("Bomberman Perso 2.png");
 		
 		// --------- BOUCLE INFINIE --------- 
 		while(true)

@@ -3,13 +3,14 @@ import java.awt.event.KeyEvent;
 
 public class Ecran_Titre {
 
-	
+	// Constructeur
 	public Ecran_Titre() {
 		
 	}
 
 	public void Affiche_Ecran_Titre(){
 		
+		// Attributs 
 		int choix = 0;
 		boolean boucle = true;
 		boolean boucle2 = false;

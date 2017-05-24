@@ -9,6 +9,7 @@ public class Personnage {
 	private int y;
 	private Bombe[] listeBombe = new Bombe[10];
 	private int[] listeBonus = {0,0,0,0,0,0,0,0};
+	private String Skin = "Skin 404.png";
 	
 	public int[] getListeBonus() {
 		return listeBonus;
@@ -19,15 +20,24 @@ public class Personnage {
 	}
 
 	/// Constructeur ///
-	public Personnage(int vie, int vitesse, int nbBombe, int x, int y) 
+	public Personnage(int vie, int vitesse, int nbBombe, int x, int y,String Skin) 
 	{
 		this.vie = vie;
 		this.vitesse = vitesse;
 		this.nbBombe = nbBombe;
 		this.x = x;
 		this.y = y;
+		this.Skin = Skin;
 	}
 	
+	public String getSkin() {
+		return Skin;
+	}
+
+	public void setSkin(String skin) {
+		Skin = skin;
+	}
+
 	public Bombe[] getListeBombe() {
 		return listeBombe;
 	}

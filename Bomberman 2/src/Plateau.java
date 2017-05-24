@@ -55,13 +55,13 @@ public class Plateau {
 					//Affiche perso
 					//Joueur 1
 					if(Joueur1.getX() == j && Joueur1.getY() == i){
-						Joueur1.Affiche_perso(j, i, "Bomberman Perso 1.png");
+						Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
 						//System.out.println(j+" "+i);
 						
 					}
 					//Joueur 2
 					if(Joueur2.getX() == j && Joueur2.getY() == i){
-						Joueur2.Affiche_perso(j, i, "Bomberman Perso 2.png");
+						Joueur2.Affiche_perso(j, i, Joueur2.getSkin());
 					}
 					
 					
@@ -96,13 +96,13 @@ public class Plateau {
 						//Affiche perso
 						//Joueur 1
 						if(Joueur1.getX() == j && Joueur1.getY() == i){
-							Joueur1.Affiche_perso(j, i, "Bomberman Perso 1.png");
+							Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
 							//System.out.println(j+" "+i);
 							
 						}
 						//Joueur 2
 						if(Joueur2.getX() == j && Joueur2.getY() == i){
-							Joueur1.Affiche_perso(j, i, "Bomberman Perso 2.png");
+							Joueur2.Affiche_perso(j, i, Joueur2.getSkin());
 						}
 						
 						//Gestion de l'ombre
@@ -121,13 +121,13 @@ public class Plateau {
 					//Affiche perso
 					//Joueur 1
 					if(Joueur1.getX() == j && Joueur1.getY() == i){
-						Joueur1.Affiche_perso(j, i, "Bomberman Perso 1.png");
+						Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
 						//System.out.println(j+" "+i);
 						
 					}
 					//Joueur 2
 					if(Joueur2.getX() == j && Joueur2.getY() == i){
-						Joueur2.Affiche_perso(j, i, "Bomberman Perso 2.png");
+						Joueur2.Affiche_perso(j, i, Joueur2.getSkin());
 					}
 					
 					//Gestion de l'ombre
