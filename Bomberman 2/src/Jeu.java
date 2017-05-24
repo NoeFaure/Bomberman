@@ -3,7 +3,7 @@ import edu.princeton.cs.introcs.StdDraw;
 
 /*Tentative de rassemblement du code
  * permetant de lancer le jeu.
-*/
+ */
 
 public class Jeu {
 	

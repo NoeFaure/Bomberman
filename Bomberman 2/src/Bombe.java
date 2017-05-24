@@ -9,6 +9,7 @@ public class Bombe {
 	private boolean Explose = false;
 	//private Personnage joueur;
 	
+	/// Constructeur ///
 	public Bombe(int x, int y)
 	{
 		this.x = x;
@@ -16,34 +17,22 @@ public class Bombe {
 		//this.joueur = joueur;
 	}
 	
-	
-	
-
+	/// Setters and Getters ///
 	public boolean isExplose() {
 		return Explose;
 	}
-
-
-
 
 	public void setExplose(boolean aExplose) {
 		this.Explose = aExplose;
 	}
 
-
-
-
 	public  Flamme[] getListeFlamme() {
 		return listeFlamme;
 	}
 
-
-
 	public void setListeFlamme(Flamme[] listeFlamme) {
 		this.listeFlamme = listeFlamme;
 	}
-
-
 
 	public int getX() {
 		return x;
@@ -85,6 +74,7 @@ public class Bombe {
 		this.joueur = joueur;
 	}*/
 	
+	/// Fonctions ///
 	public void Affiche_bomb(int x, int y){
 		StdDraw.picture(50*(x)+25, y*40+37, "Grass Block 2.png",50,85);
 		StdDraw.picture(50*(x)+25, y*40+37, "Bomb.png",50,85);
@@ -95,7 +85,6 @@ public class Bombe {
 		int[] resultat = {this.x, this.y};
 		return resultat;
 	}
-	
 	
 	public void exploserBombe(Plateau Plateau_1, Personnage Joueur1, Personnage Joueur2)
 	{

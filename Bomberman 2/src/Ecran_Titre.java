@@ -3,7 +3,7 @@ import java.awt.event.KeyEvent;
 
 public class Ecran_Titre {
 
-	// Constructeur
+	// Constructeur ///
 	public Ecran_Titre() {
 		
 	}

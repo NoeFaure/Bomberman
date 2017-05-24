@@ -6,25 +6,21 @@ public class Plateau {
 
 	int [][] map;
 	
-	//Constructeur
+	/// Constructeur ///
 	public Plateau(int [][] map){
 		this.map = map;
 	}
 	
-	
-
+	/// Setters and Getters ///
 	public int[][] getMap() {
 		return map;
 	}
-
-
 
 	public void setMap(int[][] map) {
 		this.map = map;
 	}
 
-
-
+	/// Fonctions ///
 	public  void Afficher_map(int map [][],Personnage Joueur1,Personnage Joueur2)
 	{
 		
