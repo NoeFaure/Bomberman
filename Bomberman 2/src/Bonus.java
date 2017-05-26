@@ -3,15 +3,22 @@ import java.lang.Math;
 public class Bonus {
 
 	// Nombre entier aleatoire entre 0 et 12 deffinnissant le bonus 
-	int Choix_bonus = (int) (Math.random() * 13 );
+	private int Choix_bonus = (int) (Math.random() * 13 );
 	// Un bonus a une probabilité de 1 chance sur 5 d'apparaitre 
-	int Apparition_bonus = (int) (Math.random() * 6 );
+	private int x;
+	private int y;
 	
 	//Constructeur
 	public Bonus() {
 
 	}
 
+	public Bonus(int x, int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+	
 	//Getter and setters
 	public int getChoix_bonus() {
 		return Choix_bonus;
@@ -24,44 +31,8 @@ public class Bonus {
 	}
 
 
-
-	public int getApparition_bonus() {
-		return Apparition_bonus;
-	}
-
-
-
-	public void setApparition_bonus(int apparition_bonus) {
-		Apparition_bonus = apparition_bonus;
-	}
-
-
 	//Fonction
 	
-	public boolean Bonus_Pop(int Apparition_bonus){
-		
-		if(Apparition_bonus == 1){
-			return true;
-		}
-		
-		else{
-			return false;
-		}
-	}
-	
-	public void Place_bonus(int x,int y, Plateau map){
-		
-		// Si le bonus apparait
-		if(Bonus_Pop(Apparition_bonus) == true){
-			
-			//On change la valeur du plateau
-			map.getMap()[x][y] = 6;
-		}
-		else{
-			map.getMap()[x][y] = 1;
-		}
-		
-	}
 	
 	public void Attribution_bonus(Personnage Joueur){
 		

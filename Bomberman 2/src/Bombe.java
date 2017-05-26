@@ -104,7 +104,7 @@ public class Bombe {
 		}
 		
 		Plateau_1.getMap()[y][x] = 5;
-		listeFlamme[0] = new Flamme(x,y);
+		listeFlamme[0] = new Flamme(x,y,false);
 		int compteur = 1; // compte le nombre de flamme pour la listeFlamme //
 		
 		///Destruction des environs de la bombe///
@@ -126,7 +126,7 @@ public class Bombe {
 				else if(Plateau_1.getMap()[y+r][x] == 3 && (bas == 0)) // Si l'explosion rencontre une autre bombe //
 				{
 					Plateau_1.getMap()[y+r][x] = 5;
-					listeFlamme[compteur] = new Flamme(x,y+r); // Ajout de flammes //
+					listeFlamme[compteur] = new Flamme(x,y+r,false); // Ajout de flammes //
 					compteur += 1;
 					bas = 1;
 					if(Joueur1.identificationBombe(x, y+r).x != -1) // On identifie si la bombe touch�e appartient au joueur 1 ou au joueur 2 //
@@ -141,7 +141,7 @@ public class Bombe {
 				else if((Plateau_1.getMap()[y+r][x] == 2) && (bas == 0)) // Si l'explosion rencontre un bloc cassable //
 				{
 					Plateau_1.getMap()[y+r][x] = 5; // On detruit le bloc cassable //
-					listeFlamme[compteur] = new Flamme(x,y+r);
+					listeFlamme[compteur] = new Flamme(x,y+r,true);
 					compteur += 1;
 					bas = 1;
 				}
@@ -149,7 +149,7 @@ public class Bombe {
 				else if(bas == 0) // Si la flamme ne rencontre que de l'herbe
 				{
 					Plateau_1.getMap()[y+r][x] = 5;
-					listeFlamme[compteur] = new Flamme(x,y+r);
+					listeFlamme[compteur] = new Flamme(x,y+r,false);
 					compteur += 1;
 				}	
 			}
@@ -163,14 +163,14 @@ public class Bombe {
 				else if((Plateau_1.getMap()[y-r][x] == 2) && (haut == 0)) // Si la flamme rencontre un bloc cassable
 				{
 					Plateau_1.getMap()[y-r][x] = 5;
-					listeFlamme[compteur] = new Flamme(x,y-r);
+					listeFlamme[compteur] = new Flamme(x,y-r,true);
 					compteur += 1;
 					haut = 1;
 				}
 				else if(Plateau_1.getMap()[y-r][x] == 3 && (haut == 0)) // Si la flamme rencontre une autre bombe 
 				{
 					Plateau_1.getMap()[y-r][x] = 5;
-					listeFlamme[compteur] = new Flamme(x,y-r);
+					listeFlamme[compteur] = new Flamme(x,y-r,false);
 					compteur += 1;
 					haut = 1;
 					if(Joueur1.identificationBombe(x, y-r).x != -1) // On identifie si la bombe touch�e appartient au joueur 1 ou au joueur 2 //
@@ -185,7 +185,7 @@ public class Bombe {
 				else if(haut == 0) // Si la flamme ne rencontre que de l'herbe
 				{
 					Plateau_1.getMap()[y-r][x] = 5;
-					listeFlamme[compteur] = new Flamme(x,y-r);
+					listeFlamme[compteur] = new Flamme(x,y-r,false);
 					compteur += 1;
 				}
 				
@@ -201,14 +201,14 @@ public class Bombe {
 				else if((Plateau_1.getMap()[y][x+r] == 2) && droite == 0) // Si la flamme rencontre un bloc cassable
 				{
 					Plateau_1.getMap()[y][x+r] = 5;
-					listeFlamme[compteur] = new Flamme(x+r,y);
+					listeFlamme[compteur] = new Flamme(x+r,y,true);
 					compteur += 1;
 					droite = 1;
 				}
 				else if(Plateau_1.getMap()[y][x+r] == 3 && (droite == 0)) // Si la flamme rencontre une autre bombe 
 				{
 					Plateau_1.getMap()[y][x+r] = 5;
-					listeFlamme[compteur] = new Flamme(x+r,y);
+					listeFlamme[compteur] = new Flamme(x+r,y,false);
 					compteur += 1;
 					droite = 1;
 					if(Joueur1.identificationBombe(x+r, y).x != -1) // On identifie si la bombe touch�e appartient au joueur 1 ou au joueur 2 //
@@ -223,7 +223,7 @@ public class Bombe {
 				else if(droite == 0) // Si la flamme ne rencontre que de l'herbe
 				{
 					Plateau_1.getMap()[y][x+r] = 5;
-					listeFlamme[compteur] = new Flamme(x+r,y);
+					listeFlamme[compteur] = new Flamme(x+r,y,false);
 					compteur += 1;
 				}	
 			}
@@ -237,14 +237,14 @@ public class Bombe {
 				else if((Plateau_1.getMap()[y][x-r] == 2) && gauche == 0)// Si la flamme rencontre un bloc cassable
 				{
 					Plateau_1.getMap()[y][x-r] = 5;
-					listeFlamme[compteur] = new Flamme(x-r,y);
+					listeFlamme[compteur] = new Flamme(x-r,y,true);
 					compteur += 1;
 					gauche = 1;	
 				}
 				else if(Plateau_1.getMap()[y][x-r] == 3 && (gauche == 0)) // Si la flamme rencontre une autre bombe 
 				{
 					Plateau_1.getMap()[y][x-r] = 5;
-					listeFlamme[compteur] = new Flamme(x-r,y);
+					listeFlamme[compteur] = new Flamme(x-r,y,false);
 					compteur += 1;
 					gauche = 1;
 					if(Joueur1.identificationBombe(x-r, y).x != -1) // On identifie si la bombe touch�e appartient au joueur 1 ou au joueur 2 //
@@ -259,7 +259,7 @@ public class Bombe {
 				else if(gauche == 0) // Si la flamme ne rencontre que de l'herbe
 				{
 					Plateau_1.getMap()[y][x-r] = 5;
-					listeFlamme[compteur] = new Flamme(x-r,y);
+					listeFlamme[compteur] = new Flamme(x-r,y,false);
 					compteur += 1;
 				}
 				
