@@ -166,28 +166,6 @@ public class Personnage {
 	// Deplacement du joueur 1 //
 	public void DeplacerJoueur1(Plateau Plateau_1)
 	{
-		if(StdDraw.isKeyPressed(39) && (Plateau_1.map[y][x + 1] != 0) && (Plateau_1.map[y][x + 1] != 2) && (Plateau_1.map[y][x + 1] != 4))
-		{			
-			x += 1;
-		}
-		if(StdDraw.isKeyPressed(38) && (Plateau_1.map[y - 1][x] != 0) && (Plateau_1.map[y - 1][x] != 2) && (Plateau_1.map[y - 1][x] != 4))
-		{
-			y -= 1;
-		}
-		if(StdDraw.isKeyPressed(40)&& (Plateau_1.map[y + 1][x] != 0) && (Plateau_1.map[y + 1][x] != 2) && (Plateau_1.map[y + 1][x] != 4))
-		{
-			y += 1;
-		}
-		if(StdDraw.isKeyPressed(37)&& (Plateau_1.map[y][x - 1] != 0) && (Plateau_1.map[y][x - 1] != 2) && (Plateau_1.map[y][x - 1] != 4))
-		{
-			x -= 1;
-		}
-	}
-	
-	// Deplacement du joueur 2 //
-	
-	public void DeplacerJoueur2(Plateau Plateau_1)
-	{
 		if(StdDraw.isKeyPressed(68) && (Plateau_1.map[y][x + 1] != 0) && (Plateau_1.map[y][x + 1] != 2) && (Plateau_1.map[y][x + 1] != 4))
 		{			
 			x += 1;
@@ -201,6 +179,28 @@ public class Personnage {
 			y += 1;
 		}
 		if(StdDraw.isKeyPressed(81)&& (Plateau_1.map[y][x - 1] != 0) && (Plateau_1.map[y][x - 1] != 2) && (Plateau_1.map[y][x - 1] != 4))
+		{
+			x -= 1;
+		}
+	}
+	
+	// Deplacement du joueur 2 //
+	
+	public void DeplacerJoueur2(Plateau Plateau_1)
+	{
+		if(StdDraw.isKeyPressed(39) && (Plateau_1.map[y][x + 1] != 0) && (Plateau_1.map[y][x + 1] != 2) && (Plateau_1.map[y][x + 1] != 4))
+		{			
+			x += 1;
+		}
+		if(StdDraw.isKeyPressed(38) && (Plateau_1.map[y - 1][x] != 0) && (Plateau_1.map[y - 1][x] != 2) && (Plateau_1.map[y - 1][x] != 4))
+		{
+			y -= 1;
+		}
+		if(StdDraw.isKeyPressed(40)&& (Plateau_1.map[y + 1][x] != 0) && (Plateau_1.map[y + 1][x] != 2) && (Plateau_1.map[y + 1][x] != 4))
+		{
+			y += 1;
+		}
+		if(StdDraw.isKeyPressed(37)&& (Plateau_1.map[y][x - 1] != 0) && (Plateau_1.map[y][x - 1] != 2) && (Plateau_1.map[y][x - 1] != 4))
 		{
 			x -= 1;
 		}

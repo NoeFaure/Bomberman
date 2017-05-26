@@ -98,42 +98,42 @@ public class Ecran_Titre {
 						
 						//Gestion clavier
 						//Joueur 1
-						if(StdDraw.isKeyPressed(39) && choix_skins_cursor_player_1 < 2){
+						if(StdDraw.isKeyPressed(68) && choix_skins_cursor_player_1 < 2){
 							choix_skins_cursor_player_1 = choix_skins_cursor_player_1 + 1;
 							StdDraw.pause(50);
 						}
 						
-						if(StdDraw.isKeyPressed(37) && choix_skins_cursor_player_1 > 0){
+						if(StdDraw.isKeyPressed(81) && choix_skins_cursor_player_1 > 0){
 							choix_skins_cursor_player_1 = choix_skins_cursor_player_1 - 1;
 							StdDraw.pause(50);
 						}
 						
-						if(StdDraw.isKeyPressed(38)){
+						if(StdDraw.isKeyPressed(90)){
 							choix_skins_cursor_player_1 = 0;
 							StdDraw.pause(50);
 						}
 						
-						if(StdDraw.isKeyPressed(40)){
+						if(StdDraw.isKeyPressed(83)){
 							choix_skins_cursor_player_1 = -1;
 							StdDraw.pause(50);
 						}
 						//Joueur 2
-						if(StdDraw.isKeyPressed(68) && choix_skins_cursor_player_2 < 2){
+						if(StdDraw.isKeyPressed(39) && choix_skins_cursor_player_2 < 2){
 							choix_skins_cursor_player_2 = choix_skins_cursor_player_2 + 1;
 							StdDraw.pause(50);
 						}
 						
-						if(StdDraw.isKeyPressed(81) && choix_skins_cursor_player_2 > 0){
+						if(StdDraw.isKeyPressed(37) && choix_skins_cursor_player_2 > 0){
 							choix_skins_cursor_player_2 = choix_skins_cursor_player_2 - 1;
 							StdDraw.pause(50);
 						}
 						
-						if(StdDraw.isKeyPressed(90)){
+						if(StdDraw.isKeyPressed(38)){
 							choix_skins_cursor_player_2 = 0;
 							StdDraw.pause(50);
 						}
 						
-						if(StdDraw.isKeyPressed(83)){
+						if(StdDraw.isKeyPressed(40)){
 							choix_skins_cursor_player_2 = -1;
 							StdDraw.pause(50);
 						}
