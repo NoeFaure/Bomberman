@@ -128,7 +128,7 @@ public class Plateau {
 						StdDraw.picture(50*(j)+25, i*40+35, "Images/Shadow/Shadow North.png",50,85);
 					}
 					
-					StdDraw.picture(50*(j)+25, i*40+17, "Images/Bonus/Flamme.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+17, "Images/Bloc/Flamme.png",50,85);
 					
 				}
 				// Bonus
