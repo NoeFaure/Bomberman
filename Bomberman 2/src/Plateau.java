@@ -1,4 +1,5 @@
 import java.awt.Font;
+import java.awt.event.KeyEvent;
 
 import edu.princeton.cs.introcs.StdDraw;
 
@@ -172,22 +173,48 @@ public class Plateau {
 		
 		int Vie_Joueur1 = Joueur1.getVie();
 		int Vie_Joueur2 = Joueur2.getVie();
+		boolean boucle = true;
 		
 		if (Vie_Joueur1 == 0 && Vie_Joueur2 != 0){
 			StdDraw.picture(625, 345, "Player 2 WIN.png");
 			StdDraw.show();
-			StdDraw.pause(5000);
+			
+			while(boucle == true){
+				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+					boucle = false;
+					
+					Ecran_Titre Ecran_titre_2 = new Ecran_Titre();
+					Ecran_titre_2.Affiche_Ecran_Titre(Joueur1,Joueur2);
+				}
+			}
 			
 		}
 		if (Vie_Joueur2 == 0 && Vie_Joueur1 != 0){
 			StdDraw.picture(625, 345, "Player 1 WIN.png");
 			StdDraw.show();
-			StdDraw.pause(5000);
+			
+			while(boucle == true){
+				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+					boucle = false;
+					
+					Ecran_Titre Ecran_titre_2 = new Ecran_Titre();
+					Ecran_titre_2.Affiche_Ecran_Titre(Joueur1,Joueur2);
+				}
+			}
+			
 		}
 		if (Vie_Joueur1 == 0 && Vie_Joueur2 == 0){
 			StdDraw.picture(625, 345, "Draw.png");
 			StdDraw.show();
-			StdDraw.pause(5000);
+			
+			while(boucle == true){
+				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+					boucle = false;
+					
+					Ecran_Titre Ecran_titre_2 = new Ecran_Titre();
+					Ecran_titre_2.Affiche_Ecran_Titre(Joueur1,Joueur2);
+				}
+			}
 		}
 		
 	}

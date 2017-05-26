@@ -55,12 +55,18 @@ public class Jeu {
 		Menu Menu = new Menu();
 		Plateau Plateau_1 = new Plateau(map);
 		
-		// --------- REPLACEMENT DES PERSONNAGES ( CAS DU RESTART ) --------- 
+		// --------- RESET DES PERSONNAGES ( CAS DU RESTART ) --------- 
 		Joueur1.setX(1);
 		Joueur1.setY(15);
 		
 		Joueur2.setX(19);
 		Joueur2.setY(1);
+		
+		Joueur1.setVie(3);
+		Joueur2.setVie(3);
+		
+		Joueur1.setListeBombe(new Bombe[10]);
+		Joueur2.setListeBombe(new Bombe[10]);
 		
 		// --------- BOUCLE INFINIE --------- 
 		while(true)
