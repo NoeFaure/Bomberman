@@ -17,7 +17,7 @@ public class Main {
 		StdDraw.setYscale(690, 0);
 		
 		//Lancement de la musique
-		JouerMusique();
+		//JouerMusique();
 		
 		//Affiche Ecran Titre
 		//JouerMusiqueAccueil();
@@ -31,9 +31,6 @@ public class Main {
 		
 		Ecran_Titre Ecran_titre_1 = new Ecran_Titre();
 		Ecran_titre_1.Affiche_Ecran_Titre(Joueur1,Joueur2);
-		
-		Jeu Partie_1 = new Jeu();
-		Partie_1.Jouer(Joueur1, Joueur2);
 		
 	}
 	

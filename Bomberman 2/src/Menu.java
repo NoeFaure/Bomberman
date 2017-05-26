@@ -126,6 +126,9 @@ public class Menu {
 					StdDraw.show();
 					StdDraw.pause(30);
 					
+					Jeu Partie_1 = new Jeu();
+					Partie_1.Jouer(Joueur1, Joueur2);
+					
 				}
 				
 				//QUIT PRESS
@@ -260,6 +263,9 @@ public class Menu {
 					StdDraw.picture(500, 299, "Press Restart.png");
 					StdDraw.show();
 					StdDraw.pause(30);
+					
+					Jeu Partie_1 = new Jeu();
+					Partie_1.Jouer(Joueur1, Joueur2);
 					
 				}
 				

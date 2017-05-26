@@ -25,6 +25,8 @@ public class Ecran_Titre {
 				
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
 					boucle = false;
+					Jeu Partie_1 = new Jeu();
+					Partie_1.Jouer(Joueur1, Joueur2);
 				}
 
 			}

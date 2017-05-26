@@ -16,6 +16,16 @@ public class Jeu {
 	public void Jouer(Personnage Joueur1, Personnage Joueur2){
 		
 		//MAP DE BASE
+		
+		/* DÉTAIL MAP : 
+		 * - 0 : Mur d'enceinte ( infranchissable )
+		 * - 1 : Herbe sol ( franchissable )
+		 * - 2 : Mur Destructible
+		 * - 3 : Bombes posée
+		 * - 4 : Mur Indestructible
+		 * - 5 : Flamme ( temporaire )
+		 */
+		
 		int map [][] =
 			{{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,0},
@@ -44,6 +54,13 @@ public class Jeu {
 		
 		Menu Menu = new Menu();
 		Plateau Plateau_1 = new Plateau(map);
+		
+		// --------- REPLACEMENT DES PERSONNAGES ( CAS DU RESTART ) --------- 
+		Joueur1.setX(1);
+		Joueur1.setY(15);
+		
+		Joueur2.setX(19);
+		Joueur2.setY(1);
 		
 		// --------- BOUCLE INFINIE --------- 
 		while(true)
