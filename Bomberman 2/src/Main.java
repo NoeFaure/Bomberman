@@ -29,8 +29,8 @@ public class Main {
 		Personnage Joueur2 = new Personnage(19,1);
 		Joueur2.setSkin("Bomberman Perso 2.png");
 		
-		Ecran_Titre Ecran_titre_1 = new Ecran_Titre();
-		Ecran_titre_1.Affiche_Ecran_Titre(Joueur1,Joueur2);
+		Ecran_Titre Ecran_titre_2 = new Ecran_Titre();
+		Ecran_titre_2.Affiche_Ecran_Titre(Joueur1,Joueur2);
 		
 	}
 	

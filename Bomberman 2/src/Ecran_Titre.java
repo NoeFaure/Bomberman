@@ -17,6 +17,8 @@ public class Ecran_Titre {
 		int choix_skins_cursor_player_1 = 0;
 		int choix_skins_cursor_player_2 = 0;
 		
+		StdDraw.pause(150);
+		
 		while(boucle == true){
 			
 			if(choix == 0){

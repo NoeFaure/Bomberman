@@ -136,7 +136,11 @@ public class Menu {
 					StdDraw.picture(500, 397, "Press Quit.png");
 					StdDraw.show();
 					StdDraw.pause(30);
-					System.exit(1);
+					
+					Ecran_Titre Ecran_titre_2 = new Ecran_Titre();
+					Ecran_titre_2.Affiche_Ecran_Titre(Joueur1,Joueur2);
+					
+					//System.exit(1);
 					
 				}
 				StdDraw.pause(5);
@@ -274,7 +278,9 @@ public class Menu {
 					StdDraw.picture(500, 397, "Press Quit.png");
 					StdDraw.show();
 					StdDraw.pause(30);
-					System.exit(1);
+					
+					Ecran_Titre Ecran_titre_2 = new Ecran_Titre();
+					Ecran_titre_2.Affiche_Ecran_Titre(Joueur1,Joueur2);
 					
 				}
 				StdDraw.pause(5);
