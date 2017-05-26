@@ -149,6 +149,21 @@ public class Plateau {
 					//Joueur 1
 					if(Joueur1.getX() == j && Joueur1.getY() == i){
 						Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
+						for(int k = 0; k < 20; i++)
+						{
+							if(listeBonus[k] != null)
+							{
+								if(listeBonus[k].getX() == j && listeBonus[k].getY() == i)
+								{
+									listeBonus[k].Attribution_bonus(Joueur1);
+									map[i][j] = 1;
+									listeBonus[k] = null;
+									System.out.println("youhou ! un bonus !");
+								}
+							}
+							
+						}
+						Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
 						//System.out.println(j+" "+i);
 						
 					}

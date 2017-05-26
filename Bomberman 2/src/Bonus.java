@@ -29,6 +29,24 @@ public class Bonus {
 	public void setChoix_bonus(int choix_bonus) {
 		Choix_bonus = choix_bonus;
 	}
+	
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
 
 
 	//Fonction
