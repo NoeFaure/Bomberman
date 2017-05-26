@@ -5,6 +5,7 @@ import edu.princeton.cs.introcs.StdDraw;
 public class Plateau {
 
 	int [][] map;
+	Bonus[] listeBonus = new Bonus[20];
 	
 	/// Constructeur ///
 	public Plateau(int [][] map){
@@ -128,6 +129,25 @@ public class Plateau {
 					}
 					
 					StdDraw.picture(50*(j)+25, i*40+17, "Flamme.png",50,85);
+					
+				}
+				// Bonus
+				if (map[i][j] == 6)
+				{
+					StdDraw.picture(50*(j)+25, i*40+37, "Grass Block 2.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+17, "Chest.png",50,85);
+					
+					//Affiche perso
+					//Joueur 1
+					if(Joueur1.getX() == j && Joueur1.getY() == i){
+						Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
+						//System.out.println(j+" "+i);
+						
+					}
+					//Joueur 2
+					if(Joueur2.getX() == j && Joueur2.getY() == i){
+						Joueur2.Affiche_perso(j, i, Joueur2.getSkin());
+					}
 					
 				}
 				
