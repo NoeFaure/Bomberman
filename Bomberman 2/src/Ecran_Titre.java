@@ -46,6 +46,7 @@ public class Ecran_Titre {
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
 					
 					boucle2 = true;
+					StdDraw.pause(150);
 					
 					while(boucle2 == true){
 						StdDraw.picture(625, 345, "Ecran Skins.png");
