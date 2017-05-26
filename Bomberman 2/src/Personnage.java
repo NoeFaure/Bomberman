@@ -213,57 +213,57 @@ public class Personnage {
 		
 		// Flamme Jaune = 1 en position 0
 		if(listeBonus[0] == 1){
-		StdDraw.picture(1083,298, "Flamme Jaune.png");
+		StdDraw.picture(1083,298, "Images/Bonus/Flamme Jaune.png");
 		}
 		
 		// Flamme Bleue = 2 en position 0
 		if(listeBonus[0] == 2){
-		StdDraw.picture(1083,298, "Flamme Bleue.png");
+		StdDraw.picture(1083,298, "Images/Bonus/Flamme Bleue.png");
 		}
 		
 		// Flamme Verte = 3 en position 0
 		if(listeBonus[0] == 3){
-		StdDraw.picture(1083,298, "Flamme Verte.png");
+		StdDraw.picture(1083,298, "Images/Bonus/Flamme Verte.png");
 		}
 		
 		// Flamme Rouge = 4 en position 0
 		if(listeBonus[0] == 4){
-		StdDraw.picture(1083,298, "Flamme Rouge.png");
+		StdDraw.picture(1083,298, "Images/Bonus/Flamme Rouge.png");
 		}
 		
 		//Bombe Rouge
 		if(listeBonus[1] == 1){
-		StdDraw.picture(1128,298, "Bombe Rouge.png");
+		StdDraw.picture(1128,298, "Images/Bonus/Bombe Rouge.png");
 		}
 		
 		//Speed Up
 		if(listeBonus[2] == 1){
-		StdDraw.picture(1173,298, "Speed Up.png");
+		StdDraw.picture(1173,298, "Images/Bonus/Speed Up.png");
 		}
 		
 		//Slow down
 		if(listeBonus[3] == 1){
-		StdDraw.picture(1217,298, "Slow Down.png");
+		StdDraw.picture(1217,298, "Images/Bonus/Slow Down.png");
 		}
 		
 		// Mine
 		if(listeBonus[4] == 1){
-		StdDraw.picture(1083,343, "Mine.png");
+		StdDraw.picture(1083,343, "Images/Bonus/Mine.png");
 		}
 				
 		//Rebond
 		if(listeBonus[5] == 1){
-		StdDraw.picture(1128,343, "Rebond.png");
+		StdDraw.picture(1128,343, "Images/Bonus/Rebond.png");
 		}
 				
 		//Line
 		if(listeBonus[6] == 1){
-		StdDraw.picture(1173,343, "Line.png");
+		StdDraw.picture(1173,343, "Images/Bonus/Line.png");
 		}
 				
 		//Shield
 		if(listeBonus[7] == 1){
-		StdDraw.picture(1217,343, "Shield.png");
+		StdDraw.picture(1217,343, "Images/Bonus/Shield.png");
 		}
 		// Nb de vie
 		StdDraw.text(1213, 249, Integer.toString((vie)));
@@ -277,57 +277,57 @@ public class Personnage {
 		
 		// Flamme Jaune = 1 en position 0
 		if(listeBonus[0] == 1){
-		StdDraw.picture(1084,502, "Flamme Jaune.png");
+		StdDraw.picture(1084,502, "Images/Bonus/Flamme Jaune.png");
 		}
 		
 		// Flamme Bleue = 2 en position 0
 		if(listeBonus[0] == 2){
-		StdDraw.picture(1084,502, "Flamme Bleue.png");
+		StdDraw.picture(1084,502, "Images/Bonus/Flamme Bleue.png");
 		}
 		
 		// Flamme Verte = 3 en position 0
 		if(listeBonus[0] == 3){
-		StdDraw.picture(1084,502, "Flamme Verte.png");
+		StdDraw.picture(1084,502, "Images/Bonus/Flamme Verte.png");
 		}
 		
 		// Flamme Rouge = 4 en position 0
 		if(listeBonus[0] == 4){
-		StdDraw.picture(1084,502, "Flamme Rouge.png");
+		StdDraw.picture(1084,502, "Images/Bonus/Flamme Rouge.png");
 		}
 		
 		//Bombe Rouge
 		if(listeBonus[1] == 1){
-		StdDraw.picture(1128,502, "Bombe Rouge.png");
+		StdDraw.picture(1128,502, "Images/Bonus/Bombe Rouge.png");
 		}
 		
 		//Speed Up
 		if(listeBonus[2] == 1){
-		StdDraw.picture(1173,502, "Speed Up.png");
+		StdDraw.picture(1173,502, "Images/Bonus/Speed Up.png");
 		}
 		
 		//Slow down
 		if(listeBonus[3] == 1){
-		StdDraw.picture(1217,502, "Slow Down.png");
+		StdDraw.picture(1217,502, "Images/Bonus/Slow Down.png");
 		}
 		
 		// Mine
 		if(listeBonus[4] == 1){
-		StdDraw.picture(1083,547, "Mine.png");
+		StdDraw.picture(1083,547, "Images/Bonus/Mine.png");
 		}
 				
 		//Rebond
 		if(listeBonus[5] == 1){
-		StdDraw.picture(1128,547, "Rebond.png");
+		StdDraw.picture(1128,547, "Images/Bonus/Rebond.png");
 		}
 				
 		//Line
 		if(listeBonus[6] == 1){
-		StdDraw.picture(1173,547, "Line.png");
+		StdDraw.picture(1173,547, "Images/Bonus/Line.png");
 		}
 				
 		//Shield
 		if(listeBonus[7] == 1){
-		StdDraw.picture(1217,547, "Shield.png");
+		StdDraw.picture(1217,547, "Images/Bonus/Shield.png");
 		}
 		// Nb de vie
 		StdDraw.text(1213, 454, Integer.toString((vie)));

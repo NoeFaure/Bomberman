@@ -76,8 +76,8 @@ public class Bombe {
 	
 	/// Fonctions ///
 	public void Affiche_bomb(int x, int y){
-		StdDraw.picture(50*(x)+25, y*40+37, "Grass Block 2.png",50,85);
-		StdDraw.picture(50*(x)+25, y*40+37, "Bomb.png",50,85);
+		StdDraw.picture(50*(x)+25, y*40+37, "Images/Bloc/Grass Block 2.png",50,85);
+		StdDraw.picture(50*(x)+25, y*40+37, "Images/Bonus/Bomb.png",50,85);
 	}
 	
 	public int[] retourCoordonnee()

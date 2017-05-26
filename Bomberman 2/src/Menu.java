@@ -36,8 +36,8 @@ public class Menu {
 						StdDraw.text(1150, 116,Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 					}
 					
-					StdDraw.picture(500, 300, "Menu.png");
-					StdDraw.picture(500, 242, "Survol Resume.png");
+					StdDraw.picture(500, 300, "Images/Menu/Menu.png");
+					StdDraw.picture(500, 242, "Images/Menu/Survol Resume.png");
 					Affichage_ok = 1;
 					StdDraw.pause(80);
 					
@@ -65,8 +65,8 @@ public class Menu {
 						StdDraw.text(1150, 116,Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 					}
 					
-					StdDraw.picture(500, 300, "Menu.png");
-					StdDraw.picture(500, 299, "Survol Restart.png");
+					StdDraw.picture(500, 300, "Images/Menu/Menu.png");
+					StdDraw.picture(500, 299, "Images/Menu/Survol Restart.png");
 					Affichage_ok = 1;
 					StdDraw.pause(80);
 				}
@@ -93,8 +93,8 @@ public class Menu {
 						StdDraw.text(1150, 116,Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 					}
 					
-					StdDraw.picture(500, 300, "Menu.png");
-					StdDraw.picture(500, 397, "Survol Quit.png");
+					StdDraw.picture(500, 300, "Images/Menu/Menu.png");
+					StdDraw.picture(500, 397, "Images/Menu/Survol Quit.png");
 					Affichage_ok = 1;
 					StdDraw.pause(80);
 				}
@@ -113,7 +113,7 @@ public class Menu {
 				
 				//RESUME PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 0){
-					StdDraw.picture(500, 242, "Press Resume.png");
+					StdDraw.picture(500, 242, "Images/Menu/Press Resume.png");
 					StdDraw.show();
 					StdDraw.pause(30);
 					boucle = false;
@@ -122,7 +122,7 @@ public class Menu {
 				
 				//RESTART PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 1){
-					StdDraw.picture(500, 299, "Press Restart.png");
+					StdDraw.picture(500, 299, "Images/Menu/Press Restart.png");
 					StdDraw.show();
 					StdDraw.pause(30);
 					
@@ -133,7 +133,7 @@ public class Menu {
 				
 				//QUIT PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 2){
-					StdDraw.picture(500, 397, "Press Quit.png");
+					StdDraw.picture(500, 397, "Images/Menu/Press Quit.png");
 					StdDraw.show();
 					StdDraw.pause(30);
 					
@@ -145,7 +145,7 @@ public class Menu {
 				}
 				StdDraw.pause(5);
 				
-				StdDraw.picture(728, 173, "Close.png");
+				StdDraw.picture(728, 173, "Images/Menu/Close.png");
 				
 				//QUIT MOUSE
 				if (StdDraw.mousePressed()){
@@ -178,8 +178,8 @@ public class Menu {
 						StdDraw.text(1150, 116,Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 					}
 					
-					StdDraw.picture(500, 300, "Menu.png");
-					StdDraw.picture(500, 242, "Survol Resume.png");
+					StdDraw.picture(500, 300, "Images/Menu/Menu.png");
+					StdDraw.picture(500, 242, "Images/Menu/Survol Resume.png");
 					Affichage_ok = 1;
 					StdDraw.pause(80);
 					
@@ -207,8 +207,8 @@ public class Menu {
 						StdDraw.text(1150, 116,Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 					}
 					
-					StdDraw.picture(500, 300, "Menu.png");
-					StdDraw.picture(500, 299, "Survol Restart.png");
+					StdDraw.picture(500, 300, "Images/Menu/Menu.png");
+					StdDraw.picture(500, 299, "Images/Menu/Survol Restart.png");
 					Affichage_ok = 1;
 					StdDraw.pause(80);
 				}
@@ -235,8 +235,8 @@ public class Menu {
 						StdDraw.text(1150, 116,Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 					}
 					
-					StdDraw.picture(500, 300, "Menu.png");
-					StdDraw.picture(500, 397, "Survol Quit.png");
+					StdDraw.picture(500, 300, "Images/Menu/Menu.png");
+					StdDraw.picture(500, 397, "Images/Menu/Survol Quit.png");
 					Affichage_ok = 1;
 					StdDraw.pause(80);
 				}
@@ -255,7 +255,7 @@ public class Menu {
 				
 				//RESUME PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 0){
-					StdDraw.picture(500, 242, "Press Resume.png");
+					StdDraw.picture(500, 242, "Images/Menu/Press Resume.png");
 					StdDraw.show();
 					StdDraw.pause(30);
 					boucle = false;
@@ -264,7 +264,7 @@ public class Menu {
 				
 				//RESTART PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 1){
-					StdDraw.picture(500, 299, "Press Restart.png");
+					StdDraw.picture(500, 299, "Images/Menu/Press Restart.png");
 					StdDraw.show();
 					StdDraw.pause(30);
 					
@@ -275,7 +275,7 @@ public class Menu {
 				
 				//QUIT PRESS
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER) && choix == 2){
-					StdDraw.picture(500, 397, "Press Quit.png");
+					StdDraw.picture(500, 397, "Images/Menu/Press Quit.png");
 					StdDraw.show();
 					StdDraw.pause(30);
 					

@@ -26,7 +26,7 @@ public class Plateau {
 	{
 		
 		StdDraw.clear(StdDraw.BLACK);
-		StdDraw.picture(1150,345, "Interface_bomber.png");
+		StdDraw.picture(1150,345, "Images/Menu/Interface_bomber.png");
 		
 		for (int i=0;i < map.length; i++)
 		{
@@ -36,13 +36,13 @@ public class Plateau {
 				//Enceinte
 				if (map[i][j] == 0)
 				{
-					StdDraw.picture(50*(j)+25, i*40+17, "Stone Block 2.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+17, "Images/Bloc/Stone Block 2.png",50,85);
 				}
 				
 				//Herbe
 				if (map[i][j] == 1)
 				{
-					StdDraw.picture(50*(j)+25, i*40+37, "Grass Block 2.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+37, "Images/Bloc/Grass Block 2.png",50,85);
 					
 					//Affiche perso
 					//Joueur 1
@@ -60,21 +60,21 @@ public class Plateau {
 					//Gestion de l'ombre
 					if (map[i-1][j] == 4 || map[i-1][j] == 2 || map[i-1][j] == 0)
 					{
-						StdDraw.picture(50*(j)+25, i*40+35, "Shadow North.png",50,85);
+						StdDraw.picture(50*(j)+25, i*40+35, "Images/Shadow/Shadow North.png",50,85);
 					}
 				}
 				
 				//Blocs cassables
 				if (map[i][j] == 2)
 				{
-					StdDraw.picture(50*(j)+25, i*40+17, "Dirt Block 2.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+17, "Images/Bloc/Dirt Block 2.png",50,85);
 					
 				}
 				
 				//Murs
 				if (map[i][j] == 4)
 				{
-					StdDraw.picture(50*(j)+25, i*40+17, "Wall Block.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+17, "Images/Bloc/Wall Block.png",50,85);
 					
 				}
 				
@@ -82,8 +82,8 @@ public class Plateau {
 				// Bombes // // Plus utile ? //
 				if (map[i][j] == 3)
 				{
-					StdDraw.picture(50*(j)+25, i*40+37, "Grass Block 2.png",50,85);
-					StdDraw.picture(50*(j)+25, i*40+37, "Bomb.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+37, "Images/Bloc/Grass Block 2.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+37, "Images/Bonus/Bomb.png",50,85);
 					
 						//Affiche perso
 						//Joueur 1
@@ -100,7 +100,7 @@ public class Plateau {
 						//Gestion de l'ombre
 						if (map[i-1][j] == 4 || map[i-1][j] == 2 || map[i-1][j] == 0)
 						{
-							StdDraw.picture(50*(j)+25, i*40+35, "Shadow North.png",50,85);
+							StdDraw.picture(50*(j)+25, i*40+35, "Images/Shadow/Shadow North.png",50,85);
 						}
 					
 				}
@@ -108,7 +108,7 @@ public class Plateau {
 				//Flamme
 				if (map[i][j] == 5)
 				{
-					StdDraw.picture(50*(j)+25, i*40+37, "Grass Block 2.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+37, "Images/Bloc/Grass Block 2.png",50,85);
 					
 					//Affiche perso
 					//Joueur 1
@@ -125,17 +125,17 @@ public class Plateau {
 					//Gestion de l'ombre
 					if (map[i-1][j] == 4 || map[i-1][j] == 2 || map[i-1][j] == 0)
 					{
-						StdDraw.picture(50*(j)+25, i*40+35, "Shadow North.png",50,85);
+						StdDraw.picture(50*(j)+25, i*40+35, "Images/Shadow/Shadow North.png",50,85);
 					}
 					
-					StdDraw.picture(50*(j)+25, i*40+17, "Flamme.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+17, "Images/Bonus/Flamme.png",50,85);
 					
 				}
 				// Bonus
 				if (map[i][j] == 6)
 				{
-					StdDraw.picture(50*(j)+25, i*40+37, "Grass Block 2.png",50,85);
-					StdDraw.picture(50*(j)+25, i*40+17, "Chest.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+37, "Images/Bloc/Grass Block 2.png",50,85);
+					StdDraw.picture(50*(j)+25, i*40+17, "Images/Bonus/Chest.png",50,85);
 					
 					//Affiche perso
 					//Joueur 1
@@ -173,12 +173,12 @@ public class Plateau {
 			{
 				if(map[i][j] == 5 && j == x1 && i == y1){
 					Joueur1.setVie(Joueur1.getVie() - 1);
-					Musique.JouerMusique("Touch.wav");
+					Musique.JouerMusique("Musique/Touch.wav");
 				}
 				
 				if(map[i][j] == 5 && j == x2 && i == y2){
 					Joueur2.setVie(Joueur2.getVie() - 1);
-					Musique.JouerMusique("Touch.wav");
+					Musique.JouerMusique("Musique/Touch.wav");
 				}
 			}
 		}
@@ -192,7 +192,7 @@ public class Plateau {
 		boolean boucle = true;
 		
 		if (Vie_Joueur1 == 0 && Vie_Joueur2 != 0){
-			StdDraw.picture(625, 345, "Player 2 WIN.png");
+			StdDraw.picture(625, 345, "Images/Menu/Player 2 WIN.png");
 			StdDraw.show();
 			
 			while(boucle == true){
@@ -206,7 +206,7 @@ public class Plateau {
 			
 		}
 		if (Vie_Joueur2 == 0 && Vie_Joueur1 != 0){
-			StdDraw.picture(625, 345, "Player 1 WIN.png");
+			StdDraw.picture(625, 345, "Images/Menu/Player 1 WIN.png");
 			StdDraw.show();
 			
 			while(boucle == true){
@@ -220,7 +220,7 @@ public class Plateau {
 			
 		}
 		if (Vie_Joueur1 == 0 && Vie_Joueur2 == 0){
-			StdDraw.picture(625, 345, "Draw.png");
+			StdDraw.picture(625, 345, "Images/Menu/Draw.png");
 			StdDraw.show();
 			
 			while(boucle == true){
