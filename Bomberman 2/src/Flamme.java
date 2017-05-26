@@ -58,10 +58,17 @@ public class Flamme {
 		
 		if(duree_de_vie < 0)
 		{
-			int Apparition_bonus = (int) (Math.random() * 6 );
+			int Apparition_bonus = (int) (Math.random() * 6);
 			if(detruitBloc == true && Apparition_bonus == 1)
 			{
 				Bonus bonus = new Bonus(coordonnee_x,coordonnee_y);
+				for(int i = 0; i < 20 ; i++)
+				{
+					if(Plateau_1.getListeBonus()[i] == null)
+					{
+						Plateau_1.getListeBonus()[i] = bonus;
+					}
+				}
 				Plateau_1.getMap()[coordonnee_y][coordonnee_x] = 6;
 			}
 			else

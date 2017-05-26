@@ -21,6 +21,14 @@ public class Plateau {
 		this.map = map;
 	}
 
+	public Bonus[] getListeBonus() {
+		return listeBonus;
+	}
+
+	public void setListeBonus(Bonus[] listeBonus) {
+		this.listeBonus = listeBonus;
+	}
+	
 	/// Fonctions ///
 	public  void Afficher_map(int map [][],Personnage Joueur1,Personnage Joueur2)
 	{
@@ -185,7 +193,8 @@ public class Plateau {
 		
 	}
 	
-	public void Verifie_WIN(Personnage Joueur1, Personnage Joueur2){
+	public void Verifie_WIN(Personnage Joueur1, Personnage Joueur2)
+	{
 		
 		int Vie_Joueur1 = Joueur1.getVie();
 		int Vie_Joueur2 = Joueur2.getVie();
@@ -237,4 +246,5 @@ public class Plateau {
 		}
 		
 	}
+	
 }
