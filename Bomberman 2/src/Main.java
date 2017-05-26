@@ -16,11 +16,11 @@ public class Main {
 		StdDraw.setXscale(0,1250);
 		StdDraw.setYscale(690, 0);
 		
-		//Lancement de la musique
-		//JouerMusique();
+		//Musique Ecran Titre
+		//Musique.JouerMusique("Bomberman - Accueil.wav");
 		
-		//Affiche Ecran Titre
-		//JouerMusiqueAccueil();
+		//Lancement de la musique
+		//Musique.JouerMusique("Golden_Sun_Soundtrack-_Isaac_Battle_Theme.wav");
 		
 		//Création des personnages
 		Personnage Joueur1 = new Personnage(1,15);
@@ -33,49 +33,4 @@ public class Main {
 		Ecran_titre_2.Affiche_Ecran_Titre(Joueur1,Joueur2);
 		
 	}
-	
-	
-	/// Musique ///
-	public static void JouerMusique() {
-	    try {
-	        AudioInputStream Musique = AudioSystem.getAudioInputStream(new File("Bande_son_1.wav").getAbsoluteFile()); // Golden_Sun_Soundtrack-_Isaac_Battle_Theme
-	        Clip clip = AudioSystem.getClip();
-	        clip.open(Musique);
-	        clip.loop(5);
-	    	} 
-	    catch(Exception ex) 
-	    {
-	        System.out.println("Une erreur est survenue lors du lancement de la musique.");
-	        ex.printStackTrace();
-	    }
-	}
-	
-	public static void JouerMusiqueAccueil() {
-	    try {
-	        AudioInputStream Musique = AudioSystem.getAudioInputStream(new File("Bomberman - Accueil.wav").getAbsoluteFile());
-	        Clip clip = AudioSystem.getClip();
-	        clip.open(Musique);
-	        clip.loop(5);
-	    	} 
-	    catch(Exception ex) 
-	    {
-	        System.out.println("Une erreur est survenue lors du lancement de la musique.");
-	        ex.printStackTrace();
-	    }
-	}
-	
-	public static void Play_Sound(String Nom_musique) {
-	    try {
-	        AudioInputStream Musique = AudioSystem.getAudioInputStream(new File(Nom_musique).getAbsoluteFile());
-	        Clip clip = AudioSystem.getClip();
-	        clip.open(Musique);
-	        clip.loop(1);
-	    	} 
-	    catch(Exception ex) 
-	    {
-	        System.out.println("Une erreur est survenue lors du lancement de la musique.");
-	        ex.printStackTrace();
-	    }
-	}
-	
 }

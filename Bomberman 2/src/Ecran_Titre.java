@@ -197,7 +197,5 @@ public class Ecran_Titre {
 		if(choix_skins_cursor_player_2 == 2){
 			Joueur2.setSkin("Skin 404.png");
 		}
-		
-		
 	}
 }
