@@ -24,6 +24,7 @@ public class Jeu {
 		 * - 3 : Bombes posée
 		 * - 4 : Mur Indestructible
 		 * - 5 : Flamme ( temporaire )
+		 * - 6 : Bonus
 		 */
 		
 		int map [][] =
@@ -49,6 +50,12 @@ public class Jeu {
 		
 		Long Heure_debut = System.currentTimeMillis();
 		Long Time_minute = 0l;
+		
+		// --------- INITIALISATION DES POLICES D'ECRITURE ---------
+		
+		Font font = new Font("Arial", Font.BOLD, 30);
+		StdDraw.setFont(font);
+		StdDraw.setPenColor(StdDraw.WHITE);
 
 		// --------- CRÉATION DES OBJETS NÉCESSAIRES --------- 
 		
@@ -148,16 +155,6 @@ public class Jeu {
 			// A faire au propre plus tard //
 			Joueur1.CompteARebourd(Plateau_1, Joueur1, Joueur2); //renommer plus tard //
 			Joueur1.EnleverFlamme(Plateau_1);
-			
-			/*if(Joueur1.getVie() < 0)
-			{
-				StdDraw.picture(625, 345, "Player 2 WIN.png");
-			}
-			if(Joueur2.getVie() < 0)
-			{
-				StdDraw.picture(625, 345, "Player 1 WIN.png");
-			}
-			*/
 			
 			StdDraw.show();
 			StdDraw.pause(50);

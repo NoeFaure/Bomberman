@@ -1,4 +1,3 @@
-import java.awt.Font;
 import java.awt.event.KeyEvent;
 
 import edu.princeton.cs.introcs.StdDraw;
@@ -24,11 +23,6 @@ public class Plateau {
 	/// Fonctions ///
 	public  void Afficher_map(int map [][],Personnage Joueur1,Personnage Joueur2)
 	{
-		
-		//Paramètres Polices
-		Font font = new Font("Arial", Font.BOLD, 30);
-		StdDraw.setFont(font);
-		StdDraw.setPenColor(StdDraw.WHITE);
 		
 		StdDraw.clear(StdDraw.BLACK);
 		StdDraw.picture(1150,345, "Interface_bomber.png");
