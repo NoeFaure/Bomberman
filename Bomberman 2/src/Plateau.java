@@ -193,6 +193,7 @@ public class Plateau {
 		
 		if (Vie_Joueur1 == 0 && Vie_Joueur2 != 0){
 			StdDraw.picture(625, 345, "Images/Menu/Player 2 WIN.png");
+			StdDraw.picture(625, 345, "Images/Menu/Press Enter.png");
 			StdDraw.show();
 			
 			while(boucle == true){
@@ -207,6 +208,7 @@ public class Plateau {
 		}
 		if (Vie_Joueur2 == 0 && Vie_Joueur1 != 0){
 			StdDraw.picture(625, 345, "Images/Menu/Player 1 WIN.png");
+			StdDraw.picture(625, 345, "Images/Menu/Press Enter.png");
 			StdDraw.show();
 			
 			while(boucle == true){
@@ -221,6 +223,7 @@ public class Plateau {
 		}
 		if (Vie_Joueur1 == 0 && Vie_Joueur2 == 0){
 			StdDraw.picture(625, 345, "Images/Menu/Draw.png");
+			StdDraw.picture(625, 345, "Images/Menu/Press Enter.png");
 			StdDraw.show();
 			
 			while(boucle == true){
