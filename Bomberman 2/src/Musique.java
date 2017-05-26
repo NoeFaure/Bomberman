@@ -21,4 +21,9 @@ public class Musique {
 		        ex.printStackTrace();
 		    }
 		}
+		
+		public static void FinMusique()
+		{
+			
+		}
 }

@@ -46,6 +46,9 @@ public class Jeu {
 			{0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		
+		// --------- Lancement de la musique -------
+		Musique.JouerMusique("Golden_Sun_Soundtrack-_Isaac_Battle_Theme.wav");
+		
 		// --------- INITIALISATION DE L'HORLOGE --------- 
 		
 		Long Heure_debut = System.currentTimeMillis();

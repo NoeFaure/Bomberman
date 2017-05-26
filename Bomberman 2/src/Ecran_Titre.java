@@ -19,6 +19,9 @@ public class Ecran_Titre {
 		
 		StdDraw.pause(150);
 		
+		//Musique Ecran Titre
+		Musique.JouerMusique("Musique/Bomberman - Accueil.wav");
+		
 		while(boucle == true){
 			
 			if(choix == 0){
