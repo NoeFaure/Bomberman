@@ -88,6 +88,9 @@ public class Bombe {
 	
 	public void exploserBombe(Plateau Plateau_1, Personnage Joueur1, Personnage Joueur2)
 	{
+		//Joue la musique
+		Musique.JouerMusique("Musique/Explosion.wav");
+		
 		// Verifie a qui appartient la bombe pour lui en redonner une //
 		if(Joueur1.identificationBombe(x, y).x != -1) // Si la bombe appartient au joueur1
 		{
