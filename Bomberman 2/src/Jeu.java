@@ -47,7 +47,8 @@ public class Jeu {
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		
 		// --------- Lancement de la musique -------
-		//Musique.JouerMusiqueContinu("Musique/Golden_Sun_Soundtrack-_Isaac_Battle_Theme.wav");
+		Musique.getClip().stop();
+		Musique.JouerMusiqueContinu("Musique/Bande_son_1.wav");
 		
 		// --------- INITIALISATION DE L'HORLOGE --------- 
 		

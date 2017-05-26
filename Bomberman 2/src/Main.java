@@ -20,6 +20,5 @@ public class Main {
 		
 		Ecran_Titre Ecran_titre_2 = new Ecran_Titre();
 		Ecran_titre_2.Affiche_Ecran_Titre(Joueur1,Joueur2);
-		
 	}
 }
