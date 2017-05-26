@@ -173,10 +173,12 @@ public class Plateau {
 			{
 				if(map[i][j] == 5 && j == x1 && i == y1){
 					Joueur1.setVie(Joueur1.getVie() - 1);
+					Musique.JouerMusique("Touch.wav");
 				}
 				
 				if(map[i][j] == 5 && j == x2 && i == y2){
 					Joueur2.setVie(Joueur2.getVie() - 1);
+					Musique.JouerMusique("Touch.wav");
 				}
 			}
 		}

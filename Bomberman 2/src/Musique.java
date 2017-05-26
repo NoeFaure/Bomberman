@@ -13,7 +13,7 @@ public class Musique {
 		        AudioInputStream Musique = AudioSystem.getAudioInputStream(new File(Nom_musique).getAbsoluteFile());
 		        Clip clip = AudioSystem.getClip();
 		        clip.open(Musique);
-		        clip.loop(1);
+		        clip.loop(0);
 		    } 
 		    catch(Exception ex) 
 		    {
