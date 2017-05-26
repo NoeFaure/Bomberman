@@ -149,7 +149,7 @@ public class Plateau {
 					//Joueur 1
 					if(Joueur1.getX() == j && Joueur1.getY() == i){
 						Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
-						for(int k = 0; k < 20; i++)
+						for(int k = 0; k < 20; k++)
 						{
 							if(listeBonus[k] != null)
 							{

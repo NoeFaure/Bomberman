@@ -62,11 +62,13 @@ public class Flamme {
 			if(detruitBloc == true && Apparition_bonus == 1)
 			{
 				Bonus bonus = new Bonus(coordonnee_x,coordonnee_y);
+				boolean attribue = false;
 				for(int i = 0; i < 20 ; i++)
 				{
-					if(Plateau_1.getListeBonus()[i] == null)
+					if(Plateau_1.getListeBonus()[i] == null && attribue == false)
 					{
 						Plateau_1.getListeBonus()[i] = bonus;
+						attribue = true;
 					}
 				}
 				Plateau_1.getMap()[coordonnee_y][coordonnee_x] = 6;
