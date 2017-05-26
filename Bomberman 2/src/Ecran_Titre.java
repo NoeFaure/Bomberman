@@ -25,8 +25,8 @@ public class Ecran_Titre {
 		while(boucle == true){
 			
 			if(choix == 0){
-				StdDraw.picture(625, 345, "Ecran Titre.png");
-				StdDraw.picture(623, 305, "2 Joueurs Selection.png");
+				StdDraw.picture(625, 345, "Images/Menu/Ecran Titre.png");
+				StdDraw.picture(623, 305, "Images/Menu/2 Joueurs Selection.png");
 				
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
 					boucle = false;
@@ -37,14 +37,14 @@ public class Ecran_Titre {
 			}
 			
 			if(choix == 1){
-				StdDraw.picture(625, 345, "Ecran Titre.png");
-				StdDraw.picture(623, 411, "1 Joueur Selection.png");
+				StdDraw.picture(625, 345, "Images/Menu/Ecran Titre.png");
+				StdDraw.picture(623, 411, "Images/Menu/1 Joueur Selection.png");
 
 			}
 			
 			if(choix == 2){
-				StdDraw.picture(625, 345, "Ecran Titre.png");
-				StdDraw.picture(623, 517, "Skins Selection.png");
+				StdDraw.picture(625, 345, "Images/Menu/Ecran Titre.png");
+				StdDraw.picture(623, 517, "Images/Menu/Skins Selection.png");
 				
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
 					
@@ -52,52 +52,52 @@ public class Ecran_Titre {
 					StdDraw.pause(150);
 					
 					while(boucle2 == true){
-						StdDraw.picture(625, 345, "Ecran Skins.png");
+						StdDraw.picture(625, 345, "Images/Menu/Ecran Skins.png");
 						StdDraw.pause(50);
 						
 						//Condition de selection
 						if(choix_skins_cursor_player_1 == 0 ){
-							StdDraw.picture(136, 389, "Cadre Selection.png");
+							StdDraw.picture(136, 389, "Images/Menu/Cadre Selection.png");
 							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
 						if(choix_skins_cursor_player_1 == 1 ){
-							StdDraw.picture(326, 389, "Cadre Selection.png");
+							StdDraw.picture(326, 389, "Images/Menu/Cadre Selection.png");
 							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
 						if(choix_skins_cursor_player_1 == 2 ){
-							StdDraw.picture(511, 389, "Cadre Selection.png");
+							StdDraw.picture(511, 389, "Images/Menu/Cadre Selection.png");
 							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
 						if(choix_skins_cursor_player_1 == -1 ){
-							StdDraw.picture(625, 565, "Retour.png");
+							StdDraw.picture(625, 565, "Images/Menu/Retour.png");
 						}
 						
 						if(choix_skins_cursor_player_2 == 0 ){
-							StdDraw.picture(738, 389, "Cadre Selection.png");
+							StdDraw.picture(738, 389, "Images/Menu/Cadre Selection.png");
 							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
 						if(choix_skins_cursor_player_2 == 1 ){
-							StdDraw.picture(928, 389, "Cadre Selection.png");
+							StdDraw.picture(928, 389, "Images/Menu/Cadre Selection.png");
 							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
 						if(choix_skins_cursor_player_2 == 2 ){
-							StdDraw.picture(1112, 389, "Cadre Selection.png");
+							StdDraw.picture(1112, 389, "Images/Menu/Cadre Selection.png");
 							Change_skin_joueur(choix_skins_cursor_player_1,choix_skins_cursor_player_2, Joueur1, Joueur2);
 							
 						}
 						
 						if(choix_skins_cursor_player_2 == -1 ){
-							StdDraw.picture(625, 565, "Retour.png");
+							StdDraw.picture(625, 565, "Images/Menu/Retour.png");
 						}
 						
 						//Gestion clavier
@@ -177,29 +177,29 @@ public class Ecran_Titre {
 		//Joueur 1
 		
 		if(choix_skins_cursor_player_1 == 0){
-			Joueur1.setSkin("Bomberman Perso 1.png");
+			Joueur1.setSkin("Images/Skin/Bomberman Perso 1.png");
 		}
 		
 		if(choix_skins_cursor_player_1 == 1){
-			Joueur1.setSkin("Skin 404.png");
+			Joueur1.setSkin("Images/Skin/Skin 404.png");
 		}
 		
 		if(choix_skins_cursor_player_1 == 2){
-			Joueur1.setSkin("Skin 404.png");
+			Joueur1.setSkin("Images/Skin/Skin 404.png");
 		}
 		
 		//Joueur 2
 		
 		if(choix_skins_cursor_player_2 == 0){
-			Joueur2.setSkin("Bomberman Perso 2.png");
+			Joueur2.setSkin("Images/Skin/Bomberman Perso 2.png");
 		}
 		
 		if(choix_skins_cursor_player_2 == 1){
-			Joueur2.setSkin("Skin 404.png");
+			Joueur2.setSkin("Images/Skin/Skin 404.png");
 		}
 		
 		if(choix_skins_cursor_player_2 == 2){
-			Joueur2.setSkin("Skin 404.png");
+			Joueur2.setSkin("Images/Skin/Skin 404.png");
 		}
 	}
 }
