@@ -134,7 +134,7 @@ public class Jeu {
 			//Joueur 1
 			Joueur1.DeplacerJoueur1(Plateau_1);
 			
-			//COMMANDE DEVELOPPEUR ( Je la nettoie pas parce qu'elle est vouee a etre effacee *niark*)
+			//COMMANDE DEVELOPPEUR
 				if (StdDraw.isKeyPressed(73) && map[Joueur1.getY()-1][Joueur1.getX()] != 0){
 					map[Joueur1.getY()-1][Joueur1.getX()] = 1;
 				}

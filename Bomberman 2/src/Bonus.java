@@ -3,7 +3,7 @@ import java.lang.Math;
 public class Bonus {
 
 	// Nombre entier aleatoire entre 0 et 12 deffinnissant le bonus 
-	private int Choix_bonus = (int) (Math.random() * 13 );
+	private int Choix_bonus = (int) (Math.random() * 14 );
 	// Un bonus a une probabilité de 1 chance sur 5 d'apparaitre 
 	private int x;
 	private int y;
@@ -116,7 +116,38 @@ public class Bonus {
 		
 		//Bombe supplementaire attribuee
 		if (Choix_bonus == 12){
+			Bombe_supplementaire(Joueur);
+		}
+		
+		//Bombe en moins attribuee
+		if (Choix_bonus == 13){
+			Bombe_en_moins(Joueur);
+		}
+	}
+	
+	public void Bombe_supplementaire(Personnage Joueur){
+		
+		if (Joueur.getNbBombe() <= 6){
+			Joueur.setNbBombe(Joueur.getNbBombe() + 2);
+		}
+		else if (Joueur.getNbBombe() == 7){
 			Joueur.setNbBombe(Joueur.getNbBombe() + 1);
 		}
+	}
+	
+	public void Bombe_en_moins(Personnage Joueur){
+		
+		if (Joueur.getNbBombe() > 3){
+			Joueur.setNbBombe(Joueur.getNbBombe() - 2);
+		}
+		else if(Joueur.getNbBombe() == 3){
+			Joueur.setNbBombe(Joueur.getNbBombe() - 1);
+		}
+	}
+	
+	public void Line(Personnage Joueur){
+		// Bonus ligne de bombes
+		
+		
 	}
 }

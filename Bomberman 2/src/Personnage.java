@@ -10,7 +10,16 @@ public class Personnage {
 	private Bombe[] listeBombe = new Bombe[10];
 	private int[] listeBonus = {0,0,0,0,0,0,0,0};
 	private String Skin = "Skin 404.png";
+	private String Orientation = "Bas";
 	
+	public String getOrientation() {
+		return Orientation;
+	}
+
+	public void setOrientation(String orientation) {
+		Orientation = orientation;
+	}
+
 	public int[] getListeBonus() {
 		return listeBonus;
 	}
@@ -169,18 +178,26 @@ public class Personnage {
 		if(StdDraw.isKeyPressed(68) && (Plateau_1.map[y][x + 1] != 0) && (Plateau_1.map[y][x + 1] != 2) && (Plateau_1.map[y][x + 1] != 4))
 		{			
 			x += 1;
+			Orientation = "droite";
+			System.out.println(Orientation);
 		}
 		if(StdDraw.isKeyPressed(90) && (Plateau_1.map[y - 1][x] != 0) && (Plateau_1.map[y - 1][x] != 2) && (Plateau_1.map[y - 1][x] != 4))
 		{
 			y -= 1;
+			Orientation = "haut";
+			System.out.println(Orientation);
 		}
 		if(StdDraw.isKeyPressed(83)&& (Plateau_1.map[y + 1][x] != 0) && (Plateau_1.map[y + 1][x] != 2) && (Plateau_1.map[y + 1][x] != 4))
 		{
 			y += 1;
+			Orientation = "bas";
+			System.out.println(Orientation);
 		}
 		if(StdDraw.isKeyPressed(81)&& (Plateau_1.map[y][x - 1] != 0) && (Plateau_1.map[y][x - 1] != 2) && (Plateau_1.map[y][x - 1] != 4))
 		{
 			x -= 1;
+			Orientation = "gauche";
+			System.out.println(Orientation);
 		}
 	}
 	
