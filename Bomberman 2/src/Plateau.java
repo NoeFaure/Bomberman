@@ -32,7 +32,6 @@ public class Plateau {
 	/// Fonctions ///
 	public  void Afficher_map(int map [][],Personnage Joueur1,Personnage Joueur2)
 	{
-		
 		StdDraw.clear(StdDraw.BLACK);
 		StdDraw.picture(1150,345, "Images/Menu/Interface_bomber.png");
 		
@@ -259,7 +258,5 @@ public class Plateau {
 				}
 			}
 		}
-		
-	}
-	
+	}	
 }
