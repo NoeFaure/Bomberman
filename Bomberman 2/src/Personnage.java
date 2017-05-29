@@ -96,7 +96,26 @@ public class Personnage {
 	/// Methodes ///
 
 	public void Affiche_perso(int x, int y,String texture){
-		StdDraw.picture(50*x+25, 40*y+17, texture,50,85);
+		
+		if (texture == "Images/Skin/Bomberman Perso 1.png")
+		{
+			if(Orientation == "bas"){
+				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1.png",50,85);
+			}
+			if(Orientation == "haut"){
+				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1 dos.png",50,85);
+			}
+			if(Orientation == "droite"){
+				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1 droite.png",50,85);
+			}
+			if(Orientation == "gauche"){
+				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1 gauche.png",50,85);
+			}
+		
+		}
+		else{
+			StdDraw.picture(50*x+25, 40*y+17, texture,50,85);
+		}
 	}
 	
 	public void PoserBombe(Plateau Plateau_1) 

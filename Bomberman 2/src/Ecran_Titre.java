@@ -20,7 +20,7 @@ public class Ecran_Titre {
 		StdDraw.pause(150);
 		
 		//Musique Ecran Titre
-		Musique.JouerMusiqueContinu("Musique/Bomberman - Accueil.wav");
+		//Musique.JouerMusiqueContinu("Musique/Bomberman - Accueil.wav");
 		
 		while(boucle == true){
 			
