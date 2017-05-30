@@ -198,25 +198,21 @@ public class Personnage {
 		{			
 			x += 1;
 			Orientation = "droite";
-			System.out.println(Orientation);
 		}
 		if(StdDraw.isKeyPressed(90) && (Plateau_1.map[y - 1][x] != 0) && (Plateau_1.map[y - 1][x] != 2) && (Plateau_1.map[y - 1][x] != 4))
 		{
 			y -= 1;
 			Orientation = "haut";
-			System.out.println(Orientation);
 		}
 		if(StdDraw.isKeyPressed(83)&& (Plateau_1.map[y + 1][x] != 0) && (Plateau_1.map[y + 1][x] != 2) && (Plateau_1.map[y + 1][x] != 4))
 		{
 			y += 1;
 			Orientation = "bas";
-			System.out.println(Orientation);
 		}
 		if(StdDraw.isKeyPressed(81)&& (Plateau_1.map[y][x - 1] != 0) && (Plateau_1.map[y][x - 1] != 2) && (Plateau_1.map[y][x - 1] != 4))
 		{
 			x -= 1;
 			Orientation = "gauche";
-			System.out.println(Orientation);
 		}
 	}
 	

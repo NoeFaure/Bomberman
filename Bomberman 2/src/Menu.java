@@ -127,7 +127,7 @@ public class Menu {
 					StdDraw.pause(30);
 					
 					Jeu Partie_1 = new Jeu();
-					Partie_1.Jouer(Joueur1, Joueur2);
+					Partie_1.Jouer(Joueur1, Joueur2, false);
 					
 				}
 				
@@ -269,7 +269,7 @@ public class Menu {
 					StdDraw.pause(30);
 					
 					Jeu Partie_1 = new Jeu();
-					Partie_1.Jouer(Joueur1, Joueur2);
+					Partie_1.Jouer(Joueur1, Joueur2, false);
 					
 				}
 				

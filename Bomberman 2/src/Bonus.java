@@ -2,7 +2,7 @@ import java.lang.Math;
 
 public class Bonus {
 
-	// Nombre entier aleatoire entre 0 et 12 deffinnissant le bonus 
+	// Nombre entier aleatoire entre 0 et 13 deffinnissant le bonus 
 	private int Choix_bonus = (int) (Math.random() * 14 );
 	// Un bonus a une probabilité de 1 chance sur 5 d'apparaitre 
 	private int x;

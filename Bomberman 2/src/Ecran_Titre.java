@@ -31,7 +31,7 @@ public class Ecran_Titre {
 				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
 					boucle = false;
 					Jeu Partie_1 = new Jeu();
-					Partie_1.Jouer(Joueur1, Joueur2);
+					Partie_1.Jouer(Joueur1, Joueur2, false);
 				}
 
 			}
@@ -39,6 +39,12 @@ public class Ecran_Titre {
 			if(choix == 1){
 				StdDraw.picture(625, 345, "Images/Menu/Ecran Titre.png");
 				StdDraw.picture(623, 411, "Images/Menu/1 Joueur Selection.png");
+				
+				if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+					boucle = false;
+					Jeu Partie_1 = new Jeu();
+					Partie_1.Jouer(Joueur1, Joueur2, true);
+				}
 
 			}
 			

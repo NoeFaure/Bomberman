@@ -13,7 +13,7 @@ public class Jeu {
 		
 	}
 
-	public void Jouer(Personnage Joueur1, Personnage Joueur2){
+	public void Jouer(Personnage Joueur1, Personnage Joueur2, boolean Solo){
 		
 		//MAP DE BASE
 		
@@ -45,6 +45,10 @@ public class Jeu {
 			{0,1,4,1,4,2,4,2,4,2,4,2,4,2,4,2,4,2,4,2,0},
 			{0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+		
+		// --------- CRÉATION DE L'IA SI LE MODE SOLO EST SELECTIONNE -------
+		
+		IA IA_1 = new IA();
 		
 		// --------- Lancement de la musique -------
 		//Musique.getClip().stop();
@@ -146,13 +150,19 @@ public class Jeu {
 				}
 				if (StdDraw.isKeyPressed(75) && map[Joueur1.getY()+1][Joueur1.getX()] != 0){
 					map[Joueur1.getY()+1][Joueur1.getX()] = 1;
+					System.out.println(Joueur2.getX() + " , " + Joueur2.getY());
 				}
 			
 			
 			
+			
 			//Joueur 2
-			Joueur2.DeplacerJoueur2(Plateau_1);
-			//
+			if (Solo == false){
+				Joueur2.DeplacerJoueur2(Plateau_1);
+			}
+			else if (Solo == true){
+				IA_1.Deplacement_IA(Joueur1,Joueur2,Plateau_1);
+			}
 			
 			Joueur1.PoserBombe(Plateau_1);
 			
