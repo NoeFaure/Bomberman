@@ -18,64 +18,79 @@ public class Bombe {
 	}
 	
 	/// Setters and Getters ///
-	public boolean isExplose() {
+	public boolean isExplose() 
+	{
 		return Explose;
 	}
 
-	public void setExplose(boolean aExplose) {
+	public void setExplose(boolean aExplose) 
+	{
 		this.Explose = aExplose;
 	}
 
-	public  Flamme[] getListeFlamme() {
+	public  Flamme[] getListeFlamme() 
+	{
 		return listeFlamme;
 	}
 
-	public void setListeFlamme(Flamme[] listeFlamme) {
+	public void setListeFlamme(Flamme[] listeFlamme) 
+	{
 		this.listeFlamme = listeFlamme;
 	}
 
-	public int getX() {
+	public int getX() 
+	{
 		return x;
 	}
 
-	public void setX(int x) {
+	public void setX(int x) 
+	{
 		this.x = x;
 	}
 
-	public int getY() {
+	public int getY() 
+	{
 		return y;
 	}
 
-	public void setY(int y) {
+	public void setY(int y) 
+	{
 		this.y = y;
 	}
 
-	public int getDelai() {
+	public int getDelai() 
+	{
 		return delai;
 	}
 
-	public void setDelai(int delai) {
+	public void setDelai(int delai) 
+	{
 		this.delai = delai;
 	}
 
-	public int getPortee() {
+	public int getPortee() 
+	{
 		return portee;
 	}
 
-	public void setPortee(int portee) {
+	public void setPortee(int portee) 
+	{
 		this.portee = portee;
 	}
 
-	/*public Personnage getJoueur() {
+	/*public Personnage getJoueur() 
+	{
 		return joueur;
 	}
 
-	public void setJoueur(Personnage joueur) {
+	public void setJoueur(Personnage joueur) 
+	{
 		this.joueur = joueur;
 	}*/
 	
 	/// Fonctions ///
-	public void Affiche_bomb(int x, int y){
+	public void Affiche_bomb(int x, int y)
+	{
 		StdDraw.picture(50*(x)+25, y*40+37, "Images/Bloc/Grass Block 2.png",50,85);
 		StdDraw.picture(50*(x)+25, y*40+37, "Images/Bonus/Bomb.png",50,85);
 	}
@@ -191,8 +206,6 @@ public class Bombe {
 					listeFlamme[compteur] = new Flamme(x,y-r,false);
 					compteur += 1;
 				}
-				
-				
 			}
 			// Flammes de droite //
 			if(x + r < 20)

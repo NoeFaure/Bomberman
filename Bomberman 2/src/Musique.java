@@ -9,11 +9,13 @@ public class Musique {
 		private static Clip clip;
 		
 		/// Setters and Getters ///
-		public static Clip getClip() {
+		public static Clip getClip() 
+		{
 			return clip;
 		}
 
-		public void setClip(Clip clip) {
+		public void setClip(Clip clip) 
+		{
 			Musique.clip = clip;
 		}
 		

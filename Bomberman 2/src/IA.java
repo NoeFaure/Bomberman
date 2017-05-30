@@ -1,14 +1,13 @@
 import java.lang.Math; 
 
-
 public class IA {
-
 	
 	// _______________TENTATIVE DE CRÉATION D'IA _______________
 	//------------------ /!\ GROS CHANTIER /!\ ------------------
 
-	//Constructeur
-	public IA() {
+	/// Constructeur ///
+	public IA() 
+	{
 		
 	}
 	
@@ -46,10 +45,11 @@ public class IA {
 		
 		//---- ON RÉCUPÈRE LA POSITIONS DE TOUTES LES BOMBES PRÉSENTES SUR LA MAP ----
 		
-		// Pour le joueur 1
-		for (int indice = 0; indice < Joueur1.getListeBombe().length; indice++){
-			
-			if(Joueur1.getListeBombe()[indice] != null){
+		/// Pour le joueur 1 ///
+		for (int indice = 0; indice < Joueur1.getListeBombe().length; indice++)
+		{
+			if(Joueur1.getListeBombe()[indice] != null)
+			{
 				Bombe bombe = Joueur1.getListeBombe()[indice];
 				int Bombe_x = bombe.getX();
 				int Bombe_y = bombe.getY();
@@ -74,81 +74,100 @@ public class IA {
 				boolean protect_3 = false;
 				boolean protect_4 = false;
 				
-				for(int ajout = 0; ajout<Portee; ajout++){
+				for(int ajout = 0; ajout<Portee; ajout++)
+				{
 					
 					//On verifie qu'on ne depasse pas la taille de la map
 					//Puis on remplace par 1.
 					
 					//En Bas
-					if(stop_1 == false){
-						if (Matrice[Bombe_y][Bombe_x+ajout] != 3){
-							if(Matrice[Bombe_y][Bombe_x+ajout] == 4){
+					if(stop_1 == false)
+					{
+						if (Matrice[Bombe_y][Bombe_x+ajout] != 3)
+						{
+							if(Matrice[Bombe_y][Bombe_x+ajout] == 4)
+							{
 								protect_1 = true;
 							}
-							else if(protect_1 == false){
+							else if(protect_1 == false)
+							{
 								Matrice[Bombe_y][Bombe_x+ajout] = 1;
 							}
 						}
-						else{
+						else
+						{
 							stop_1 = true;
 						}
 					}
 					
 					//En haut
-					if (stop_2 == false){
-						if (Matrice[Bombe_y][Bombe_x-ajout] != 3){
-							if(Matrice[Bombe_y][Bombe_x-ajout] == 4){
+					if (stop_2 == false)
+					{
+						if (Matrice[Bombe_y][Bombe_x-ajout] != 3)
+						{
+							if(Matrice[Bombe_y][Bombe_x-ajout] == 4)
+							{
 								protect_2 = true;
 							}
-							else if(protect_2 == false){
+							else if(protect_2 == false)
+							{
 								Matrice[Bombe_y][Bombe_x-ajout] = 1;
 							}
 						}
-						else{
+						else
+						{
 							stop_2 = true;
 						}
 					}
 					
 					//A droite
-					if (stop_3 == false){
-						if (Matrice[Bombe_y+ajout][Bombe_x] != 3){
-							if(Matrice[Bombe_y+ajout][Bombe_x] == 4){
+					if (stop_3 == false)
+					{
+						if (Matrice[Bombe_y+ajout][Bombe_x] != 3)
+						{
+							if(Matrice[Bombe_y+ajout][Bombe_x] == 4)
+							{
 								protect_3 = true;
 							}
-							else if(protect_3 == false){
+							else if(protect_3 == false)
+							{
 								Matrice[Bombe_y+ajout][Bombe_x] = 1;
 							}
 						}
-						else{
+						else
+						{
 							stop_3 = true;
 						}
 					}
 					
 					//A gauche
-					if (stop_4 == false){
-						if (Matrice[Bombe_y-ajout][Bombe_x] != 3){
-							if(Matrice[Bombe_y-ajout][Bombe_x] == 4){
+					if (stop_4 == false)
+					{
+						if (Matrice[Bombe_y-ajout][Bombe_x] != 3)
+						{
+							if(Matrice[Bombe_y-ajout][Bombe_x] == 4)
+							{
 								protect_4 = true;
 							}
-							else if(protect_4 == false){
+							else if(protect_4 == false)
+							{
 								Matrice[Bombe_y-ajout][Bombe_x] = 1;
 							}
 						}
-						else{
+						else
+						{
 							stop_4 = true;
 						}
 					}
-					
 				}
-				
 			}
 		}
-		
 		// On retourne la matrice cree
 		return Matrice;
 	}
 
-	public void Deplacement_IA(Personnage Joueur1,Personnage Joueur2, Plateau Map){
+	public void Deplacement_IA(Personnage Joueur1,Personnage Joueur2, Plateau Map)
+	{
 		
 		// ------------- ESQUIVE ------------- 
 		
@@ -157,12 +176,14 @@ public class IA {
 		int Y_IA = Joueur2.getY();
 		
 		//Si le joueur est en danger
-		if (Matrice_Danger[Y_IA][X_IA] == 1){
+		if (Matrice_Danger[Y_IA][X_IA] == 1)
+		{
 			Deplacement_aleatoire(Joueur2, Map);
 		}
 	}
 	
-	public void Deplacement_aleatoire(Personnage Joueur2, Plateau Map){
+	public void Deplacement_aleatoire(Personnage Joueur2, Plateau Map)
+	{
 		
 		//Generation d'un nombre entre [0;3]
 		int deplacement = (int) (Math.random() * 4);
@@ -171,19 +192,26 @@ public class IA {
 		int Y_IA = Joueur2.getY();
 		
 		//Droite
-		if (deplacement == 0 && Map.getMap()[Y_IA+1][X_IA] == 1){
+		if (deplacement == 0 && Map.getMap()[Y_IA+1][X_IA] == 1)
+		{
 			Joueur2.setY(Y_IA+1);
 		}
+		
 		//Gauche
-		else if(deplacement == 1 && Map.getMap()[Y_IA-1][X_IA] == 1){
+		else if(deplacement == 1 && Map.getMap()[Y_IA-1][X_IA] == 1)
+		{
 			Joueur2.setY(Y_IA-1);
 		}
+		
 		//Haut
-		else if(deplacement == 2 && Map.getMap()[Y_IA][X_IA-1] == 1){
+		else if(deplacement == 2 && Map.getMap()[Y_IA][X_IA-1] == 1)
+		{
 			Joueur2.setX(X_IA-1);
 		}
+		
 		//Bas
-		else if(deplacement == 3 && Map.getMap()[Y_IA][X_IA+1] == 1){
+		else if(deplacement == 3 && Map.getMap()[Y_IA][X_IA+1] == 1)
+		{
 			Joueur2.setX(X_IA+1);
 		}
 	}

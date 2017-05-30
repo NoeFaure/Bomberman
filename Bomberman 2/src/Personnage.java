@@ -12,22 +12,6 @@ public class Personnage {
 	private String Skin = "Skin 404.png";
 	private String Orientation = "Bas";
 	
-	public String getOrientation() {
-		return Orientation;
-	}
-
-	public void setOrientation(String orientation) {
-		Orientation = orientation;
-	}
-
-	public int[] getListeBonus() {
-		return listeBonus;
-	}
-
-	public void setListeBonus(int[] listeBonus) {
-		this.listeBonus = listeBonus;
-	}
-
 	/// Constructeur ///
 	public Personnage(int vie, int vitesse, int nbBombe, int x, int y,String Skin) 
 	{
@@ -39,81 +23,129 @@ public class Personnage {
 		this.Skin = Skin;
 	}
 	
-	public String getSkin() {
-		return Skin;
-	}
-
-	public void setSkin(String skin) {
-		Skin = skin;
-	}
-
-	public Bombe[] getListeBombe() {
-		return listeBombe;
-	}
-
-	public void setListeBombe(Bombe[] listeBombe) {
-		this.listeBombe = listeBombe;
-	}
-
 	public Personnage(int x, int y)
 	{
 		this.x = x;
 		this.y = y;
 	}
 	
-	/// Setters et Getters ///
-	public int getVie() {
+	/// Setters and Getters ///
+	public String getOrientation() 
+	{
+		return Orientation;
+	}
+
+	public void setOrientation(String orientation) 
+	{
+		Orientation = orientation;
+	}
+
+	public int[] getListeBonus() 
+	{
+		return listeBonus;
+	}
+
+	public void setListeBonus(int[] listeBonus) 
+	{
+		this.listeBonus = listeBonus;
+	}
+	
+	public String getSkin() 
+	{
+		return Skin;
+	}
+
+	public void setSkin(String skin) 
+	{
+		Skin = skin;
+	}
+
+	public Bombe[] getListeBombe() 
+	{
+		return listeBombe;
+	}
+
+	public void setListeBombe(Bombe[] listeBombe) 
+	{
+		this.listeBombe = listeBombe;
+	}
+	
+	public int getVie() 
+	{
 		return vie;
 	}
-	public void setVie(int vie) {
+	
+	public void setVie(int vie) 
+	{
 		this.vie = vie;
 	}
-	public int getVitesse() {
+	
+	public int getVitesse() 
+	{
 		return vitesse;
 	}
-	public void setVitesse(int vitesse) {
+	
+	public void setVitesse(int vitesse) 
+	{
 		this.vitesse = vitesse;
 	}
-	public int getNbBombe() {
+	
+	public int getNbBombe() 
+	{
 		return nbBombe;
 	}
-	public void setNbBombe(int nbBombe) {
+	
+	public void setNbBombe(int nbBombe) 
+	{
 		this.nbBombe = nbBombe;
 	}
-	public int getX() {
+	
+	public int getX() 
+	{
 		return x;
 	}
-	public void setX(int x) {
+	
+	public void setX(int x) 
+	{
 		this.x = x;
 	}
-	public int getY() {
+	
+	public int getY() 
+	{
 		return y;
 	}
-	public void setY(int y) {
+	
+	public void setY(int y)
+	{
 		this.y = y;
 	}
 	
 	/// Methodes ///
 
-	public void Affiche_perso(int x, int y,String texture){
+	public void Affiche_perso(int x, int y,String texture)
+	{
 		
 		if (texture == "Images/Skin/Bomberman Perso 1.png")
 		{
-			if(Orientation == "bas"){
+			if(Orientation == "bas")
+			{
 				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1.png",50,85);
 			}
-			if(Orientation == "haut"){
+			if(Orientation == "haut")
+			{
 				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1 dos.png",50,85);
 			}
-			if(Orientation == "droite"){
+			if(Orientation == "droite")
+			{
 				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1 droite.png",50,85);
 			}
-			if(Orientation == "gauche"){
+			if(Orientation == "gauche")
+			{
 				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1 gauche.png",50,85);
 			}
-		
 		}
-		else{
+		else
+		{
 			StdDraw.picture(50*x+25, 40*y+17, texture,50,85);
 		}
 	}
@@ -187,11 +219,10 @@ public class Personnage {
 					}	
 				}
 			}
-			
 		}
 	}
 	
-	// Deplacement du joueur 1 //
+	/// Deplacement du joueur 1 ///
 	public void DeplacerJoueur1(Plateau Plateau_1)
 	{
 		if(StdDraw.isKeyPressed(68) && (Plateau_1.map[y][x + 1] != 0) && (Plateau_1.map[y][x + 1] != 2) && (Plateau_1.map[y][x + 1] != 4))
@@ -216,7 +247,7 @@ public class Personnage {
 		}
 	}
 	
-	// Deplacement du joueur 2 //
+	/// Deplacement du joueur 2 ///
 	
 	public void DeplacerJoueur2(Plateau Plateau_1)
 	{
@@ -239,62 +270,73 @@ public class Personnage {
 	}
 	
 	
-	//Affiche Bonus
+	/// Affiche Bonus ///
 	public void Affiche_bonus_Joueur1()
 	{
 		
 		// Flamme Jaune = 1 en position 0
-		if(listeBonus[0] == 1){
+		if(listeBonus[0] == 1)
+		{
 		StdDraw.picture(1083,298, "Images/Bonus/Flamme Jaune.png");
 		}
 		
 		// Flamme Bleue = 2 en position 0
-		if(listeBonus[0] == 2){
+		if(listeBonus[0] == 2)
+		{
 		StdDraw.picture(1083,298, "Images/Bonus/Flamme Bleue.png");
 		}
 		
 		// Flamme Verte = 3 en position 0
-		if(listeBonus[0] == 3){
+		if(listeBonus[0] == 3)
+		{
 		StdDraw.picture(1083,298, "Images/Bonus/Flamme Verte.png");
 		}
 		
 		// Flamme Rouge = 4 en position 0
-		if(listeBonus[0] == 4){
+		if(listeBonus[0] == 4)
+		{
 		StdDraw.picture(1083,298, "Images/Bonus/Flamme Rouge.png");
 		}
 		
 		//Bombe Rouge
-		if(listeBonus[1] == 1){
+		if(listeBonus[1] == 1)
+		{
 		StdDraw.picture(1128,298, "Images/Bonus/Bombe Rouge.png");
 		}
 		
 		//Speed Up
-		if(listeBonus[2] == 1){
+		if(listeBonus[2] == 1)
+		{
 		StdDraw.picture(1173,298, "Images/Bonus/Speed Up.png");
 		}
 		
 		//Slow down
-		if(listeBonus[3] == 1){
+		if(listeBonus[3] == 1)
+		{
 		StdDraw.picture(1217,298, "Images/Bonus/Slow Down.png");
 		}
 		
 		// Mine
-		if(listeBonus[4] == 1){
+		if(listeBonus[4] == 1)
+		{
 		StdDraw.picture(1083,343, "Images/Bonus/Mine.png");
 		}
 				
 		//Rebond
-		if(listeBonus[5] == 1){
+		if(listeBonus[5] == 1)
+		{
 		StdDraw.picture(1128,343, "Images/Bonus/Rebond.png");
 		}
 				
 		//Line
-		if(listeBonus[6] == 1){
+		if(listeBonus[6] == 1)
+		{
 		StdDraw.picture(1173,343, "Images/Bonus/Line.png");
 		}
 				
 		//Shield
-		if(listeBonus[7] == 1){
+		if(listeBonus[7] == 1)
+		{
 		StdDraw.picture(1217,343, "Images/Bonus/Shield.png");
 		}
 		// Nb de vie
@@ -306,59 +348,69 @@ public class Personnage {
 	
 	public void Affiche_bonus_Joueur2()
 	{
-		
 		// Flamme Jaune = 1 en position 0
-		if(listeBonus[0] == 1){
+		if(listeBonus[0] == 1)
+		{
 		StdDraw.picture(1084,502, "Images/Bonus/Flamme Jaune.png");
 		}
 		
 		// Flamme Bleue = 2 en position 0
-		if(listeBonus[0] == 2){
+		if(listeBonus[0] == 2)
+		{
 		StdDraw.picture(1084,502, "Images/Bonus/Flamme Bleue.png");
 		}
 		
 		// Flamme Verte = 3 en position 0
-		if(listeBonus[0] == 3){
+		if(listeBonus[0] == 3)
+		{
 		StdDraw.picture(1084,502, "Images/Bonus/Flamme Verte.png");
 		}
 		
 		// Flamme Rouge = 4 en position 0
-		if(listeBonus[0] == 4){
+		if(listeBonus[0] == 4)
+		{
 		StdDraw.picture(1084,502, "Images/Bonus/Flamme Rouge.png");
 		}
 		
 		//Bombe Rouge
-		if(listeBonus[1] == 1){
+		if(listeBonus[1] == 1)
+		{
 		StdDraw.picture(1128,502, "Images/Bonus/Bombe Rouge.png");
 		}
 		
 		//Speed Up
-		if(listeBonus[2] == 1){
+		if(listeBonus[2] == 1)
+		{
 		StdDraw.picture(1173,502, "Images/Bonus/Speed Up.png");
 		}
 		
 		//Slow down
-		if(listeBonus[3] == 1){
+		if(listeBonus[3] == 1)
+		{
 		StdDraw.picture(1217,502, "Images/Bonus/Slow Down.png");
 		}
 		
 		// Mine
-		if(listeBonus[4] == 1){
+		if(listeBonus[4] == 1)
+		{
 		StdDraw.picture(1083,547, "Images/Bonus/Mine.png");
 		}
 				
 		//Rebond
-		if(listeBonus[5] == 1){
+		if(listeBonus[5] == 1)
+		{
 		StdDraw.picture(1128,547, "Images/Bonus/Rebond.png");
 		}
 				
 		//Line
-		if(listeBonus[6] == 1){
+		if(listeBonus[6] == 1)
+		{
 		StdDraw.picture(1173,547, "Images/Bonus/Line.png");
 		}
 				
 		//Shield
-		if(listeBonus[7] == 1){
+		if(listeBonus[7] == 1)
+		{
 		StdDraw.picture(1217,547, "Images/Bonus/Shield.png");
 		}
 		// Nb de vie
@@ -368,7 +420,7 @@ public class Personnage {
 		StdDraw.text(1125, 454, Integer.toString((nbBombe)));
 	}
 	
-	// Permet l'identification d'une bombe touch�e par une flamme //
+	/// Permet l'identification d'une bombe touch�e par une flamme ///
 	
 	public Bombe identificationBombe(int xBombe, int yBombe)
 	{
@@ -402,8 +454,6 @@ public class Personnage {
 		}
 		return -1;
 	}
-	
-	
 }
 
 

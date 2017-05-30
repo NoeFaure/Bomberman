@@ -7,14 +7,14 @@ import edu.princeton.cs.introcs.StdDraw;
 
 public class Jeu {
 	
-	// Constructeur
+	/// Constructeur ///
 	public Jeu()
 	{
 		
 	}
 
-	public void Jouer(Personnage Joueur1, Personnage Joueur2, boolean Solo){
-		
+	public void Jouer(Personnage Joueur1, Personnage Joueur2, boolean Solo)
+	{
 		//MAP DE BASE
 		
 		/* DÉTAIL MAP : 
@@ -97,73 +97,88 @@ public class Jeu {
 			Joueur2.Affiche_bonus_Joueur2();
 
 			
-			//Timer
+			/// Timer ///
 			Long Time_seconde = (System.currentTimeMillis() - Heure_debut)/1000;
-			if(Time_seconde > 59){
+			if(Time_seconde > 59)
+			{
 				Heure_debut = System.currentTimeMillis();
 				Time_minute = Time_minute + 1;
-				
 			}
-			//Affichage timer
-			if (Time_seconde < 10 && Time_minute < 10){
+			
+			/// Affichage timer ///
+			if (Time_seconde < 10 && Time_minute < 10)
+			{
 				StdDraw.text(1150, 116,"0" + Long.toString(Time_minute) + " : 0" + Long.toString(Time_seconde));
 			}
-			else if(Time_seconde >= 10 && Time_minute < 10){
+			else if(Time_seconde >= 10 && Time_minute < 10)
+			{
 				StdDraw.text(1150, 116,"0" + Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 			}
-			else if(Time_seconde < 10 && Time_minute >= 10){
+			else if(Time_seconde < 10 && Time_minute >= 10)
+			{
 				StdDraw.text(1150, 116,Long.toString(Time_minute) + " : 0" + Long.toString(Time_seconde));
 			}
-			else if(Time_seconde >= 10 && Time_minute >= 10){
+			else if(Time_seconde >= 10 && Time_minute >= 10)
+			{
 				StdDraw.text(1150, 116,Long.toString(Time_minute) + " : " + Long.toString(Time_seconde));
 			}
 			
-			//Affiche menu
-			if (StdDraw.isKeyPressed(27)){
-				
+			/// Affiche menu ///
+			if (StdDraw.isKeyPressed(27))
+			{
 				Menu.Affiche_Menu(map,Plateau_1,Joueur1,Joueur2,Time_seconde,Time_minute);
 			}
 			
 			
 		// --------- VERIFICATION DES VARIABLES --------- 
 			
-			// Verifie si les joueurs ont été touché par une explosion
+			// Verifie si les joueurs ont été touché par une explosion ///
 			Plateau_1.Verif_Touche(map, Joueur1, Joueur2);
 						
-			// Vérifie si un joueur a gagné
+			/// Vérifie si un joueur a gagné ///
 			Plateau_1.Verifie_WIN(Joueur1, Joueur2);
 			
 		// --------- DEPLACEMENT DU PERSONNAGE --------- 
 			
-			//Joueur 1
+			/// Joueur 1 ///
 			Joueur1.DeplacerJoueur1(Plateau_1);
 			
-			//COMMANDE DEVELOPPEUR
-				if (StdDraw.isKeyPressed(73) && map[Joueur1.getY()-1][Joueur1.getX()] != 0){
+			/// COMMANDE DEVELOPPEUR ///
+			
+				/// Haut ///
+				if (StdDraw.isKeyPressed(73) && map[Joueur1.getY()-1][Joueur1.getX()] != 0)
+				{
 					map[Joueur1.getY()-1][Joueur1.getX()] = 1;
 				}
-				if (StdDraw.isKeyPressed(76) && map[Joueur1.getY()][Joueur1.getX()+1] != 0){
+				
+				/// Droite ///
+				if (StdDraw.isKeyPressed(76) && map[Joueur1.getY()][Joueur1.getX()+1] != 0)
+				{
 					map[Joueur1.getY()][Joueur1.getX()+1] = 1;
 				}
-				if (StdDraw.isKeyPressed(74) && map[Joueur1.getY()][Joueur1.getX()-1] != 0){
+				
+				/// Gauche ///
+				if (StdDraw.isKeyPressed(74) && map[Joueur1.getY()][Joueur1.getX()-1] != 0)
+				{
 					map[Joueur1.getY()][Joueur1.getX()-1] = 1;
 				}
-				if (StdDraw.isKeyPressed(75) && map[Joueur1.getY()+1][Joueur1.getX()] != 0){
+				
+				/// Bas ///
+				if (StdDraw.isKeyPressed(75) && map[Joueur1.getY()+1][Joueur1.getX()] != 0)
+				{
 					map[Joueur1.getY()+1][Joueur1.getX()] = 1;
 					System.out.println(Joueur2.getX() + " , " + Joueur2.getY());
 				}
 			
-			
-			
-			
 			//Joueur 2
-			if (Solo == false){
+			if (Solo == false)
+			{
 				Joueur2.DeplacerJoueur2(Plateau_1);
 			}
-			else if (Solo == true){
+			else if (Solo == true)
+			{
 				IA_1.Deplacement_IA(Joueur1,Joueur2,Plateau_1);
 			}
-			
 			Joueur1.PoserBombe(Plateau_1);
 			
 			// A faire au propre plus tard //
