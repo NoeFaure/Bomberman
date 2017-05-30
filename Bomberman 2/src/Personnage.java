@@ -152,8 +152,7 @@ public class Personnage {
 	
 	public void PoserBombe(Plateau Plateau_1) 
 	{
-		if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[y][x] != 3) && (nbBombe > 0) ) // espace //
-		{
+		
 			Plateau_1.map[y][x] = 3;
 			nbBombe -= 1;
 		
@@ -168,7 +167,6 @@ public class Personnage {
 					assigne = 1;
 				}
 			}
-		}
 	}
 	
 	public void CompteARebourd(Plateau Plateau_1, Personnage Joueur1, Personnage Joueur2) //Renvoi les coordonnees d'une bombe qui explose

@@ -179,8 +179,10 @@ public class Jeu {
 			{
 				IA_1.Deplacement_IA(Joueur1,Joueur2,Plateau_1);
 			}
+			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Joueur1.getY()][Joueur1.getX()] != 3) && (Joueur1.getNbBombe() > 0)) // espace //
+			{
 			Joueur1.PoserBombe(Plateau_1);
-			
+			}
 			// A faire au propre plus tard //
 			Joueur1.CompteARebourd(Plateau_1, Joueur1, Joueur2); //renommer plus tard //
 			Joueur1.EnleverFlamme(Plateau_1);
