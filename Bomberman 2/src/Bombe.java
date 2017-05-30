@@ -3,7 +3,7 @@ import edu.princeton.cs.introcs.StdDraw;
 public class Bombe {
 	private int x;
 	private int y;
-	private int delai = 25;
+	private int delai = 46;
 	private int portee = 3;
 	private Flamme[] listeFlamme = new Flamme[41];
 	private boolean Explose = false;
