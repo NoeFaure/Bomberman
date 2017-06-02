@@ -162,7 +162,10 @@ public class Bombe {
 			{
 				if(Plateau_1.getMap()[y+r][x] == 4) // Si l'explosion rencontre un mur incassable : arr�t imm�diat
 				{
-					bas = 1;
+					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
+					{
+						bas = 1;
+					}
 				}
 				else if(Plateau_1.getMap()[y+r][x] == 3 && (bas == 0)) // Si l'explosion rencontre une autre bombe //
 				{
@@ -184,7 +187,10 @@ public class Bombe {
 					Plateau_1.getMap()[y+r][x] = 5; // On detruit le bloc cassable //
 					listeFlamme[compteur] = new Flamme(x,y+r,true);
 					compteur += 1;
-					bas = 1;
+					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
+					{
+						bas = 1;
+					}
 				}
 				
 				else if(bas == 0) // Si la flamme ne rencontre que de l'herbe
@@ -199,14 +205,20 @@ public class Bombe {
 			{
 				if(Plateau_1.getMap()[y-r][x] == 4) // Si la flamme rencontre un bloc incassable
 				{
-					haut = 1;
+					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
+					{
+						haut = 1;
+					}
 				}
 				else if((Plateau_1.getMap()[y-r][x] == 2) && (haut == 0)) // Si la flamme rencontre un bloc cassable
 				{
 					Plateau_1.getMap()[y-r][x] = 5;
 					listeFlamme[compteur] = new Flamme(x,y-r,true);
 					compteur += 1;
-					haut = 1;
+					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
+					{
+						haut = 1;
+					}
 				}
 				else if(Plateau_1.getMap()[y-r][x] == 3 && (haut == 0)) // Si la flamme rencontre une autre bombe 
 				{
@@ -235,14 +247,20 @@ public class Bombe {
 			{
 				if(Plateau_1.getMap()[y][x+r] == 4)// Si la flamme rencontre un bloc incassable
 				{
-					droite = 1;
+					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
+					{
+						droite = 1;
+					}
 				}
 				else if((Plateau_1.getMap()[y][x+r] == 2) && droite == 0) // Si la flamme rencontre un bloc cassable
 				{
 					Plateau_1.getMap()[y][x+r] = 5;
 					listeFlamme[compteur] = new Flamme(x+r,y,true);
 					compteur += 1;
-					droite = 1;
+					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
+					{
+						droite = 1;
+					}
 				}
 				else if(Plateau_1.getMap()[y][x+r] == 3 && (droite == 0)) // Si la flamme rencontre une autre bombe 
 				{
@@ -271,14 +289,20 @@ public class Bombe {
 			{
 				if(Plateau_1.getMap()[y][x-r] == 4)// Si la flamme rencontre un bloc incassable
 				{
-					gauche = 1;
+					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
+					{
+						gauche = 1;
+					}
 				}
 				else if((Plateau_1.getMap()[y][x-r] == 2) && gauche == 0)// Si la flamme rencontre un bloc cassable
 				{
 					Plateau_1.getMap()[y][x-r] = 5;
 					listeFlamme[compteur] = new Flamme(x-r,y,true);
 					compteur += 1;
-					gauche = 1;	
+					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
+					{
+						haut = 1;
+					}	
 				}
 				else if(Plateau_1.getMap()[y][x-r] == 3 && (gauche == 0)) // Si la flamme rencontre une autre bombe 
 				{

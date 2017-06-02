@@ -53,12 +53,20 @@ public class Bonus {
 		if (Choix_bonus == 0)
 		{
 			Joueur.getListeBonus()[0] = 1;
+			if(Joueur.getPortee() < 10)
+			{
+				Joueur.setPortee(Joueur.getPortee() + 1);
+			}
 		}
 		
 		// Flamme Bleue attribuee
 		if (Choix_bonus == 1)
 		{
 			Joueur.getListeBonus()[0] = 2;
+			if(Joueur.getPortee() > 1)
+			{
+				Joueur.setPortee(Joueur.getPortee() - 1);
+			}
 		}
 		
 		// Flamme Verte attribuee
@@ -71,6 +79,7 @@ public class Bonus {
 		if (Choix_bonus == 3)
 		{
 			Joueur.getListeBonus()[0] = 4;
+			Joueur.setPortee(10);
 		}
 		
 		// Bombe rouge attribuee
@@ -82,13 +91,31 @@ public class Bonus {
 		// Speed Up attribuee
 		if (Choix_bonus == 5)
 		{
-			Joueur.getListeBonus()[2] = 1;
+			if(Joueur.getListeBonus()[3] == 0) // Si le joueur nest pas ralenti
+			{
+				Joueur.getListeBonus()[2] = 1;
+				Joueur.setVitesse(Joueur.getVitesse()*2);
+			}
+			else
+			{
+				Joueur.getListeBonus()[3] = 0;
+			}
 		}
 		
 		// Slow down attribuee
 		if (Choix_bonus == 6)
 		{
-			Joueur.getListeBonus()[3] = 1;
+			if(Joueur.getListeBonus()[2] == 0) // Si le joueur nest pas accelere
+			{
+				Joueur.getListeBonus()[3] = 1;
+				Joueur.setVitesse(Joueur.getVitesse()/2);
+			}
+			else
+			{
+				Joueur.getListeBonus()[2] = 0;
+			}
+				
+			
 		}
 		
 		// Mine attribuee

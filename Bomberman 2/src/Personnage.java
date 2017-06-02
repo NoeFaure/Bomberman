@@ -97,7 +97,7 @@ public class Personnage {
 		return vitesse;
 	}
 	
-	public void setVitesse(int vitesse) 
+	public void setVitesse(float vitesse) 
 	{
 		this.vitesse = vitesse;
 	}
