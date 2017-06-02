@@ -5,7 +5,8 @@ import edu.princeton.cs.introcs.StdDraw;
 public class Bombe {
 	private int x;
 	private int y;
-	private int delai = 46;
+	private long Moment_crea = System.currentTimeMillis();
+	private long delai = 5000;
 	private Flamme[] listeFlamme = new Flamme[41];
 	private boolean Explose = false;
 	//private Personnage joueur;
@@ -19,9 +20,19 @@ public class Bombe {
 	}
 	
 	/// Setters and Getters ///
+	
+	
 	public boolean isExplose() 
 	{
 		return Explose;
+	}
+
+	public long getMoment_crea() {
+		return Moment_crea;
+	}
+
+	public void setMoment_crea(long moment_crea) {
+		Moment_crea = moment_crea;
 	}
 
 	public void setExplose(boolean aExplose) 
@@ -59,12 +70,12 @@ public class Bombe {
 		this.y = y;
 	}
 
-	public int getDelai() 
+	public long getDelai() 
 	{
 		return delai;
 	}
 
-	public void setDelai(int delai) 
+	public void setDelai(long delai) 
 	{
 		this.delai = delai;
 	}
@@ -107,7 +118,7 @@ public class Bombe {
 		Font font_2 = new Font("Arial", Font.BOLD, 10);
 		StdDraw.setFont(font_2);
 		
-		StdDraw.text(x*50+23,y*40+37, Integer.toString(delai));
+		StdDraw.text(x*50+23,y*40+37, Long.toString((5000 - delai)/1000) + "." + Long.toString((5000 - delai)/100 - ((5000 - delai)/1000)*10));
 		
 	}
 	public void exploserBombe(Plateau Plateau_1, Personnage Joueur1, Personnage Joueur2)

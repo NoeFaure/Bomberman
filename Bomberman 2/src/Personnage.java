@@ -191,8 +191,8 @@ public class Personnage {
 		{
 			if(this.listeBombe[i] != null)
 			{
-				this.listeBombe[i].setDelai(this.listeBombe[i].getDelai() - 1);
-				if(this.listeBombe[i].getDelai() == 0 && this.listeBombe[i].isExplose() == false)
+				this.listeBombe[i].setDelai(System.currentTimeMillis() - this.listeBombe[i].getMoment_crea());
+				if(this.listeBombe[i].getDelai() > 5000 && this.listeBombe[i].isExplose() == false)
 				{
 					this.listeBombe[i].setExplose(true);
 					bombe = this.listeBombe[i];
