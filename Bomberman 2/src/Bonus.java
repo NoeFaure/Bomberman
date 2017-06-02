@@ -91,10 +91,14 @@ public class Bonus {
 		// Speed Up attribuee
 		if (Choix_bonus == 5)
 		{
-			if(Joueur.getListeBonus()[3] == 0) // Si le joueur nest pas ralenti
+			if(Joueur.getListeBonus()[3] == 0 && Joueur.getListeBonus()[2] == 0) // Si le joueur nest pas ralenti
 			{
 				Joueur.getListeBonus()[2] = 1;
 				Joueur.setVitesse(Joueur.getVitesse()*2);
+			}
+			else if(Joueur.getListeBonus()[3] == 0 && Joueur.getListeBonus()[2] == 1)
+			{
+				
 			}
 			else
 			{
@@ -110,12 +114,13 @@ public class Bonus {
 				Joueur.getListeBonus()[3] = 1;
 				Joueur.setVitesse(Joueur.getVitesse()/2);
 			}
+			else if(Joueur.getListeBonus()[2] == 0 && Joueur.getListeBonus()[3] == 1)
+			{
+			}
 			else
 			{
-				Joueur.getListeBonus()[2] = 0;
-			}
-				
-			
+				Joueur.getListeBonus()[3] = 0;
+			}	
 		}
 		
 		// Mine attribuee

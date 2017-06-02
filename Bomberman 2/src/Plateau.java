@@ -196,14 +196,29 @@ public class Plateau {
 			{
 				if(map[i][j] == 5 && j == x1 && i == y1)
 				{
+					if(Joueur1.getListeBonus()[7] == 0)
+					{
 					Joueur1.setVie(Joueur1.getVie() - 1);
 					Musique.JouerMusique("Musique/Touch.wav");
+					}
+					else
+					{
+						Joueur1.getListeBonus()[7] = 0;
+					}
 				}
 				
 				if(map[i][j] == 5 && j == x2 && i == y2)
 				{
-					Joueur2.setVie(Joueur2.getVie() - 1);
+					
+					if(Joueur1.getListeBonus()[7] == 0)
+					{
+					Joueur1.setVie(Joueur1.getVie() - 1);
 					Musique.JouerMusique("Musique/Touch.wav");
+					}
+					else
+					{
+						Joueur1.getListeBonus()[7] = 0;
+					}
 				}
 			}
 		}
