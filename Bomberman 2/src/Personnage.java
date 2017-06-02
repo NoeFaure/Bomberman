@@ -1,3 +1,5 @@
+import java.awt.Font;
+
 import edu.princeton.cs.introcs.StdDraw;
 
 public class Personnage {
@@ -345,6 +347,9 @@ public class Personnage {
 		StdDraw.picture(1217,343, "Images/Bonus/Shield.png");
 		}
 		// Nb de vie
+		Font font = new Font("Arial", Font.BOLD, 30);
+		StdDraw.setFont(font);
+		
 		StdDraw.text(1213, 249, Integer.toString((vie)));
 		
 		// Nb de bombes
@@ -419,6 +424,9 @@ public class Personnage {
 		StdDraw.picture(1217,547, "Images/Bonus/Shield.png");
 		}
 		// Nb de vie
+		Font font = new Font("Arial", Font.BOLD, 30);
+		StdDraw.setFont(font);
+		
 		StdDraw.text(1213, 454, Integer.toString((vie)));
 		
 		// Nb de bombes
