@@ -89,11 +89,13 @@ public class Plateau {
 					StdDraw.picture(50*(j)+25, i*40+17, "Images/Bloc/Wall Block.png",50,85);
 				}
 				
-				// Bombes // // Plus utile ? //
+				// Bombes
 				if (map[i][j] == 3)
 				{
 					StdDraw.picture(50*(j)+25, i*40+37, "Images/Bloc/Grass Block 2.png",50,85);
 					StdDraw.picture(50*(j)+25, i*40+37, "Images/Bonus/Bomb.png",50,85);
+					(Joueur1.identificationBombe(j,i)).Affiche_delai();
+					(Joueur2.identificationBombe(j,i)).Affiche_delai();
 					
 						/// Affiche perso ///
 						/// Joueur 1 ///

@@ -1,3 +1,5 @@
+import java.awt.Font;
+
 import edu.princeton.cs.introcs.StdDraw;
 
 public class Bombe {
@@ -101,6 +103,14 @@ public class Bombe {
 		return resultat;
 	}
 	
+	//test
+	public void Affiche_delai(){
+		Font font = new Font("Arial", Font.BOLD, 10);
+		StdDraw.setFont(font);
+		
+		StdDraw.text(x*50+23,y*40+37, Integer.toString(delai));
+		
+	}
 	public void exploserBombe(Plateau Plateau_1, Personnage Joueur1, Personnage Joueur2)
 	{
 		//Joue la musique

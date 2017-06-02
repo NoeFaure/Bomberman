@@ -98,6 +98,9 @@ public class Jeu {
 
 			
 			/// Timer ///
+			Font font_2 = new Font("Arial", Font.BOLD, 10);
+			StdDraw.setFont(font_2);
+			
 			Long Time_seconde = (System.currentTimeMillis() - Heure_debut)/1000;
 			if(Time_seconde > 59)
 			{
