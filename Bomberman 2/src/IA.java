@@ -292,8 +292,8 @@ public class IA {
 		// ------------- ESQUIVE ------------- 
 		
 		int [][] Matrice_Danger = Generation_matrice_de_danger(Joueur1,Joueur2);
-		int X_IA = Joueur2.getX();
-		int Y_IA = Joueur2.getY();
+		int X_IA = Math.round(Joueur2.getX());
+		int Y_IA = Math.round(Joueur2.getY());
 		
 		//Si le joueur est en danger ( defensif )
 		if (Matrice_Danger[Y_IA][X_IA] == 1)
@@ -316,8 +316,8 @@ public class IA {
 		//Generation d'un nombre entre [0;3]
 		int deplacement = (int) (Math.random() * 4);
 		
-		int X_IA = Joueur2.getX();
-		int Y_IA = Joueur2.getY();
+		int X_IA = Math.round(Joueur2.getX());
+		int Y_IA = Math.round(Joueur2.getY());
 		
 		//Droite
 		if (deplacement == 0 && Map.getMap()[Y_IA+1][X_IA] == 1)

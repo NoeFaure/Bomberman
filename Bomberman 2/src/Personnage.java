@@ -3,7 +3,7 @@ import edu.princeton.cs.introcs.StdDraw;
 public class Personnage {
 	
 	private int vie = 3;
-	private int vitesse = 1;
+	private float vitesse = 0.25f;
 	private int nbBombe = 3;
 	private float x;
 	private float y;
@@ -80,7 +80,7 @@ public class Personnage {
 		this.vie = vie;
 	}
 	
-	public int getVitesse() 
+	public float getVitesse() 
 	{
 		return vitesse;
 	}
