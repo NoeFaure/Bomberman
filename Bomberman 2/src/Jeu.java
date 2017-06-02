@@ -165,7 +165,15 @@ public class Jeu {
 			if (Solo == false)
 			{
 				Joueur2.DeplacerJoueur2(Plateau_1);
+				
+				if( (StdDraw.isKeyPressed(16)) && (Plateau_1.map[Math.round(Joueur2.getY())][Math.round(Joueur2.getX())] != 3) && (Joueur2.getNbBombe() > 0))
+				{
+				Joueur2.PoserBombe(Plateau_1);
+				}
+				Joueur2.CompteARebourd(Plateau_1, Joueur1, Joueur2);
+				Joueur2.EnleverFlamme(Plateau_1);
 			}
+			
 			else if (Solo == true)
 			{
 				System.out.println(Solo);
