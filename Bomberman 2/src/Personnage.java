@@ -358,6 +358,7 @@ public class Personnage {
 		}
 		// Nb de vie
 		Font font = new Font("Arial", Font.BOLD, 30);
+		StdDraw.setPenColor(StdDraw.WHITE);
 		StdDraw.setFont(font);
 		
 		StdDraw.text(1213, 249, Integer.toString((vie)));
@@ -435,6 +436,7 @@ public class Personnage {
 		}
 		// Nb de vie
 		Font font = new Font("Arial", Font.BOLD, 30);
+		StdDraw.setPenColor(StdDraw.WHITE);
 		StdDraw.setFont(font);
 		
 		StdDraw.text(1213, 454, Integer.toString((vie)));

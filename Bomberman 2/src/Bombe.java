@@ -116,6 +116,7 @@ public class Bombe {
 	//test
 	public void Affiche_delai(){
 		Font font_2 = new Font("Arial", Font.BOLD, 10);
+		StdDraw.setPenColor(StdDraw.RED);
 		StdDraw.setFont(font_2);
 		
 		StdDraw.text(x*50+23,y*40+37, Long.toString((5000 - delai)/1000) + "." + Long.toString((5000 - delai)/100 - ((5000 - delai)/1000)*10));
