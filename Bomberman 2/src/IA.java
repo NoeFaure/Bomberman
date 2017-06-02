@@ -59,7 +59,7 @@ public class IA {
 				
 				// On recupere la portee de la bombe du joueurs pour evaluer la taille de
 				// l'explosion.
-				int Portee = bombe.getPortee() + 1;
+				int Portee = Joueur1.getPortee() + 1;
 				
 				//On place des 1 sur les endroits ou l'explosion apparaitera.
 				//On creer des variables stop au cas ou on depasse la taille de la map.
@@ -178,7 +178,7 @@ public class IA {
 				
 				// On recupere la portee de la bombe du joueurs pour evaluer la taille de
 				// l'explosion.
-				int Portee = bombe.getPortee() + 1;
+				int Portee = Joueur2.getPortee() + 1;
 				
 				//On place des 1 sur les endroits ou l'explosion apparaitera.
 				//On creer des variables stop au cas ou on depasse la taille de la map.

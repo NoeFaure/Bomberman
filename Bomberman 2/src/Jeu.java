@@ -144,7 +144,7 @@ public class Jeu {
 			
 			/// Joueur 1 ///
 			Joueur1.DeplacerJoueur1(Plateau_1);
-			System.out.println(Joueur1.getX() + " " + Joueur2.getY());
+			//System.out.println(Joueur1.getX() + " " + Joueur2.getY());
 
 			
 			//COMMANDE DEVELOPPEUR ( Je la nettoie pas parce qu'elle est vouee a etre effacee *niark*)
@@ -168,6 +168,7 @@ public class Jeu {
 			}
 			else if (Solo == true)
 			{
+				System.out.println(Solo);
 				IA_1.Deplacement_IA(Joueur1,Joueur2,Plateau_1);
 			}
 			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && (Joueur1.getNbBombe() > 0)) // espace //

@@ -6,7 +6,6 @@ public class Bombe {
 	private int x;
 	private int y;
 	private int delai = 46;
-	private int portee = 3;
 	private Flamme[] listeFlamme = new Flamme[41];
 	private boolean Explose = false;
 	//private Personnage joueur;
@@ -70,7 +69,7 @@ public class Bombe {
 		this.delai = delai;
 	}
 
-	public int getPortee() 
+	/*public int getPortee() 
 	{
 		return portee;
 	}
@@ -78,7 +77,7 @@ public class Bombe {
 	public void setPortee(int portee) 
 	{
 		this.portee = portee;
-	}
+	}*/
 
 	/*public Personnage getJoueur() 
 	{
@@ -115,7 +114,7 @@ public class Bombe {
 	{
 		//Joue la musique
 		Musique.JouerMusique("Musique/Explosion.wav");
-		
+		Personnage Joueur = Joueur1;
 		// Verifie a qui appartient la bombe pour lui en redonner une //
 		if(Joueur1.identificationBombe(x, y).x != -1) // Si la bombe appartient au joueur1
 		{
@@ -123,12 +122,14 @@ public class Bombe {
 			int positionListeJ1 = Joueur1.positionBombe(x,y);
 			Joueur1.getListeBombe()[positionListeJ1].setExplose(true);
 			System.out.println(" +1 ! " + x + " " + y);
+			Joueur = Joueur1;
 		}
 		else if(Joueur2.identificationBombe(x, y).x != -1) // Si la bombe appartient au joueur2
 		{
 			Joueur2.setNbBombe(Joueur2.getNbBombe() + 1);
 			int positionListeJ2 = Joueur2.positionBombe(x,y);
 			Joueur2.getListeBombe()[positionListeJ2].setExplose(true);
+			Joueur = Joueur2;
 		}
 		
 		Plateau_1.getMap()[y][x] = 5;
@@ -142,7 +143,7 @@ public class Bombe {
 		int bas = 0; // Permet de verifier si la flamme s'arrete en bas //
 		
 		// Creation des flammes de la bombe qui explose //
-		for(int r = 1; r <= portee; r++)
+		for(int r = 1; r <= Joueur.getPortee() ; r++)
 		{
 			// Flammes du bas //
 			if(y + r < 16) // on verifie que la flamme est dans les limites du terrain //

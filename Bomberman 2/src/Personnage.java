@@ -6,6 +6,7 @@ public class Personnage {
 	private int vie = 3;
 	private float vitesse = 0.25f;
 	private int nbBombe = 3;
+	private int portee = 3;
 	private float x;
 	private float y;
 	private Bombe[] listeBombe = new Bombe[10];
@@ -39,6 +40,16 @@ public class Personnage {
 	public void setOrientation(String orientation) 
 	{
 		Orientation = orientation;
+	}
+
+	
+	
+	public int getPortee() {
+		return portee;
+	}
+
+	public void setPortee(int portee) {
+		this.portee = portee;
 	}
 
 	public int[] getListeBonus() 
