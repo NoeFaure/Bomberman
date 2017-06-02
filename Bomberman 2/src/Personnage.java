@@ -122,7 +122,7 @@ public class Personnage {
 	
 	/// Methodes ///
 
-	public void Affiche_perso(int x, int y,String texture)
+	public void Affiche_perso(String texture)
 	{
 		
 		if (texture == "Images/Skin/Bomberman Perso 1.png")

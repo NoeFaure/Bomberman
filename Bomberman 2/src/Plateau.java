@@ -58,16 +58,16 @@ public class Plateau {
 					
 					/// Affiche perso ///
 					///  Joueur 1 ///
-					if(Joueur1.getX() == j && Joueur1.getY() == i)
+					if(Math.round(Joueur1.getX()) == j && Math.round(Joueur1.getY()) == i)
 					{
-						Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
+						Joueur1.Affiche_perso(Joueur1.getSkin());
 						//System.out.println(j+" "+i);	
 					}
 					
 					/// Joueur 2 ///
-					if(Joueur2.getX() == j && Joueur2.getY() == i)
+					if(Math.round(Joueur2.getX()) == j && Math.round(Joueur2.getY()) == i)
 					{
-						Joueur2.Affiche_perso(j, i, Joueur2.getSkin());
+						Joueur2.Affiche_perso(Joueur2.getSkin());
 					}
 					
 					/// Gestion de l'ombre ///
@@ -99,16 +99,16 @@ public class Plateau {
 					
 						/// Affiche perso ///
 						/// Joueur 1 ///
-						if(Joueur1.getX() == j && Joueur1.getY() == i)
+						if(Math.round(Joueur1.getX()) == j && Math.round(Joueur1.getY()) == i)
 						{
-							Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
+							Joueur1.Affiche_perso(Joueur1.getSkin());
 							//System.out.println(j+" "+i);
 						}
 						
 						/// Joueur 2 ///
-						if(Joueur2.getX() == j && Joueur2.getY() == i)
+						if(Math.round(Joueur2.getX()) == j && Math.round(Joueur2.getY()) == i)
 						{
-							Joueur2.Affiche_perso(j, i, Joueur2.getSkin());
+							Joueur2.Affiche_perso(Joueur2.getSkin());
 						}
 						
 						/// Gestion de l'ombre ///
@@ -125,16 +125,16 @@ public class Plateau {
 					
 					/// Affiche perso ///
 					/// Joueur 1 ///
-					if(Joueur1.getX() == j && Joueur1.getY() == i)
+					if(Math.round(Joueur1.getX()) == j && Math.round(Joueur1.getY()) == i)
 					{
-						Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
+						Joueur1.Affiche_perso(Joueur1.getSkin());
 						//System.out.println(j+" "+i);
 					}
 					
 					/// Joueur 2 ///
-					if(Joueur2.getX() == j && Joueur2.getY() == i)
+					if(Math.round(Joueur2.getX()) == j && Math.round(Joueur2.getY()) == i)
 					{
-						Joueur2.Affiche_perso(j, i, Joueur2.getSkin());
+						Joueur2.Affiche_perso(Joueur2.getSkin());
 					}
 					
 					/// Gestion de l'ombre ///
@@ -152,9 +152,9 @@ public class Plateau {
 					
 					/// Affiche perso ///
 					/// Joueur 1 ///
-					if(Joueur1.getX() == j && Joueur1.getY() == i)
+					if(Math.round(Joueur1.getX()) == j && Math.round(Joueur1.getY()) == i)
 					{
-						Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
+						Joueur1.Affiche_perso(Joueur1.getSkin());
 						for(int k = 0; k < 20; k++)
 						{
 							if(listeBonus[k] != null)
@@ -168,14 +168,14 @@ public class Plateau {
 								}
 							}
 						}
-						Joueur1.Affiche_perso(j, i, Joueur1.getSkin());
+						Joueur1.Affiche_perso(Joueur1.getSkin());
 						//System.out.println(j+" "+i);
 					}
 					
 					/// Joueur 2 ///
 					if(Joueur2.getX() == j && Joueur2.getY() == i)
 					{
-						Joueur2.Affiche_perso(j, i, Joueur2.getSkin());
+						Joueur2.Affiche_perso(Joueur2.getSkin());
 					}
 				}
 			}

@@ -143,7 +143,9 @@ public class Jeu {
 		// --------- DEPLACEMENT DU PERSONNAGE --------- 
 			
 			/// Joueur 1 ///
-Joueur1.DeplacerJoueur1(Plateau_1);
+			Joueur1.DeplacerJoueur1(Plateau_1);
+			System.out.println(Joueur1.getX() + " " + Joueur2.getY());
+
 			
 			//COMMANDE DEVELOPPEUR ( Je la nettoie pas parce qu'elle est vouee a etre effacee *niark*)
 				if (StdDraw.isKeyPressed(73) && map[(int)Joueur1.getY()-1][(int)Joueur1.getX()] != 0){
@@ -177,7 +179,7 @@ Joueur1.DeplacerJoueur1(Plateau_1);
 			Joueur1.EnleverFlamme(Plateau_1);
 			
 			StdDraw.show();
-			StdDraw.pause(50);
+			StdDraw.pause(30);
 		}
 	}
 }
