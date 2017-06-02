@@ -302,7 +302,7 @@ public class IA {
 		}
 		//Si le joueur n'est en danger ( offensif )
 		else{
-			if(Joueur2.getListeBombe()[0] == null){
+			if((int) (Math.random() * 40 ) == 1){
 				Joueur2.PoserBombe(Map);
 			}
 		}
