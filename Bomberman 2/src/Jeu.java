@@ -144,35 +144,22 @@ public class Jeu {
 		// --------- DEPLACEMENT DU PERSONNAGE --------- 
 			
 			/// Joueur 1 ///
-			Joueur1.DeplacerJoueur1(Plateau_1);
+Joueur1.DeplacerJoueur1(Plateau_1);
 			
-			/// COMMANDE DEVELOPPEUR ///
-			
-				/// Haut ///
-				if (StdDraw.isKeyPressed(73) && map[Joueur1.getY()-1][Joueur1.getX()] != 0)
-				{
-					map[Joueur1.getY()-1][Joueur1.getX()] = 1;
+			//COMMANDE DEVELOPPEUR ( Je la nettoie pas parce qu'elle est vouee a etre effacee *niark*)
+				if (StdDraw.isKeyPressed(73) && map[(int)Joueur1.getY()-1][(int)Joueur1.getX()] != 0){
+					map[(int)Joueur1.getY()-1][(int)Joueur1.getX()] = 1;
+				}
+				if (StdDraw.isKeyPressed(76) && map[(int)Joueur1.getY()][(int)Joueur1.getX()+1] != 0){
+					map[(int)Joueur1.getY()][(int)Joueur1.getX()+1] = 1;
+				}
+				if (StdDraw.isKeyPressed(74) && map[(int)Joueur1.getY()][(int)Joueur1.getX()-1] != 0){
+					map[(int)Joueur1.getY()][(int)Joueur1.getX()-1] = 1;
+				}
+				if (StdDraw.isKeyPressed(75) && map[(int)Joueur1.getY()+1][(int)Joueur1.getX()] != 0){
+					map[(int)Joueur1.getY()+1][(int)Joueur1.getX()] = 1;
 				}
 				
-				/// Droite ///
-				if (StdDraw.isKeyPressed(76) && map[Joueur1.getY()][Joueur1.getX()+1] != 0)
-				{
-					map[Joueur1.getY()][Joueur1.getX()+1] = 1;
-				}
-				
-				/// Gauche ///
-				if (StdDraw.isKeyPressed(74) && map[Joueur1.getY()][Joueur1.getX()-1] != 0)
-				{
-					map[Joueur1.getY()][Joueur1.getX()-1] = 1;
-				}
-				
-				/// Bas ///
-				if (StdDraw.isKeyPressed(75) && map[Joueur1.getY()+1][Joueur1.getX()] != 0)
-				{
-					map[Joueur1.getY()+1][Joueur1.getX()] = 1;
-					System.out.println(Joueur2.getX() + " , " + Joueur2.getY());
-				}
-			
 			//Joueur 2
 			if (Solo == false)
 			{
@@ -182,7 +169,7 @@ public class Jeu {
 			{
 				IA_1.Deplacement_IA(Joueur1,Joueur2,Plateau_1);
 			}
-			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Joueur1.getY()][Joueur1.getX()] != 3) && (Joueur1.getNbBombe() > 0)) // espace //
+			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && (Joueur1.getNbBombe() > 0)) // espace //
 			{
 			Joueur1.PoserBombe(Plateau_1);
 			}

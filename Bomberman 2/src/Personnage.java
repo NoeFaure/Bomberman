@@ -5,8 +5,8 @@ public class Personnage {
 	private int vie = 3;
 	private int vitesse = 1;
 	private int nbBombe = 3;
-	private int x;
-	private int y;
+	private float x;
+	private float y;
 	private Bombe[] listeBombe = new Bombe[10];
 	private int[] listeBonus = {0,0,0,0,0,0,0,0};
 	private String Skin = "Skin 404.png";
@@ -100,7 +100,7 @@ public class Personnage {
 		this.nbBombe = nbBombe;
 	}
 	
-	public int getX() 
+	public float getX() 
 	{
 		return x;
 	}
@@ -110,7 +110,7 @@ public class Personnage {
 		this.x = x;
 	}
 	
-	public int getY() 
+	public float getY() 
 	{
 		return y;
 	}
@@ -152,8 +152,9 @@ public class Personnage {
 	
 	public void PoserBombe(Plateau Plateau_1) 
 	{
-		
-			Plateau_1.map[y][x] = 3;
+		if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(y)][Math.round(x)] != 3) && (nbBombe > 0) ) // espace //
+		{
+			Plateau_1.map[Math.round(y)][Math.round(x)] = 3;
 			nbBombe -= 1;
 		
 			int nbBombeMax = 10;
@@ -162,11 +163,12 @@ public class Personnage {
 			{
 				if(this.listeBombe[i] == null && assigne == 0) // Verifie qu'un emplacement pour bombe est dispo
 				{
-					Bombe bombe = new Bombe(this.x, this.y);
+					Bombe bombe = new Bombe(Math.round(this.x), Math.round(this.y));
 					this.listeBombe[i] = bombe;
 					assigne = 1;
 				}
 			}
+		}
 	}
 	
 	public void CompteARebourd(Plateau Plateau_1, Personnage Joueur1, Personnage Joueur2) //Renvoi les coordonnees d'une bombe qui explose
@@ -223,24 +225,25 @@ public class Personnage {
 	/// Deplacement du joueur 1 ///
 	public void DeplacerJoueur1(Plateau Plateau_1)
 	{
-		if(StdDraw.isKeyPressed(68) && (Plateau_1.map[y][x + 1] != 0) && (Plateau_1.map[y][x + 1] != 2) && (Plateau_1.map[y][x + 1] != 4))
+		if(StdDraw.isKeyPressed(68) && (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 0) && (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 2) && (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 4) && (Plateau_1.map[(int)(y)][(int)(x + vitesse)] != 2) && (Plateau_1.map[(int)(y)][(int)(x + vitesse)] != 4))
 		{			
-			x += 1;
+			x += vitesse;
 			Orientation = "droite";
 		}
-		if(StdDraw.isKeyPressed(90) && (Plateau_1.map[y - 1][x] != 0) && (Plateau_1.map[y - 1][x] != 2) && (Plateau_1.map[y - 1][x] != 4))
+		if(StdDraw.isKeyPressed(90) && (Plateau_1.map[Math.round(y - vitesse)][Math.round(x)] != 0)
+				/*&& (Plateau_1.map[Math.round(y - vitesse)][Math.round(x)] != 2)*/ /*&& (Plateau_1.map[Math.round(y - vitesse)][Math.round(x)] != 4)*/ && (Plateau_1.map[(int)(y - vitesse)][Math.round(x)] != 4) && (Plateau_1.map[(int)(y - vitesse)][Math.round(x)] != 2) && (Plateau_1.map[(int)(y - vitesse)][(int)(x)] != 4) && (Plateau_1.map[(int)(y - vitesse)][(int)(x)] != 2))
 		{
-			y -= 1;
+			y -= vitesse;
 			Orientation = "haut";
 		}
-		if(StdDraw.isKeyPressed(83)&& (Plateau_1.map[y + 1][x] != 0) && (Plateau_1.map[y + 1][x] != 2) && (Plateau_1.map[y + 1][x] != 4))
+		if(StdDraw.isKeyPressed(83) && (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 0) && (Plateau_1.map[(int)(y + vitesse)][(int)(x)] != 2) && (Plateau_1.map[(int)(y + vitesse)][(int)(x)] != 4) && (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 2) && (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 4))
 		{
-			y += 1;
+			y += vitesse;
 			Orientation = "bas";
 		}
-		if(StdDraw.isKeyPressed(81)&& (Plateau_1.map[y][x - 1] != 0) && (Plateau_1.map[y][x - 1] != 2) && (Plateau_1.map[y][x - 1] != 4))
+		if(StdDraw.isKeyPressed(81) && (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 0) && (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 2) && (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 4)/* && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 2) && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 4) /*&& (Plateau_1.map[(int)(y)][(int)(x - vitesse/2)] != 0)*/)
 		{
-			x -= 1;
+			x -= vitesse;
 			Orientation = "gauche";
 		}
 	}
@@ -249,24 +252,28 @@ public class Personnage {
 	
 	public void DeplacerJoueur2(Plateau Plateau_1)
 	{
-		if(StdDraw.isKeyPressed(39) && (Plateau_1.map[y][x + 1] != 0) && (Plateau_1.map[y][x + 1] != 2) && (Plateau_1.map[y][x + 1] != 4))
+		if(StdDraw.isKeyPressed(39) && (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 0) && (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 2) && (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 4) && (Plateau_1.map[(int)(y)][(int)(x + vitesse)] != 2) && (Plateau_1.map[(int)(y)][(int)(x + vitesse)] != 4))
 		{			
-			x += 1;
+			x += vitesse;
+			Orientation = "droite";
 		}
-		if(StdDraw.isKeyPressed(38) && (Plateau_1.map[y - 1][x] != 0) && (Plateau_1.map[y - 1][x] != 2) && (Plateau_1.map[y - 1][x] != 4))
+		if(StdDraw.isKeyPressed(38) && (Plateau_1.map[Math.round(y - vitesse)][Math.round(x)] != 0)
+				/*&& (Plateau_1.map[Math.round(y - vitesse)][Math.round(x)] != 2)*/ /*&& (Plateau_1.map[Math.round(y - vitesse)][Math.round(x)] != 4)*/ && (Plateau_1.map[(int)(y - vitesse)][Math.round(x)] != 4) && (Plateau_1.map[(int)(y - vitesse)][Math.round(x)] != 2) && (Plateau_1.map[(int)(y - vitesse)][(int)(x)] != 4) && (Plateau_1.map[(int)(y - vitesse)][(int)(x)] != 2))
 		{
-			y -= 1;
+			y -= vitesse;
+			Orientation = "haut";
 		}
-		if(StdDraw.isKeyPressed(40)&& (Plateau_1.map[y + 1][x] != 0) && (Plateau_1.map[y + 1][x] != 2) && (Plateau_1.map[y + 1][x] != 4))
+		if(StdDraw.isKeyPressed(40) && (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 0) && (Plateau_1.map[(int)(y + vitesse)][(int)(x)] != 2) && (Plateau_1.map[(int)(y + vitesse)][(int)(x)] != 4) && (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 2) && (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 4))
 		{
-			y += 1;
+			y += vitesse;
+			Orientation = "bas";
 		}
-		if(StdDraw.isKeyPressed(37)&& (Plateau_1.map[y][x - 1] != 0) && (Plateau_1.map[y][x - 1] != 2) && (Plateau_1.map[y][x - 1] != 4))
+		if(StdDraw.isKeyPressed(37) && (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 0) && (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 2) && (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 4)/* && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 2) && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 4) /*&& (Plateau_1.map[(int)(y)][(int)(x - vitesse/2)] != 0)*/)
 		{
-			x -= 1;
+			x -= vitesse;
+			Orientation = "gauche";
 		}
 	}
-	
 	
 	/// Affiche Bonus ///
 	public void Affiche_bonus_Joueur1()

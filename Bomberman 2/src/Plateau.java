@@ -184,11 +184,11 @@ public class Plateau {
 	
 	public void Verif_Touche(int [][] map, Personnage Joueur1, Personnage Joueur2)
 	{
-		int x1 = Joueur1.getX();
-		int y1 = Joueur1.getY();
+		int x1 = Math.round(Joueur1.getX());
+		int y1 = Math.round(Joueur1.getY());
 		
-		int x2 = Joueur2.getX();
-		int y2 = Joueur2.getY();
+		int x2 = Math.round(Joueur2.getX());
+		int y2 = Math.round(Joueur2.getY());
 		
 		for (int i=0;i < map.length; i++)
 		{
