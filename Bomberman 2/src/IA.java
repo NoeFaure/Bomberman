@@ -308,7 +308,7 @@ public class IA {
 				}
 				// L'IA n'est pas dans un bon emplacement pour poser une bombe
 				else{
-					Deplacement_aleatoire_Offensif(Joueur2, Map, Matrice_Danger);
+					Deplacement_Offensif(Joueur2,Joueur1, Map, Matrice_Danger);
 				}
 			}
 		}
@@ -359,26 +359,62 @@ public class IA {
 		int X_IA = Math.round(Joueur2.getX());
 		int Y_IA = Math.round(Joueur2.getY());
 		
-		//Droite
+		//Bas
 		if (deplacement == 0 && (Map.getMap()[Y_IA+1][X_IA] == 1 || Map.getMap()[Y_IA+1][X_IA] == 6) && Matrice_Danger[Y_IA+1][X_IA] != 1)
 		{
 			Joueur2.setY(Y_IA+1);
 		}
 		
-		//Gauche
+		//Haut
 		else if(deplacement == 1 && (Map.getMap()[Y_IA-1][X_IA] == 1 || Map.getMap()[Y_IA-1][X_IA] == 6) && Matrice_Danger[Y_IA-1][X_IA] != 1)
 		{
 			Joueur2.setY(Y_IA-1);
 		}
 		
-		//Haut
+		//Gauche
 		else if(deplacement == 2 && (Map.getMap()[Y_IA][X_IA-1] == 1 || Map.getMap()[Y_IA][X_IA-1] == 6) && Matrice_Danger[Y_IA][X_IA-1] != 1)
 		{
 			Joueur2.setX(X_IA-1);
 		}
 		
-		//Bas
+		//Droite
 		else if(deplacement == 3 && (Map.getMap()[Y_IA][X_IA+1] == 1 || Map.getMap()[Y_IA][X_IA+1] == 6) && Matrice_Danger[Y_IA][X_IA+1] != 1)
+		{
+			Joueur2.setX(X_IA+1);
+		}
+	}
+	
+	//TEST :
+	
+	public void Deplacement_Offensif(Personnage Joueur2, Personnage Joueur1, Plateau Map, int [][] Matrice_Danger)
+	{
+		
+		int X_adversaire = Math.round(Joueur1.getX());
+		int Y_adversaire = Math.round(Joueur1.getY());
+		
+		int X_IA = Math.round(Joueur2.getX());
+		int Y_IA = Math.round(Joueur2.getY());
+		
+		//Bas
+		if (Y_adversaire > Y_IA && (Map.getMap()[Y_IA+1][X_IA] == 1 || Map.getMap()[Y_IA+1][X_IA] == 6) && Matrice_Danger[Y_IA+1][X_IA] != 1)
+		{
+			Joueur2.setY(Y_IA+1);
+		}
+		
+		//Haut
+		else if(Y_adversaire < Y_IA  && (Map.getMap()[Y_IA-1][X_IA] == 1 || Map.getMap()[Y_IA-1][X_IA] == 6) && Matrice_Danger[Y_IA-1][X_IA] != 1)
+		{
+			Joueur2.setY(Y_IA-1);
+		}
+		
+		//Gauche
+		else if(X_adversaire < X_IA && (Map.getMap()[Y_IA][X_IA-1] == 1 || Map.getMap()[Y_IA][X_IA-1] == 6) && Matrice_Danger[Y_IA][X_IA-1] != 1)
+		{
+			Joueur2.setX(X_IA-1);
+		}
+		
+		//Droite
+		else if(X_adversaire > X_IA && (Map.getMap()[Y_IA][X_IA+1] == 1 || Map.getMap()[Y_IA][X_IA+1] == 6) && Matrice_Danger[Y_IA][X_IA+1] != 1)
 		{
 			Joueur2.setX(X_IA+1);
 		}
