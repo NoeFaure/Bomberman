@@ -303,7 +303,7 @@ public class IA {
 		//Si le joueur n'est en danger ( offensif )
 		else{
 			if(Joueur2.getListeBombe()[1] == null){
-				if(Cherche_Cul_De_Sac(Joueur2,Map) == true || Cherche_Zone_De_Securite_1(Joueur2,Map, Matrice_Danger) == true){
+				if(Cherche_Cul_De_Sac(Joueur2,Joueur1,Map) == true || Cherche_Zone_De_Securite_1(Joueur2,Map, Matrice_Danger) == true){
 					Joueur2.PoserBombe(Map);
 				}
 				// L'IA n'est pas dans un bon emplacement pour poser une bombe
@@ -420,38 +420,41 @@ public class IA {
 		}
 	}
 	
-	public boolean Cherche_Cul_De_Sac(Personnage Joueur2, Plateau Map){
+	public boolean Cherche_Cul_De_Sac(Personnage Joueur2, Personnage Joueur1, Plateau Map){
 		
 		/* CETTE FONCTION A POUR BUT DE DETECTER SI L'IA SE TROUVE DANS UN CUL DE SAC */
 		
 		int X = Math.round(Joueur2.getX());
 		int Y = Math.round(Joueur2.getY());
 		
+		int X_A = Math.round(Joueur1.getX());
+		int Y_A = Math.round(Joueur1.getY());
+		
 		//Premier cas "cul de sac dirige vers le haut"
-		if((Map.getMap()[Y][X+1] == 0 || Map.getMap()[Y][X+1] == 4 || Map.getMap()[Y][X+1] == 2) // droite
-				&& (Map.getMap()[Y-1][X] == 0 || Map.getMap()[Y-1][X] == 4 || Map.getMap()[Y-1][X] == 2) // haut
-				&& (Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2) //gauche
+		if((Map.getMap()[Y][X+1] == 0 || Map.getMap()[Y][X+1] == 4 || Map.getMap()[Y][X+1] == 2 || (Y == Y_A && X+1 == X_A)) // droite
+				&& (Map.getMap()[Y-1][X] == 0 || Map.getMap()[Y-1][X] == 4 || Map.getMap()[Y-1][X] == 2 || (Y-1 == Y_A && X == X_A)) // haut
+				&& (Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2 || (Y == Y_A && X-1 == X_A)) //gauche
 				){
 			return true;
 		}
 		//Deuxieme cas "cul de sac dirige vers la gauche"
-		else if((Map.getMap()[Y-1][X] == 0 || Map.getMap()[Y-1][X] == 4 || Map.getMap()[Y-1][X] == 2) //haut
-				&& (Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2) //gauche
-				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2) //bas
+		else if((Map.getMap()[Y-1][X] == 0 || Map.getMap()[Y-1][X] == 4 || Map.getMap()[Y-1][X] == 2 || (Y-1 == Y_A && X == X_A)) //haut
+				&& (Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2 || (Y == Y_A && X-1 == X_A)) //gauche
+				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2 || (Y+1 == Y_A && X == X_A)) //bas
 				){
 			return true;
 		}
 		//Troisieme cas "cul de sac dirige vers la droite"
-		else if((Map.getMap()[Y-1][X] == 0 || Map.getMap()[Y-1][X] == 4 || Map.getMap()[Y-1][X] == 2) // haut
-				&& (Map.getMap()[Y][X+1] == 0 || Map.getMap()[Y][X+1] == 4 || Map.getMap()[Y][X+1] == 2) // droite
-				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2) // bas
+		else if((Map.getMap()[Y-1][X] == 0 || Map.getMap()[Y-1][X] == 4 || Map.getMap()[Y-1][X] == 2 || (Y-1 == Y_A && X == X_A)) // haut
+				&& (Map.getMap()[Y][X+1] == 0 || Map.getMap()[Y][X+1] == 4 || Map.getMap()[Y][X+1] == 2 || (Y == Y_A && X+1 == X_A)) // droite
+				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2 || (Y+1 == Y_A && X == X_A)) // bas
 				){
 			return true;
 		}
 		//Quatrieme et dernier cas "cul de sac dirige vers le bas"
-		else if((Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2) // gauche
-				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2) // bas
-				&& (Map.getMap()[Y][X+1] == 0 || Map.getMap()[Y][X+1] == 4 || Map.getMap()[Y][X+1] == 2) // droite
+		else if((Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2 || (Y == Y_A && X-1 == X_A)) // gauche
+				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2 || (Y+1 == Y_A && X == X_A)) // bas
+				&& (Map.getMap()[Y][X+1] == 0 || Map.getMap()[Y][X+1] == 4 || Map.getMap()[Y][X+1] == 2 || (Y == Y_A && X+1 == X_A)) // droite
 				){
 			return true;
 		}
