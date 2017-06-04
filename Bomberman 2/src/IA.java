@@ -298,19 +298,25 @@ public class IA {
 		//Si le joueur est en danger ( defensif )
 		if (Matrice_Danger[Y_IA][X_IA] == 1)
 		{
-			Deplacement_aleatoire(Joueur2, Map);
+			Deplacement_aleatoire_Defensif(Joueur2, Map);
 		}
 		//Si le joueur n'est en danger ( offensif )
 		else{
-			if(Joueur2.getListeBombe()[0] == null){
-				Joueur2.PoserBombe(Map);
+			if(Joueur2.getListeBombe()[1] == null){
+				if(Cherche_Cul_De_Sac(Joueur2,Map) == true || Cherche_Zone_De_Securite_1(Joueur2,Map, Matrice_Danger) == true){
+					Joueur2.PoserBombe(Map);
+				}
+				// L'IA n'est pas dans un bon emplacement pour poser une bombe
+				else{
+					Deplacement_aleatoire_Offensif(Joueur2, Map, Matrice_Danger);
+				}
 			}
 		}
 		Joueur2.CompteARebourd(Map, Joueur1, Joueur2); //renommer plus tard //
 		Joueur2.EnleverFlamme(Map);
 	}
 	
-	public void Deplacement_aleatoire(Personnage Joueur2, Plateau Map)
+	public void Deplacement_aleatoire_Defensif(Personnage Joueur2, Plateau Map)
 	{
 		
 		//Generation d'un nombre entre [0;3]
@@ -320,27 +326,157 @@ public class IA {
 		int Y_IA = Math.round(Joueur2.getY());
 		
 		//Droite
-		if (deplacement == 0 && Map.getMap()[Y_IA+1][X_IA] == 1)
+		if (deplacement == 0 && (Map.getMap()[Y_IA+1][X_IA] == 1 || Map.getMap()[Y_IA+1][X_IA] == 6))
 		{
 			Joueur2.setY(Y_IA+1);
 		}
 		
 		//Gauche
-		else if(deplacement == 1 && Map.getMap()[Y_IA-1][X_IA] == 1)
+		else if(deplacement == 1 && (Map.getMap()[Y_IA-1][X_IA] == 1 || Map.getMap()[Y_IA-1][X_IA] == 6))
 		{
 			Joueur2.setY(Y_IA-1);
 		}
 		
 		//Haut
-		else if(deplacement == 2 && Map.getMap()[Y_IA][X_IA-1] == 1)
+		else if(deplacement == 2 && (Map.getMap()[Y_IA][X_IA-1] == 1 || Map.getMap()[Y_IA][X_IA-1] == 6))
 		{
 			Joueur2.setX(X_IA-1);
 		}
 		
 		//Bas
-		else if(deplacement == 3 && Map.getMap()[Y_IA][X_IA+1] == 1)
+		else if(deplacement == 3 && (Map.getMap()[Y_IA][X_IA+1] == 1 || Map.getMap()[Y_IA][X_IA+1] == 6))
 		{
 			Joueur2.setX(X_IA+1);
+		}
+	}
+	
+	public void Deplacement_aleatoire_Offensif(Personnage Joueur2, Plateau Map, int [][] Matrice_Danger)
+	{
+		
+		//Generation d'un nombre entre [0;3]
+		int deplacement = (int) (Math.random() * 4);
+		
+		int X_IA = Math.round(Joueur2.getX());
+		int Y_IA = Math.round(Joueur2.getY());
+		
+		//Droite
+		if (deplacement == 0 && (Map.getMap()[Y_IA+1][X_IA] == 1 || Map.getMap()[Y_IA+1][X_IA] == 6) && Matrice_Danger[Y_IA+1][X_IA] != 1)
+		{
+			Joueur2.setY(Y_IA+1);
+		}
+		
+		//Gauche
+		else if(deplacement == 1 && (Map.getMap()[Y_IA-1][X_IA] == 1 || Map.getMap()[Y_IA-1][X_IA] == 6) && Matrice_Danger[Y_IA-1][X_IA] != 1)
+		{
+			Joueur2.setY(Y_IA-1);
+		}
+		
+		//Haut
+		else if(deplacement == 2 && (Map.getMap()[Y_IA][X_IA-1] == 1 || Map.getMap()[Y_IA][X_IA-1] == 6) && Matrice_Danger[Y_IA][X_IA-1] != 1)
+		{
+			Joueur2.setX(X_IA-1);
+		}
+		
+		//Bas
+		else if(deplacement == 3 && (Map.getMap()[Y_IA][X_IA+1] == 1 || Map.getMap()[Y_IA][X_IA+1] == 6) && Matrice_Danger[Y_IA][X_IA+1] != 1)
+		{
+			Joueur2.setX(X_IA+1);
+		}
+	}
+	
+	public boolean Cherche_Cul_De_Sac(Personnage Joueur2, Plateau Map){
+		
+		/* CETTE FONCTION A POUR BUT DE DETECTER SI L'IA SE TROUVE DANS UN CUL DE SAC */
+		
+		int X = Math.round(Joueur2.getX());
+		int Y = Math.round(Joueur2.getY());
+		
+		//Premier cas "cul de sac dirige vers le haut"
+		if((Map.getMap()[Y][X+1] == 0 || Map.getMap()[Y][X+1] == 4 || Map.getMap()[Y][X+1] == 2) // droite
+				&& (Map.getMap()[Y-1][X] == 0 || Map.getMap()[Y-1][X] == 4 || Map.getMap()[Y-1][X] == 2) // haut
+				&& (Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2) //gauche
+				){
+			return true;
+		}
+		//Deuxieme cas "cul de sac dirige vers la gauche"
+		else if((Map.getMap()[Y-1][X] == 0 || Map.getMap()[Y-1][X] == 4 || Map.getMap()[Y-1][X] == 2) //haut
+				&& (Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2) //gauche
+				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2) //bas
+				){
+			return true;
+		}
+		//Troisieme cas "cul de sac dirige vers la droite"
+		else if((Map.getMap()[Y-1][X] == 0 || Map.getMap()[Y-1][X] == 4 || Map.getMap()[Y-1][X] == 2) // haut
+				&& (Map.getMap()[Y][X+1] == 0 || Map.getMap()[Y][X+1] == 4 || Map.getMap()[Y][X+1] == 2) // droite
+				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2) // bas
+				){
+			return true;
+		}
+		//Quatrieme et dernier cas "cul de sac dirige vers le bas"
+		else if((Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2) // gauche
+				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2) // bas
+				&& (Map.getMap()[Y][X+1] == 0 || Map.getMap()[Y][X+1] == 4 || Map.getMap()[Y][X+1] == 2) // droite
+				){
+			return true;
+		}
+		//Si l'IA n'est pas dans un cul de sac
+		else{
+			return false;
+		}
+		
+	}
+	
+	public boolean Cherche_Zone_De_Securite_1(Personnage Joueur2, Plateau Map, int [][] Matrice_Danger){
+		
+		/* CETTE FONCTION A POUR BUT DE DETECTER SI L'IA SE TROUVE DANS UNE ZONE DE SECURITE DE TYPE 1
+		 *  x x			J : IA
+		 *  x J O O		x : bloc infranchissable
+		 *    O	  O		O : bloc franchissable
+		 *    O O
+		 *  
+		 *  */
+		
+		int X = Math.round(Joueur2.getX());
+		int Y = Math.round(Joueur2.getY());
+		
+		//Premier cas "haut gauche"
+		if((Map.getMap()[Y-1][X] == 0 || Map.getMap()[Y-1][X] == 4 || Map.getMap()[Y-1][X] == 2)
+				&& (Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2)
+				&& (Map.getMap()[Y][X+1] == 1 || Map.getMap()[Y][X+1] == 6 && Matrice_Danger[Y][X+1] != 1)
+				&& (Map.getMap()[Y][X+2] == 1 || Map.getMap()[Y][X+2] == 6 && Matrice_Danger[Y][X+2] != 1)
+				&& (Map.getMap()[Y+1][X+2] == 1 || Map.getMap()[Y+1][X+2] == 6 && Matrice_Danger[Y+1][X+2] != 1)
+				&& (Map.getMap()[Y+1][X] == 1 || Map.getMap()[Y+1][X] == 6 && Matrice_Danger[Y+1][X] != 1)
+				&& (Map.getMap()[Y+2][X] == 1 || Map.getMap()[Y+2][X] == 6 && Matrice_Danger[Y+2][X] != 1)
+				&& (Map.getMap()[Y+2][X+1] == 1 || Map.getMap()[Y+2][X+1] == 6 && Matrice_Danger[Y+2][X+1] != 1)
+				){
+			return true;
+		}
+		// Deuxieme cas "bas gauche"
+		else if((Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2)
+				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2)
+				&& (Map.getMap()[Y][X+1] == 1 || Map.getMap()[Y][X+1] == 6 && Matrice_Danger[Y][X+1] != 1)
+				&& (Map.getMap()[Y][X+2] == 1 || Map.getMap()[Y][X+2] == 6 && Matrice_Danger[Y][X+2] != 1)
+				&& (Map.getMap()[Y-1][X+2] == 1 || Map.getMap()[Y-1][X+2] == 6 && Matrice_Danger[Y-1][X+2] != 1)
+				&& (Map.getMap()[Y-1][X] == 1 || Map.getMap()[Y-1][X] == 6 && Matrice_Danger[Y-1][X] != 1)
+				&& (Map.getMap()[Y-2][X] == 1 || Map.getMap()[Y-2][X] == 6 && Matrice_Danger[Y-2][X] != 1)
+				&& (Map.getMap()[Y-2][X+1] == 1 || Map.getMap()[Y-2][X+1] == 6 && Matrice_Danger[Y-2][X+1] != 1)
+				){
+			return true;
+		}
+		// Troisieme cas "bas droite"
+		else if((Map.getMap()[Y][X+1] == 0 || Map.getMap()[Y][X+1] == 4 || Map.getMap()[Y][X+1] == 2)
+				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2)
+				&& (Map.getMap()[Y][X-1] == 1 || Map.getMap()[Y][X-1] == 6 && Matrice_Danger[Y][X-1] != 1)
+				&& (Map.getMap()[Y][X-2] == 1 || Map.getMap()[Y][X-2] == 6 && Matrice_Danger[Y][X-2] != 1)
+				&& (Map.getMap()[Y-1][X-2] == 1 || Map.getMap()[Y-1][X-2] == 6 && Matrice_Danger[Y-1][X-2] != 1)
+				&& (Map.getMap()[Y-1][X] == 1 || Map.getMap()[Y-1][X] == 6 && Matrice_Danger[Y-1][X] != 1)
+				&& (Map.getMap()[Y-2][X] == 1 || Map.getMap()[Y-2][X] == 6 && Matrice_Danger[Y-2][X] != 1)
+				&& (Map.getMap()[Y-2][X-1] == 1 || Map.getMap()[Y-2][X-1] == 6 && Matrice_Danger[Y-2][X-1] != 1)
+				){
+			return true;
+		}
+		else{
+			return false;
 		}
 	}
 }

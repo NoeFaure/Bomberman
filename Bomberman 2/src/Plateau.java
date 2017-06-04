@@ -173,9 +173,24 @@ public class Plateau {
 					}
 					
 					/// Joueur 2 ///
-					if(Joueur2.getX() == j && Joueur2.getY() == i)
+					if(Math.round(Joueur2.getX()) == j && Math.round(Joueur2.getY()) == i)
 					{
 						Joueur2.Affiche_perso(Joueur2.getSkin());
+						for(int k = 0; k < 20; k++)
+						{
+							if(listeBonus[k] != null)
+							{
+								if(listeBonus[k].getX() == j && listeBonus[k].getY() == i)
+								{
+									listeBonus[k].Attribution_bonus(Joueur2);
+									map[i][j] = 1;
+									listeBonus[k] = null;
+									System.out.println("youhou ! un bonus !");
+								}
+							}
+						}
+						Joueur2.Affiche_perso(Joueur2.getSkin());
+						//System.out.println(j+" "+i);
 					}
 				}
 			}
