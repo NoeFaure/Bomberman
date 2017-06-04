@@ -481,36 +481,36 @@ public class IA {
 		//Premier cas "haut gauche"
 		if((Map.getMap()[Y-1][X] == 0 || Map.getMap()[Y-1][X] == 4 || Map.getMap()[Y-1][X] == 2)
 				&& (Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2)
-				&& (Map.getMap()[Y][X+1] == 1 || Map.getMap()[Y][X+1] == 6 && Matrice_Danger[Y][X+1] != 1)
-				&& (Map.getMap()[Y][X+2] == 1 || Map.getMap()[Y][X+2] == 6 && Matrice_Danger[Y][X+2] != 1)
-				&& (Map.getMap()[Y+1][X+2] == 1 || Map.getMap()[Y+1][X+2] == 6 && Matrice_Danger[Y+1][X+2] != 1)
-				&& (Map.getMap()[Y+1][X] == 1 || Map.getMap()[Y+1][X] == 6 && Matrice_Danger[Y+1][X] != 1)
-				&& (Map.getMap()[Y+2][X] == 1 || Map.getMap()[Y+2][X] == 6 && Matrice_Danger[Y+2][X] != 1)
-				&& (Map.getMap()[Y+2][X+1] == 1 || Map.getMap()[Y+2][X+1] == 6 && Matrice_Danger[Y+2][X+1] != 1)
+				&& ((Map.getMap()[Y][X+1] == 1 || Map.getMap()[Y][X+1] == 6) && Matrice_Danger[Y][X+1] != 1)
+				&& ((Map.getMap()[Y][X+2] == 1 || Map.getMap()[Y][X+2] == 6) && Matrice_Danger[Y][X+2] != 1)
+				&& ((Map.getMap()[Y+1][X+2] == 1 || Map.getMap()[Y+1][X+2] == 6) && Matrice_Danger[Y+1][X+2] != 1)
+				&& ((Map.getMap()[Y+1][X] == 1 || Map.getMap()[Y+1][X] == 6) && Matrice_Danger[Y+1][X] != 1)
+				&& ((Map.getMap()[Y+2][X] == 1 || Map.getMap()[Y+2][X] == 6) && Matrice_Danger[Y+2][X] != 1)
+				&& ((Map.getMap()[Y+2][X+1] == 1 || Map.getMap()[Y+2][X+1] == 6) && Matrice_Danger[Y+2][X+1] != 1)
 				){
 			return true;
 		}
 		// Deuxieme cas "bas gauche"
 		else if((Map.getMap()[Y][X-1] == 0 || Map.getMap()[Y][X-1] == 4 || Map.getMap()[Y][X-1] == 2)
 				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2)
-				&& (Map.getMap()[Y][X+1] == 1 || Map.getMap()[Y][X+1] == 6 && Matrice_Danger[Y][X+1] != 1)
-				&& (Map.getMap()[Y][X+2] == 1 || Map.getMap()[Y][X+2] == 6 && Matrice_Danger[Y][X+2] != 1)
-				&& (Map.getMap()[Y-1][X+2] == 1 || Map.getMap()[Y-1][X+2] == 6 && Matrice_Danger[Y-1][X+2] != 1)
-				&& (Map.getMap()[Y-1][X] == 1 || Map.getMap()[Y-1][X] == 6 && Matrice_Danger[Y-1][X] != 1)
-				&& (Map.getMap()[Y-2][X] == 1 || Map.getMap()[Y-2][X] == 6 && Matrice_Danger[Y-2][X] != 1)
-				&& (Map.getMap()[Y-2][X+1] == 1 || Map.getMap()[Y-2][X+1] == 6 && Matrice_Danger[Y-2][X+1] != 1)
+				&& ((Map.getMap()[Y][X+1] == 1 || Map.getMap()[Y][X+1] == 6) && Matrice_Danger[Y][X+1] != 1)
+				&& ((Map.getMap()[Y][X+2] == 1 || Map.getMap()[Y][X+2] == 6) && Matrice_Danger[Y][X+2] != 1)
+				&& ((Map.getMap()[Y-1][X+2] == 1 || Map.getMap()[Y-1][X+2] == 6) && Matrice_Danger[Y-1][X+2] != 1)
+				&& ((Map.getMap()[Y-1][X] == 1 || Map.getMap()[Y-1][X] == 6) && Matrice_Danger[Y-1][X] != 1)
+				&& ((Map.getMap()[Y-2][X] == 1 || Map.getMap()[Y-2][X] == 6) && Matrice_Danger[Y-2][X] != 1)
+				&& ((Map.getMap()[Y-2][X+1] == 1 || Map.getMap()[Y-2][X+1] == 6) && Matrice_Danger[Y-2][X+1] != 1)
 				){
 			return true;
 		}
 		// Troisieme cas "bas droite"
 		else if((Map.getMap()[Y][X+1] == 0 || Map.getMap()[Y][X+1] == 4 || Map.getMap()[Y][X+1] == 2)
 				&& (Map.getMap()[Y+1][X] == 0 || Map.getMap()[Y+1][X] == 4 || Map.getMap()[Y+1][X] == 2)
-				&& (Map.getMap()[Y][X-1] == 1 || Map.getMap()[Y][X-1] == 6 && Matrice_Danger[Y][X-1] != 1)
-				&& (Map.getMap()[Y][X-2] == 1 || Map.getMap()[Y][X-2] == 6 && Matrice_Danger[Y][X-2] != 1)
-				&& (Map.getMap()[Y-1][X-2] == 1 || Map.getMap()[Y-1][X-2] == 6 && Matrice_Danger[Y-1][X-2] != 1)
-				&& (Map.getMap()[Y-1][X] == 1 || Map.getMap()[Y-1][X] == 6 && Matrice_Danger[Y-1][X] != 1)
-				&& (Map.getMap()[Y-2][X] == 1 || Map.getMap()[Y-2][X] == 6 && Matrice_Danger[Y-2][X] != 1)
-				&& (Map.getMap()[Y-2][X-1] == 1 || Map.getMap()[Y-2][X-1] == 6 && Matrice_Danger[Y-2][X-1] != 1)
+				&& ((Map.getMap()[Y][X-1] == 1 || Map.getMap()[Y][X-1] == 6) && Matrice_Danger[Y][X-1] != 1)
+				&& ((Map.getMap()[Y][X-2] == 1 || Map.getMap()[Y][X-2] == 6) && Matrice_Danger[Y][X-2] != 1)
+				&& ((Map.getMap()[Y-1][X-2] == 1 || Map.getMap()[Y-1][X-2] == 6) && Matrice_Danger[Y-1][X-2] != 1)
+				&& ((Map.getMap()[Y-1][X] == 1 || Map.getMap()[Y-1][X] == 6) && Matrice_Danger[Y-1][X] != 1)
+				&& ((Map.getMap()[Y-2][X] == 1 || Map.getMap()[Y-2][X] == 6) && Matrice_Danger[Y-2][X] != 1)
+				&& ((Map.getMap()[Y-2][X-1] == 1 || Map.getMap()[Y-2][X-1] == 6) && Matrice_Danger[Y-2][X-1] != 1)
 				){
 			return true;
 		}
