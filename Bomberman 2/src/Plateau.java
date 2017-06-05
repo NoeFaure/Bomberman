@@ -61,6 +61,10 @@ public class Plateau {
 					if(Math.round(Joueur1.getX()) == j && Math.round(Joueur1.getY()) == i)
 					{
 						Joueur1.Affiche_perso(Joueur1.getSkin());
+						if (StdDraw.isKeyPressed(84)){
+							System.out.println("TAUNT");
+							Joueur1.Affiche_perso("Images/Skin/Bomberman Perso 1 Taunt.png");
+						}
 						//System.out.println(j+" "+i);	
 					}
 					
