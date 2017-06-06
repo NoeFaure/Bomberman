@@ -1,4 +1,6 @@
 import edu.princeton.cs.introcs.StdDraw;
+
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 
 public class Menu {
@@ -9,12 +11,11 @@ public class Menu {
 			
 	}
 	
-	public void Affiche_Menu(int [][] map,Plateau Plateau_1,Personnage Joueur1,Personnage Joueur2,long Time_seconde,long Time_minute)
+	public void Affiche_Menu(int [][] map,Plateau Plateau_1,Personnage Joueur1,Personnage Joueur2,long Time_seconde,long Time_minute, boolean Solo_J)
 	{
 		int choix = 0;
 		int Affichage_ok = 0;
 		boolean boucle = true;
-		
 		
 		while(boucle == true)
 		{
@@ -25,6 +26,14 @@ public class Menu {
 				if (choix == 0 && Affichage_ok == 0)
 				{
 					Plateau_1.Afficher_map(map,Joueur1,Joueur2);
+					
+					//Police
+					Font font = new Font("Arial", Font.BOLD, 30);
+					StdDraw.setFont(font);
+					StdDraw.setPenColor(StdDraw.WHITE);
+					
+					Joueur1.Affiche_bonus_Joueur1();
+					Joueur2.Affiche_bonus_Joueur2();
 					
 					StdDraw.text(1213, 249, Integer.toString((Joueur1.getVie())));
 					StdDraw.text(1213, 454, Integer.toString((Joueur2.getVie())));
@@ -60,6 +69,14 @@ public class Menu {
 				{
 					Plateau_1.Afficher_map(map,Joueur1,Joueur2);
 					
+					//Police
+					Font font = new Font("Arial", Font.BOLD, 30);
+					StdDraw.setFont(font);
+					StdDraw.setPenColor(StdDraw.WHITE);
+					
+					Joueur1.Affiche_bonus_Joueur1();
+					Joueur2.Affiche_bonus_Joueur2();
+					
 					StdDraw.text(1213, 249, Integer.toString((Joueur1.getVie())));
 					StdDraw.text(1213, 454, Integer.toString((Joueur2.getVie())));
 					StdDraw.text(1125, 249, Integer.toString((Joueur1.getNbBombe())));
@@ -92,6 +109,14 @@ public class Menu {
 				if (choix == 2 && Affichage_ok == 0)
 				{
 					Plateau_1.Afficher_map(map,Joueur1,Joueur2);
+					
+					//Police
+					Font font = new Font("Arial", Font.BOLD, 30);
+					StdDraw.setFont(font);
+					StdDraw.setPenColor(StdDraw.WHITE);
+					
+					Joueur1.Affiche_bonus_Joueur1();
+					Joueur2.Affiche_bonus_Joueur2();
 					
 					StdDraw.text(1213, 249, Integer.toString((Joueur1.getVie())));
 					StdDraw.text(1213, 454, Integer.toString((Joueur2.getVie())));
@@ -149,8 +174,14 @@ public class Menu {
 					StdDraw.show();
 					StdDraw.pause(30);
 					
-					Jeu Partie_1 = new Jeu();
-					Partie_1.Jouer(Joueur1, Joueur2, false);
+					if(Solo_J == false){
+						Jeu Partie_1 = new Jeu();
+						Partie_1.Jouer(Joueur1, Joueur2, false);
+					}
+					else{
+						Jeu Partie_1 = new Jeu();
+						Partie_1.Jouer(Joueur1, Joueur2, true);
+					}
 				}
 				
 				/// QUIT PRESS ///
@@ -182,6 +213,14 @@ public class Menu {
 				if (choix == 0 && Affichage_ok == 0)
 				{
 					Plateau_1.Afficher_map(map,Joueur1,Joueur2);
+					
+					//Police
+					Font font = new Font("Arial", Font.BOLD, 30);
+					StdDraw.setFont(font);
+					StdDraw.setPenColor(StdDraw.WHITE);
+					
+					Joueur1.Affiche_bonus_Joueur1();
+					Joueur2.Affiche_bonus_Joueur2();
 					
 					StdDraw.text(1213, 249, Integer.toString((Joueur1.getVie())));
 					StdDraw.text(1213, 454, Integer.toString((Joueur2.getVie())));
@@ -216,6 +255,14 @@ public class Menu {
 				{
 					Plateau_1.Afficher_map(map,Joueur1,Joueur2);
 					
+					//Police
+					Font font = new Font("Arial", Font.BOLD, 30);
+					StdDraw.setFont(font);
+					StdDraw.setPenColor(StdDraw.WHITE);
+					
+					Joueur1.Affiche_bonus_Joueur1();
+					Joueur2.Affiche_bonus_Joueur2();
+					
 					StdDraw.text(1213, 249, Integer.toString((Joueur1.getVie())));
 					StdDraw.text(1213, 454, Integer.toString((Joueur2.getVie())));
 					StdDraw.text(1125, 249, Integer.toString((Joueur1.getNbBombe())));
@@ -248,6 +295,14 @@ public class Menu {
 				if (choix == 2 && Affichage_ok == 0)
 				{
 					Plateau_1.Afficher_map(map,Joueur1,Joueur2);
+					
+					//Police
+					Font font = new Font("Arial", Font.BOLD, 30);
+					StdDraw.setFont(font);
+					StdDraw.setPenColor(StdDraw.WHITE);
+					
+					Joueur1.Affiche_bonus_Joueur1();
+					Joueur2.Affiche_bonus_Joueur2();
 					
 					StdDraw.text(1213, 249, Integer.toString((Joueur1.getVie())));
 					StdDraw.text(1213, 454, Integer.toString((Joueur2.getVie())));
@@ -306,8 +361,14 @@ public class Menu {
 					StdDraw.show();
 					StdDraw.pause(30);
 					
-					Jeu Partie_1 = new Jeu();
-					Partie_1.Jouer(Joueur1, Joueur2, false);
+					if(Solo_J == false){
+						Jeu Partie_1 = new Jeu();
+						Partie_1.Jouer(Joueur1, Joueur2, false);
+					}
+					else{
+						Jeu Partie_1 = new Jeu();
+						Partie_1.Jouer(Joueur1, Joueur2, true);
+					}
 				}
 				
 				/// QUIT PRESS ///

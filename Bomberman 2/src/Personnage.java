@@ -143,15 +143,15 @@ public class Personnage {
 			{
 				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1.png",50,85);
 			}
-			if(Orientation == "haut")
+			else if(Orientation == "haut")
 			{
 				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1 dos.png",50,85);
 			}
-			if(Orientation == "droite")
+			else if(Orientation == "droite")
 			{
 				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1 droite.png",50,85);
 			}
-			if(Orientation == "gauche")
+			else if(Orientation == "gauche")
 			{
 				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1 gauche.png",50,85);
 			}

@@ -7,10 +7,20 @@ import edu.princeton.cs.introcs.StdDraw;
 
 public class Jeu {
 	
+	boolean Solo_J = false;
+	
 	/// Constructeur ///
 	public Jeu()
 	{
-		
+		this.Solo_J = Solo_J;
+	}
+
+	public boolean getSolo_J() {
+		return Solo_J;
+	}
+
+	public void setSolo_J(boolean solo_J) {
+		Solo_J = solo_J;
 	}
 
 	public void Jouer(Personnage Joueur1, Personnage Joueur2, boolean Solo)
@@ -83,6 +93,15 @@ public class Jeu {
 		Joueur1.setListeBombe(new Bombe[30]);
 		Joueur2.setListeBombe(new Bombe[30]);
 		
+		Joueur1.setOrientation("bas");
+		Joueur2.setOrientation("bas");
+		
+		Joueur1.setListeBonus(new int[8]);
+		Joueur2.setListeBonus(new int[8]);
+		
+		Joueur1.setNbBombe(3);
+		Joueur2.setNbBombe(3);
+		
 		// --------- BOUCLE INFINIE --------- 
 		while(true)
 		{
@@ -128,7 +147,7 @@ public class Jeu {
 			/// Affiche menu ///
 			if (StdDraw.isKeyPressed(27))
 			{
-				Menu.Affiche_Menu(map,Plateau_1,Joueur1,Joueur2,Time_seconde,Time_minute);
+				Menu.Affiche_Menu(map,Plateau_1,Joueur1,Joueur2,Time_seconde,Time_minute, Solo_J);
 			}
 			
 			
@@ -190,6 +209,7 @@ public class Jeu {
 			if (Solo == false)
 			{
 				Joueur2.DeplacerJoueur2(Plateau_1);
+				Solo_J = false;
 				
 				if( (StdDraw.isKeyPressed(16)) && (Plateau_1.map[Math.round(Joueur2.getY())][Math.round(Joueur2.getX())] != 3) && (Joueur2.getNbBombe() > 0))
 				{
@@ -201,7 +221,7 @@ public class Jeu {
 			
 			else if (Solo == true)
 			{
-				System.out.println(Solo);
+				Solo_J = true;
 				IA_1.Deplacement_IA(Joueur1,Joueur2,Plateau_1);
 			}
 			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && (Joueur1.getNbBombe() > 0) && Joueur1.getListeBonus()[6] == 0 && Joueur1.getListeBonus()[5] == 0) // espace //
