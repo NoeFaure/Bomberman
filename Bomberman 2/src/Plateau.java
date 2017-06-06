@@ -168,7 +168,7 @@ public class Plateau {
 									listeBonus[k].Attribution_bonus(Joueur1);
 									map[i][j] = 1;
 									listeBonus[k] = null;
-									System.out.println("youhou ! un bonus !");
+									Musique.JouerMusique("Musique/bonus.wav");
 								}
 							}
 						}
@@ -189,7 +189,7 @@ public class Plateau {
 									listeBonus[k].Attribution_bonus(Joueur2);
 									map[i][j] = 1;
 									listeBonus[k] = null;
-									System.out.println("youhou ! un bonus !");
+									Musique.JouerMusique("Musique/bonus.wav");
 								}
 							}
 						}
