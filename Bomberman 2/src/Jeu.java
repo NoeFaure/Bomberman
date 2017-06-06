@@ -80,8 +80,8 @@ public class Jeu {
 		Joueur1.setVie(3);
 		Joueur2.setVie(3);
 		
-		Joueur1.setListeBombe(new Bombe[10]);
-		Joueur2.setListeBombe(new Bombe[10]);
+		Joueur1.setListeBombe(new Bombe[30]);
+		Joueur2.setListeBombe(new Bombe[30]);
 		
 		// --------- BOUCLE INFINIE --------- 
 		while(true)
@@ -204,9 +204,17 @@ public class Jeu {
 				System.out.println(Solo);
 				IA_1.Deplacement_IA(Joueur1,Joueur2,Plateau_1);
 			}
-			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && (Joueur1.getNbBombe() > 0)) // espace //
+			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && (Joueur1.getNbBombe() > 0) && Joueur1.getListeBonus()[6] == 0) // espace //
 			{
-			Joueur1.PoserBombe(Plateau_1);
+				Joueur1.PoserBombe(Plateau_1);
+				System.out.println("bombe");
+			}
+			else if(StdDraw.isKeyPressed(32) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && Joueur1.getListeBonus()[6] == 1)
+			{
+				Joueur1.Line(Plateau_1);
+				Joueur1.getListeBonus()[6] = 0;
+				System.out.println("line");
+				
 			}
 			// A faire au propre plus tard //
 			Joueur1.CompteARebourd(Plateau_1, Joueur1, Joueur2); //renommer plus tard //

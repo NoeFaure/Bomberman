@@ -1,4 +1,6 @@
-import java.lang.Math; 
+import java.lang.Math;
+
+//import edu.princeton.cs.introcs.StdDraw; 
 
 public class Bonus {
 
@@ -190,8 +192,5 @@ public class Bonus {
 		}
 	}
 	
-	public void Line(Personnage Joueur)
-	{
-		// Bonus ligne de bombes
-	}
+	
 }

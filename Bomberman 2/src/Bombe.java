@@ -9,6 +9,7 @@ public class Bombe {
 	private long delai = 5000;
 	private Flamme[] listeFlamme = new Flamme[41];
 	private boolean Explose = false;
+	private boolean Line = false;
 	//private Personnage joueur;
 	
 	/// Constructeur ///
@@ -16,6 +17,14 @@ public class Bombe {
 	{
 		this.x = x;
 		this.y = y;
+		//this.joueur = joueur;
+	}
+	
+	public Bombe(int x, int y, boolean line)
+	{
+		this.x = x;
+		this.y = y;
+		this.Line = line;
 		//this.joueur = joueur;
 	}
 	
@@ -130,15 +139,21 @@ public class Bombe {
 		// Verifie a qui appartient la bombe pour lui en redonner une //
 		if(Joueur1.identificationBombe(x, y).x != -1) // Si la bombe appartient au joueur1
 		{
-			Joueur1.setNbBombe(Joueur1.getNbBombe() + 1);
+			if(Joueur1.identificationBombe(x, y).Line == false)
+			{
+				Joueur1.setNbBombe(Joueur1.getNbBombe() + 1);
+			}
 			int positionListeJ1 = Joueur1.positionBombe(x,y);
 			Joueur1.getListeBombe()[positionListeJ1].setExplose(true);
-			System.out.println(" +1 ! " + x + " " + y);
+			//System.out.println(" +1 ! " + x + " " + y);
 			Joueur = Joueur1;
 		}
 		else if(Joueur2.identificationBombe(x, y).x != -1) // Si la bombe appartient au joueur2
 		{
-			Joueur2.setNbBombe(Joueur2.getNbBombe() + 1);
+			if(Joueur2.identificationBombe(x, y).Line == false)
+			{
+				Joueur2.setNbBombe(Joueur2.getNbBombe() + 1);
+			}
 			int positionListeJ2 = Joueur2.positionBombe(x,y);
 			Joueur2.getListeBombe()[positionListeJ2].setExplose(true);
 			Joueur = Joueur2;
@@ -301,7 +316,7 @@ public class Bombe {
 					compteur += 1;
 					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
 					{
-						haut = 1;
+						gauche = 1;
 					}	
 				}
 				else if(Plateau_1.getMap()[y][x-r] == 3 && (gauche == 0)) // Si la flamme rencontre une autre bombe 

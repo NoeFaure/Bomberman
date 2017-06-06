@@ -5,11 +5,11 @@ public class Personnage {
 	
 	private int vie = 3;
 	private float vitesse = 0.25f;
-	private int nbBombe = 3;
+	private int nbBombe = 30;
 	private int portee = 3;
 	private float x;
 	private float y;
-	private Bombe[] listeBombe = new Bombe[10];
+	private Bombe[] listeBombe = new Bombe[30];
 	private int[] listeBonus = {0,0,0,0,0,0,0,0};
 	private String Skin = "Images/Skin/Skin 404.png";
 	private String Orientation = "Bas";
@@ -168,7 +168,7 @@ public class Personnage {
 			Plateau_1.map[Math.round(y)][Math.round(x)] = 3;
 			nbBombe -= 1;
 		
-			int nbBombeMax = 10;
+			int nbBombeMax = 30;
 			int assigne = 0;
 			for(int i = 0; i < nbBombeMax; i++)
 			{
@@ -181,10 +181,28 @@ public class Personnage {
 			}
 	}
 	
+	public void PoserBombeLine(Plateau Plateau_1, int x, int y) 
+	{
+		
+			Plateau_1.map[y][x] = 3;
+		
+			int nbBombeMax = 30;
+			int assigne = 0;
+			for(int i = 0; i < nbBombeMax; i++)
+			{
+				if(this.listeBombe[i] == null && assigne == 0) // Verifie qu'un emplacement pour bombe est dispo
+				{
+					System.out.println(i);
+					Bombe bombe = new Bombe(x, y,true);
+					this.listeBombe[i] = bombe;
+					assigne = 1;
+				}
+			}
+	}
 	public void CompteARebourd(Plateau Plateau_1, Personnage Joueur1, Personnage Joueur2) //Renvoi les coordonnees d'une bombe qui explose
 	{
 		Bombe bombe = new Bombe(-1,-1);
-		int nbBombeMax = 10;
+		int nbBombeMax = 30;
 		for(int i = 0; i < nbBombeMax; i++)
 		{
 			if(this.listeBombe[i] != null)
@@ -210,7 +228,7 @@ public class Personnage {
 	
 	public void EnleverFlamme(Plateau Plateau_1)
 	{
-		int nbBombeMax = 10;
+		int nbBombeMax = 30;
 		for(int i = 0; i < nbBombeMax; i++)
 		{
 			Bombe bombei = listeBombe[i];
@@ -448,7 +466,7 @@ public class Personnage {
 	public Bombe identificationBombe(int xBombe, int yBombe)
 	{
 		Bombe bombe = new Bombe(-1,-1);
-		int nbBombeMax = 10;
+		int nbBombeMax = 30;
 		for(int i = 0; i < nbBombeMax; i++)
 		{
 			if(listeBombe[i] != null)
@@ -464,7 +482,7 @@ public class Personnage {
 	
 	public int positionBombe(int xBombe, int yBombe)
 	{
-		int nbBombeMax = 10;
+		int nbBombeMax = 30;
 		for(int i = 0; i < nbBombeMax; i++)
 		{
 			if(listeBombe[i] != null)
@@ -476,6 +494,49 @@ public class Personnage {
 			}	
 		}
 		return -1;
+	}
+	
+	public void Line(Plateau Plateau_1)
+	{
+		int x = Math.round(this.getX());
+		int y = Math.round(this.getY());
+		// Bonus ligne de bombes
+		if(this.getOrientation() == "bas")
+		{
+			int i = 1;
+			while(Plateau_1.getMap()[(int)(y + i)][x] == 1)
+			{
+				this.PoserBombeLine(Plateau_1, x, y + i );
+				i++;
+			}
+		}
+		if(this.getOrientation() == "haut")
+		{
+			int i = 1;
+			while(Plateau_1.getMap()[(int)(y - i)][x] == 1)
+			{
+				this.PoserBombeLine(Plateau_1, x, y - i );
+				i++;
+			}
+		}
+		if(this.getOrientation() == "gauche")
+		{
+			int i = 1;
+			while(Plateau_1.getMap()[y][(int)(x-i)] == 1)
+			{
+				this.PoserBombeLine(Plateau_1, x-i, y);
+				i++;
+			}
+		}
+		if(this.getOrientation() == "droite")
+		{
+			int i = 1;
+			while(Plateau_1.getMap()[(int)(y)][x+i] == 1)
+			{
+				this.PoserBombeLine(Plateau_1, x+i,y);
+				i++;
+			}
+		}
 	}
 }
 
