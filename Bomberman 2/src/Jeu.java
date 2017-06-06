@@ -211,7 +211,7 @@ public class Jeu {
 			}
 			else if(StdDraw.isKeyPressed(32) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && Joueur1.getListeBonus()[6] == 1)
 			{
-				Joueur1.Line(Plateau_1);
+				Joueur1.line(Plateau_1);
 				Joueur1.getListeBonus()[6] = 0;
 				System.out.println("line");
 				

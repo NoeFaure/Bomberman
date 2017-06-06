@@ -5,7 +5,7 @@ public class Personnage {
 	
 	private int vie = 3;
 	private float vitesse = 0.25f;
-	private int nbBombe = 30;
+	private int nbBombe = 3;
 	private int portee = 3;
 	private float x;
 	private float y;
@@ -193,7 +193,7 @@ public class Personnage {
 				if(this.listeBombe[i] == null && assigne == 0) // Verifie qu'un emplacement pour bombe est dispo
 				{
 					System.out.println(i);
-					Bombe bombe = new Bombe(x, y,true);
+					Bombe bombe = new Bombe(x, y,true, false);
 					this.listeBombe[i] = bombe;
 					assigne = 1;
 				}
@@ -496,7 +496,7 @@ public class Personnage {
 		return -1;
 	}
 	
-	public void Line(Plateau Plateau_1)
+	public void line(Plateau Plateau_1)
 	{
 		int x = Math.round(this.getX());
 		int y = Math.round(this.getY());
@@ -537,6 +537,13 @@ public class Personnage {
 				i++;
 			}
 		}
+	}
+	
+	public void rebond(Plateau Plateau_1)
+	{
+		int x = Math.round(this.getX());
+		int y = Math.round(this.getY());
+		float vitesse = 0.5f;
 	}
 }
 

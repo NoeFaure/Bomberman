@@ -135,12 +135,14 @@ public class Bonus {
 		if (Choix_bonus == 8)
 		{
 			Joueur.getListeBonus()[5] = 1;
+			Joueur.getListeBonus()[6] = 0; // Enleve le bonus line
 		}
 		
 		// Line attribuee
 		if (Choix_bonus == 9)
 		{
 			Joueur.getListeBonus()[6] = 1;
+			Joueur.getListeBonus()[5] = 0; // Enleve le bonus rebond
 		}
 		
 		// Shield attribuee

@@ -10,6 +10,7 @@ public class Bombe {
 	private Flamme[] listeFlamme = new Flamme[41];
 	private boolean Explose = false;
 	private boolean Line = false;
+	private boolean Rebond = false;
 	//private Personnage joueur;
 	
 	/// Constructeur ///
@@ -20,11 +21,12 @@ public class Bombe {
 		//this.joueur = joueur;
 	}
 	
-	public Bombe(int x, int y, boolean line)
+	public Bombe(int x, int y, boolean line, boolean Rebond)
 	{
 		this.x = x;
 		this.y = y;
 		this.Line = line;
+		this.Rebond = Rebond;
 		//this.joueur = joueur;
 	}
 	
