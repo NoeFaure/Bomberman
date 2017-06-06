@@ -11,7 +11,7 @@ public class Personnage {
 	private float y;
 	private Bombe[] listeBombe = new Bombe[10];
 	private int[] listeBonus = {0,0,0,0,0,0,0,0};
-	private String Skin = "Skin 404.png";
+	private String Skin = "Images/Skin/Skin 404.png";
 	private String Orientation = "Bas";
 	
 	/// Constructeur ///
@@ -164,8 +164,7 @@ public class Personnage {
 	
 	public void PoserBombe(Plateau Plateau_1) 
 	{
-		if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(y)][Math.round(x)] != 3) && (nbBombe > 0) ) // espace //
-		{
+		
 			Plateau_1.map[Math.round(y)][Math.round(x)] = 3;
 			nbBombe -= 1;
 		
@@ -180,7 +179,6 @@ public class Personnage {
 					assigne = 1;
 				}
 			}
-		}
 	}
 	
 	public void CompteARebourd(Plateau Plateau_1, Personnage Joueur1, Personnage Joueur2) //Renvoi les coordonnees d'une bombe qui explose
