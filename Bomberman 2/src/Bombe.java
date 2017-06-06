@@ -10,7 +10,7 @@ public class Bombe {
 	private Flamme[] listeFlamme = new Flamme[41];
 	private boolean Explose = false;
 	private boolean Line = false;
-	private boolean Rebond = false;
+	private String orientation;
 	//private Personnage joueur;
 	
 	/// Constructeur ///
@@ -21,18 +21,39 @@ public class Bombe {
 		//this.joueur = joueur;
 	}
 	
-	public Bombe(int x, int y, boolean line, boolean Rebond)
+	public Bombe(int x, int y, String orientation)
+	{
+		this.x = x;
+		this.y = y;
+		this.orientation = orientation;
+	}
+	
+	public Bombe(int x, int y, boolean line)
 	{
 		this.x = x;
 		this.y = y;
 		this.Line = line;
-		this.Rebond = Rebond;
-		//this.joueur = joueur;
 	}
 	
 	/// Setters and Getters ///
 	
+
+	public boolean isLine() {
+		return Line;
+	}
+
+	public void setLine(boolean line) {
+		Line = line;
+	}
 	
+	public String getOrientation() {
+		return orientation;
+	}
+
+	public void setOrientation(String orientation) {
+		this.orientation = orientation;
+	}
+
 	public boolean isExplose() 
 	{
 		return Explose;

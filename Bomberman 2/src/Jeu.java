@@ -204,7 +204,7 @@ public class Jeu {
 				System.out.println(Solo);
 				IA_1.Deplacement_IA(Joueur1,Joueur2,Plateau_1);
 			}
-			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && (Joueur1.getNbBombe() > 0) && Joueur1.getListeBonus()[6] == 0) // espace //
+			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && (Joueur1.getNbBombe() > 0) && Joueur1.getListeBonus()[6] == 0 && Joueur1.getListeBonus()[5] == 0) // espace //
 			{
 				Joueur1.PoserBombe(Plateau_1);
 				System.out.println("bombe");
@@ -215,6 +215,10 @@ public class Jeu {
 				Joueur1.getListeBonus()[6] = 0;
 				System.out.println("line");
 				
+			}
+			else if(StdDraw.isKeyPressed(32) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && Joueur1.getListeBonus()[5] == 1)
+			{
+				Joueur1.majRebond(Plateau_1);
 			}
 			// A faire au propre plus tard //
 			Joueur1.CompteARebourd(Plateau_1, Joueur1, Joueur2); //renommer plus tard //

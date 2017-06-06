@@ -193,7 +193,26 @@ public class Personnage {
 				if(this.listeBombe[i] == null && assigne == 0) // Verifie qu'un emplacement pour bombe est dispo
 				{
 					System.out.println(i);
-					Bombe bombe = new Bombe(x, y,true, false);
+					Bombe bombe = new Bombe(x, y,true);
+					this.listeBombe[i] = bombe;
+					assigne = 1;
+				}
+			}
+	}
+	
+	public void PoserBombeRebond(Plateau Plateau_1) 
+	{
+		
+			Plateau_1.map[Math.round(y)][Math.round(x)] = 3;
+		
+			int nbBombeMax = 30;
+			int assigne = 0;
+			for(int i = 0; i < nbBombeMax; i++)
+			{
+				if(this.listeBombe[i] == null && assigne == 0) // Verifie qu'un emplacement pour bombe est dispo
+				{
+					System.out.println(i);
+					Bombe bombe = new Bombe(Math.round(y), Math.round(x), this.Orientation);
 					this.listeBombe[i] = bombe;
 					assigne = 1;
 				}
@@ -539,11 +558,56 @@ public class Personnage {
 		}
 	}
 	
-	public void rebond(Plateau Plateau_1)
+	public void majRebond(Plateau Plateau_1)
 	{
 		int x = Math.round(this.getX());
 		int y = Math.round(this.getY());
-		float vitesse = 0.5f;
+		this.PoserBombeRebond(Plateau_1);
+		int nbBombeMax = 30;
+		Bombe bombe = null;
+		int vitesseb = 1;
+		for(int i = 0; i < nbBombeMax; i++)
+		{
+			if(this.listeBombe[i] != null && (this.listeBombe[i].getOrientation() == "bas" || this.listeBombe[i].getOrientation() == "haut" || this.listeBombe[i].getOrientation() == "gauche" || this.listeBombe[i].getOrientation() == "droite")) // Verifie qu'un emplacement pour bombe est dispo
+			{
+				bombe = this.listeBombe[i];
+			}
+		}
+		
+		if(bombe.getOrientation() == "bas")
+		{
+			if(Plateau_1.getMap()[y + vitesseb][x] != 1)
+			{
+				vitesseb = -vitesseb;
+			}
+			bombe.setY(bombe.getY() + vitesseb);
+			
+		}
+		if(bombe.getOrientation() == "haut")
+		{
+			if(Plateau_1.getMap()[y - vitesseb][x] != 1)
+			{
+				vitesseb = -vitesseb;
+			}
+			bombe.setY(bombe.getY() - vitesseb);
+		}
+		if(bombe.getOrientation() == "gauche")
+		{
+			if(Plateau_1.getMap()[y][x - vitesseb] != 1)
+			{
+				vitesseb = -vitesseb;
+			}
+			bombe.setY(bombe.getX() - vitesseb);
+		}
+		if(bombe.getOrientation() == "droite")
+		{
+			if(Plateau_1.getMap()[y][x + vitesseb] != 1)
+			{
+				vitesseb = -vitesseb;
+			}
+			bombe.setY(bombe.getX() + vitesseb);
+		}
+		
 	}
 }
 
