@@ -183,7 +183,7 @@ public class Bombe {
 		}
 		
 		Plateau_1.getMap()[y][x] = 5;
-		listeFlamme[0] = new Flamme(x,y,false);
+		listeFlamme[0] = new Flamme(x,y,false,false);
 		int compteur = 1; // compte le nombre de flamme pour la listeFlamme //
 		
 		///Destruction des environs de la bombe///
@@ -208,7 +208,7 @@ public class Bombe {
 				else if(Plateau_1.getMap()[y+r][x] == 3 && (bas == 0)) // Si l'explosion rencontre une autre bombe //
 				{
 					Plateau_1.getMap()[y+r][x] = 5;
-					listeFlamme[compteur] = new Flamme(x,y+r,false); // Ajout de flammes //
+					listeFlamme[compteur] = new Flamme(x,y+r,false,false); // Ajout de flammes //
 					compteur += 1;
 					bas = 1;
 					if(Joueur1.identificationBombe(x, y+r).x != -1) // On identifie si la bombe touch�e appartient au joueur 1 ou au joueur 2 //
@@ -223,18 +223,25 @@ public class Bombe {
 				else if((Plateau_1.getMap()[y+r][x] == 2) && (bas == 0)) // Si l'explosion rencontre un bloc cassable //
 				{
 					Plateau_1.getMap()[y+r][x] = 5; // On detruit le bloc cassable //
-					listeFlamme[compteur] = new Flamme(x,y+r,true);
+					listeFlamme[compteur] = new Flamme(x,y+r,true,false);
 					compteur += 1;
 					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
 					{
 						bas = 1;
 					}
 				}
+				else if(Plateau_1.getMap()[y+r][x] == 6 && (bas == 0)) //Si la flamme rencontre un bonus
+				{
+					Plateau_1.detruitBonus(x, y+r);
+					Plateau_1.getMap()[y+r][x] = 5; // On detruit le bloc cassable //
+					listeFlamme[compteur] = new Flamme(x,y+r,false,true);
+					compteur += 1;
+				}
 				
 				else if(bas == 0) // Si la flamme ne rencontre que de l'herbe
 				{
 					Plateau_1.getMap()[y+r][x] = 5;
-					listeFlamme[compteur] = new Flamme(x,y+r,false);
+					listeFlamme[compteur] = new Flamme(x,y+r,false, false);
 					compteur += 1;
 				}	
 			}
@@ -251,7 +258,7 @@ public class Bombe {
 				else if((Plateau_1.getMap()[y-r][x] == 2) && (haut == 0)) // Si la flamme rencontre un bloc cassable
 				{
 					Plateau_1.getMap()[y-r][x] = 5;
-					listeFlamme[compteur] = new Flamme(x,y-r,true);
+					listeFlamme[compteur] = new Flamme(x,y-r,true,false);
 					compteur += 1;
 					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
 					{
@@ -261,7 +268,7 @@ public class Bombe {
 				else if(Plateau_1.getMap()[y-r][x] == 3 && (haut == 0)) // Si la flamme rencontre une autre bombe 
 				{
 					Plateau_1.getMap()[y-r][x] = 5;
-					listeFlamme[compteur] = new Flamme(x,y-r,false);
+					listeFlamme[compteur] = new Flamme(x,y-r,false,false);
 					compteur += 1;
 					haut = 1;
 					if(Joueur1.identificationBombe(x, y-r).x != -1) // On identifie si la bombe touch�e appartient au joueur 1 ou au joueur 2 //
@@ -273,10 +280,17 @@ public class Bombe {
 						Joueur2.identificationBombe(x, y-r).exploserBombe(Plateau_1, Joueur1, Joueur2); // On fait exploser la bombe rencontree
 					}
 				}
+				else if(Plateau_1.getMap()[y-r][x] == 6 && (haut == 0)) //Si la flamme rencontre un bonus
+				{
+					Plateau_1.detruitBonus(x, y-r);
+					Plateau_1.getMap()[y-r][x] = 5; // On detruit le bloc cassable //
+					listeFlamme[compteur] = new Flamme(x,y-r,false,true);
+					compteur += 1;
+				}
 				else if(haut == 0) // Si la flamme ne rencontre que de l'herbe
 				{
 					Plateau_1.getMap()[y-r][x] = 5;
-					listeFlamme[compteur] = new Flamme(x,y-r,false);
+					listeFlamme[compteur] = new Flamme(x,y-r,false,false);
 					compteur += 1;
 				}
 			}
@@ -293,7 +307,7 @@ public class Bombe {
 				else if((Plateau_1.getMap()[y][x+r] == 2) && droite == 0) // Si la flamme rencontre un bloc cassable
 				{
 					Plateau_1.getMap()[y][x+r] = 5;
-					listeFlamme[compteur] = new Flamme(x+r,y,true);
+					listeFlamme[compteur] = new Flamme(x+r,y,true,false);
 					compteur += 1;
 					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
 					{
@@ -303,7 +317,7 @@ public class Bombe {
 				else if(Plateau_1.getMap()[y][x+r] == 3 && (droite == 0)) // Si la flamme rencontre une autre bombe 
 				{
 					Plateau_1.getMap()[y][x+r] = 5;
-					listeFlamme[compteur] = new Flamme(x+r,y,false);
+					listeFlamme[compteur] = new Flamme(x+r,y,false,false);
 					compteur += 1;
 					droite = 1;
 					if(Joueur1.identificationBombe(x+r, y).x != -1) // On identifie si la bombe touch�e appartient au joueur 1 ou au joueur 2 //
@@ -315,10 +329,17 @@ public class Bombe {
 						Joueur2.identificationBombe(x+r, y).exploserBombe(Plateau_1, Joueur1, Joueur2); // On fait exploser la bombe rencontree
 					}
 				}
+				else if(Plateau_1.getMap()[y][x+r] == 6 && (droite == 0)) //Si la flamme rencontre un bonus
+				{
+					Plateau_1.detruitBonus(x+r, y);
+					Plateau_1.getMap()[y][x+r] = 5; // On detruit le bloc cassable //
+					listeFlamme[compteur] = new Flamme(x+r,y,false,true);
+					compteur += 1;
+				}
 				else if(droite == 0) // Si la flamme ne rencontre que de l'herbe
 				{
 					Plateau_1.getMap()[y][x+r] = 5;
-					listeFlamme[compteur] = new Flamme(x+r,y,false);
+					listeFlamme[compteur] = new Flamme(x+r,y,false,false);
 					compteur += 1;
 				}	
 			}
@@ -335,7 +356,7 @@ public class Bombe {
 				else if((Plateau_1.getMap()[y][x-r] == 2) && gauche == 0)// Si la flamme rencontre un bloc cassable
 				{
 					Plateau_1.getMap()[y][x-r] = 5;
-					listeFlamme[compteur] = new Flamme(x-r,y,true);
+					listeFlamme[compteur] = new Flamme(x-r,y,true,false);
 					compteur += 1;
 					if(Joueur.getListeBonus()[1] == 0) // Si le joueur n a pas la bombe rouge
 					{
@@ -345,7 +366,7 @@ public class Bombe {
 				else if(Plateau_1.getMap()[y][x-r] == 3 && (gauche == 0)) // Si la flamme rencontre une autre bombe 
 				{
 					Plateau_1.getMap()[y][x-r] = 5;
-					listeFlamme[compteur] = new Flamme(x-r,y,false);
+					listeFlamme[compteur] = new Flamme(x-r,y,false,false);
 					compteur += 1;
 					gauche = 1;
 					if(Joueur1.identificationBombe(x-r, y).x != -1) // On identifie si la bombe touch�e appartient au joueur 1 ou au joueur 2 //
@@ -357,14 +378,19 @@ public class Bombe {
 						Joueur2.identificationBombe(x-r, y).exploserBombe(Plateau_1, Joueur1, Joueur2); // On fait exploser la bombe rencontree
 					}
 				}
+				else if(Plateau_1.getMap()[y][x-r] == 6 && (gauche == 0)) //Si la flamme rencontre un bonus
+				{
+					Plateau_1.detruitBonus(x-r, y);
+					Plateau_1.getMap()[y][x-r] = 5; // On detruit le bloc cassable //
+					listeFlamme[compteur] = new Flamme(x-r,y,false,true);
+					compteur += 1;
+				}
 				else if(gauche == 0) // Si la flamme ne rencontre que de l'herbe
 				{
 					Plateau_1.getMap()[y][x-r] = 5;
-					listeFlamme[compteur] = new Flamme(x-r,y,false);
+					listeFlamme[compteur] = new Flamme(x-r,y,false,false);
 					compteur += 1;
 				}
-				
-				
 			}
 			
 		}

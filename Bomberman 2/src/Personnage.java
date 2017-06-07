@@ -234,7 +234,7 @@ public class Personnage {
 					//this.listeBombe[i] = null;
 					//this.nbBombe += 1;
 					bombe.exploserBombe(Plateau_1, Joueur1, Joueur2);
-					System.out.println("La bombe explose a l'emplacement : " + bombe.getX() + " " + bombe.getY());
+					//System.out.println("La bombe explose a l'emplacement : " + bombe.getX() + " " + bombe.getY());
 				}
 			}
 		}
@@ -258,7 +258,7 @@ public class Personnage {
 				{
 					if(bombei.getListeFlamme()[j] != null)
 					{
-						boolean isDissipe = bombei.getListeFlamme()[j].Retirer_Flamme(Plateau_1);
+						boolean isDissipe = bombei.getListeFlamme()[j].Retirer_Flamme(Plateau_1); //retirerflamme renvoie un boolean
 						if(isDissipe == true)
 						{
 							listeBombe[i] = null;

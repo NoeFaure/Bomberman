@@ -301,5 +301,19 @@ public class Plateau {
 				}
 			}
 		}
-	}	
+	}
+	public void detruitBonus(int x, int y)
+	{
+		int nbBonusMax = 20;
+		for(int i = 0; i<nbBonusMax; i++)
+		{
+			if(listeBonus[i] != null)
+			{
+				if(listeBonus[i].getX() == x && listeBonus[i].getY() == y)
+				{
+					listeBonus[i] = null;
+				}
+			}
+		}
+	}
 }

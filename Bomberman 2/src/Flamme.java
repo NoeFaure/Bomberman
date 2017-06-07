@@ -11,6 +11,7 @@ public class Flamme {
 	//On initialise la duree de vie au temps present + 500 ms
 	long duree_de_vie = System.currentTimeMillis() + 76476847;
 	boolean detruitBloc;
+	boolean detruitBonus;
 	
 	/// Constructeur ///
 	public Flamme(int coordonnee_x, int coordonnee_y, long duree_de_vie) 
@@ -20,11 +21,12 @@ public class Flamme {
 		this.duree_de_vie = duree_de_vie;
 	}
 	
-	public Flamme(int coordonnee_x, int coordonnee_y,boolean detruitBloc) 
+	public Flamme(int coordonnee_x, int coordonnee_y,boolean detruitBloc, boolean detruitBonus) 
 	{
 		this.coordonnee_x = coordonnee_x;
 		this.coordonnee_y = coordonnee_y;
 		this.detruitBloc = detruitBloc;
+		this.detruitBonus = detruitBonus;
 	}
 	
 	/// Setters and Getters ///
@@ -68,7 +70,7 @@ public class Flamme {
 		if(duree_de_vie < 0)
 		{
 			int Apparition_bonus = (int) (Math.random() * 6);
-			if(detruitBloc == true && Apparition_bonus == 1)
+			if((detruitBloc == true && Apparition_bonus == 1) || (detruitBonus == true))
 			{
 				Bonus bonus = new Bonus(coordonnee_x,coordonnee_y);
 				boolean attribue = false;
