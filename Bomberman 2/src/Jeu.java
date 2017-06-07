@@ -245,7 +245,7 @@ public class Jeu {
 			Joueur1.EnleverFlamme(Plateau_1);
 			
 			StdDraw.show();
-			StdDraw.pause(30);
+			StdDraw.pause(15);
 		}
 	}
 }
