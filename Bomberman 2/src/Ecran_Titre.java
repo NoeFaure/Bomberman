@@ -9,8 +9,8 @@ public class Ecran_Titre {
 		
 	}
 
-	public void Affiche_Ecran_Titre(Personnage Joueur1, Personnage Joueur2){
-		
+	public void Affiche_Ecran_Titre(Personnage Joueur1, Personnage Joueur2)
+	{
 		// Attributs 
 		int choix = 0;
 		boolean boucle = true;
