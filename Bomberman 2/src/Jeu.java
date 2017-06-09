@@ -195,7 +195,6 @@ public class Jeu {
 					Joueur1.getListeBonus()[2] = 1;
 				}
 				if (StdDraw.isKeyPressed(52))
-				
 				{
 					Joueur1.getListeBonus()[3] = 1;
 				}
@@ -223,7 +222,8 @@ public class Jeu {
 				Joueur2.DeplacerJoueur2(Plateau_1);
 				Solo_J = false;
 				
-				if( (StdDraw.isKeyPressed(16)) && (Plateau_1.map[Math.round(Joueur2.getY())][Math.round(Joueur2.getX())] != 3) && (Joueur2.getNbBombe() > 0))
+				if( (StdDraw.isKeyPressed(16)) && (Plateau_1.map[Math.round(Joueur2.getY())][Math.round(Joueur2.getX())] != 3) 
+											   && (Joueur2.getNbBombe() > 0))
 				{
 				Joueur2.PoserBombe(Plateau_1);
 				}
@@ -237,14 +237,15 @@ public class Jeu {
 				IA_1.Deplacement_IA(Joueur1,Joueur2,Plateau_1);
 			}
 			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) 
-					&& (Joueur1.getNbBombe() > 0) && Joueur1.getListeBonus()[6] == 0 
-					/*&& Joueur1.getListeBonus()[5] == 0*/) // espace //
+										   && (Joueur1.getNbBombe() > 0)
+										   && Joueur1.getListeBonus()[6] == 0 
+										 /*&& Joueur1.getListeBonus()[5] == 0*/) // espace //
 			{
 				Joueur1.PoserBombe(Plateau_1);
 				System.out.println("bombe");
 			}
 			else if(StdDraw.isKeyPressed(32) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) 
-					&& Joueur1.getListeBonus()[6] == 1)
+											 && Joueur1.getListeBonus()[6] == 1)
 			{
 				Joueur1.line(Plateau_1);
 				Joueur1.getListeBonus()[6] = 0;
