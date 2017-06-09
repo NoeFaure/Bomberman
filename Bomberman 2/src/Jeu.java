@@ -61,8 +61,8 @@ public class Jeu {
 		IA IA_1 = new IA();
 		
 		// --------- Lancement de la musique -------
-		//Musique.getClip().stop();
-		//Musique.JouerMusiqueContinu("Musique/Bande_son_1.wav");
+		Musique.getClip().stop();
+		Musique.JouerMusiqueContinu("Musique/Bande_son_1.wav");
 		
 		// --------- INITIALISATION DE L'HORLOGE --------- 
 		
