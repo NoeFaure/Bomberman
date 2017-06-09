@@ -115,7 +115,6 @@ public class Jeu {
 			Joueur1.Affiche_bonus_Joueur1();
 			Joueur2.Affiche_bonus_Joueur2();
 
-			
 			/// Timer ///
 			StdDraw.setFont(font);
 			
@@ -166,41 +165,54 @@ public class Jeu {
 			//System.out.println(Joueur1.getX() + " " + Joueur2.getY());
 
 			
-			//COMMANDE DEVELOPPEUR ( Je la nettoie pas parce qu'elle est vouee a etre effacee *niark*)
-				if (StdDraw.isKeyPressed(73) && map[(int)Joueur1.getY()-1][(int)Joueur1.getX()] != 0){
+			/// COMMANDE DEVELOPPEUR /// 
+				if (StdDraw.isKeyPressed(73) && map[(int)Joueur1.getY()-1][(int)Joueur1.getX()] != 0)
+				{
 					map[(int)Joueur1.getY()-1][(int)Joueur1.getX()] = 1;
 				}
-				if (StdDraw.isKeyPressed(76) && map[(int)Joueur1.getY()][(int)Joueur1.getX()+1] != 0){
+				if (StdDraw.isKeyPressed(76) && map[(int)Joueur1.getY()][(int)Joueur1.getX()+1] != 0)
+				{
 					map[(int)Joueur1.getY()][(int)Joueur1.getX()+1] = 1;
 				}
-				if (StdDraw.isKeyPressed(74) && map[(int)Joueur1.getY()][(int)Joueur1.getX()-1] != 0){
+				if (StdDraw.isKeyPressed(74) && map[(int)Joueur1.getY()][(int)Joueur1.getX()-1] != 0)
+				{
 					map[(int)Joueur1.getY()][(int)Joueur1.getX()-1] = 1;
 				}
-				if (StdDraw.isKeyPressed(75) && map[(int)Joueur1.getY()+1][(int)Joueur1.getX()] != 0){
+				if (StdDraw.isKeyPressed(75) && map[(int)Joueur1.getY()+1][(int)Joueur1.getX()] != 0)
+				{
 					map[(int)Joueur1.getY()+1][(int)Joueur1.getX()] = 1;
 				}
-				if (StdDraw.isKeyPressed(49)){
+				if (StdDraw.isKeyPressed(49))
+				{
 					Joueur1.getListeBonus()[0] = 1;
 				}
-				if (StdDraw.isKeyPressed(50)){
+				if (StdDraw.isKeyPressed(50))
+				{
 					Joueur1.getListeBonus()[1] = 1;
 				}
-				if (StdDraw.isKeyPressed(51)){
+				if (StdDraw.isKeyPressed(51))
+				{
 					Joueur1.getListeBonus()[2] = 1;
 				}
-				if (StdDraw.isKeyPressed(52)){
+				if (StdDraw.isKeyPressed(52))
+				
+				{
 					Joueur1.getListeBonus()[3] = 1;
 				}
-				if (StdDraw.isKeyPressed(53)){
+				if (StdDraw.isKeyPressed(53))
+				{
 					Joueur1.getListeBonus()[4] = 1;
 				}
-				if (StdDraw.isKeyPressed(54)){
+				if (StdDraw.isKeyPressed(54))
+				{
 					Joueur1.getListeBonus()[5] = 1;
 				}
-				if (StdDraw.isKeyPressed(55)){
+				if (StdDraw.isKeyPressed(55))
+				{
 					Joueur1.getListeBonus()[6] = 1;
 				}
-				if (StdDraw.isKeyPressed(56)){
+				if (StdDraw.isKeyPressed(56))
+				{
 					Joueur1.getListeBonus()[7] = 1;
 				}
 				
@@ -224,24 +236,28 @@ public class Jeu {
 				Solo_J = true;
 				IA_1.Deplacement_IA(Joueur1,Joueur2,Plateau_1);
 			}
-			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && (Joueur1.getNbBombe() > 0) && Joueur1.getListeBonus()[6] == 0 && Joueur1.getListeBonus()[5] == 0) // espace //
+			if( (StdDraw.isKeyPressed(32)) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) 
+					&& (Joueur1.getNbBombe() > 0) && Joueur1.getListeBonus()[6] == 0 
+					/*&& Joueur1.getListeBonus()[5] == 0*/) // espace //
 			{
 				Joueur1.PoserBombe(Plateau_1);
 				System.out.println("bombe");
 			}
-			else if(StdDraw.isKeyPressed(32) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && Joueur1.getListeBonus()[6] == 1)
+			else if(StdDraw.isKeyPressed(32) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) 
+					&& Joueur1.getListeBonus()[6] == 1)
 			{
 				Joueur1.line(Plateau_1);
 				Joueur1.getListeBonus()[6] = 0;
 				System.out.println("line");
 				
 			}
-			else if(StdDraw.isKeyPressed(32) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) && Joueur1.getListeBonus()[5] == 1)
+			/*else if(StdDraw.isKeyPressed(32) && (Plateau_1.map[Math.round(Joueur1.getY())][Math.round(Joueur1.getX())] != 3) 
+					&& Joueur1.getListeBonus()[5] == 1)
 			{
 				Joueur1.majRebond(Plateau_1);
-			}
-			// A faire au propre plus tard //
-			Joueur1.CompteARebourd(Plateau_1, Joueur1, Joueur2); //renommer plus tard //
+			}*/
+			
+			Joueur1.CompteARebourd(Plateau_1, Joueur1, Joueur2);
 			Joueur1.EnleverFlamme(Plateau_1);
 			
 			StdDraw.show();

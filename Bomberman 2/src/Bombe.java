@@ -36,21 +36,23 @@ public class Bombe {
 	}
 	
 	/// Setters and Getters ///
-	
-
-	public boolean isLine() {
+	public boolean isLine() 
+	{
 		return Line;
 	}
 
-	public void setLine(boolean line) {
+	public void setLine(boolean line) 
+	{
 		Line = line;
 	}
 	
-	public String getOrientation() {
+	public String getOrientation() 
+	{
 		return orientation;
 	}
 
-	public void setOrientation(String orientation) {
+	public void setOrientation(String orientation) 
+	{
 		this.orientation = orientation;
 	}
 
@@ -59,11 +61,13 @@ public class Bombe {
 		return Explose;
 	}
 
-	public long getMoment_crea() {
+	public long getMoment_crea() 
+	{
 		return Moment_crea;
 	}
 
-	public void setMoment_crea(long moment_crea) {
+	public void setMoment_crea(long moment_crea) 
+	{
 		Moment_crea = moment_crea;
 	}
 
