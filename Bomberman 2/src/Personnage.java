@@ -288,8 +288,7 @@ public class Personnage {
 				&& (Plateau_1.map[(int)(y - vitesse)][Math.round(x)] != 4) 
 				&& (Plateau_1.map[(int)(y - vitesse)][Math.round(x)] != 2) 
 				&& (Plateau_1.map[(int)(y - vitesse)][(int)(x)] != 4) 
-				&& (Plateau_1.map[(int)(y - vitesse)][(int)(x)] != 2)
-				)
+				&& (Plateau_1.map[(int)(y - vitesse)][(int)(x)] != 2))
 		{
 			y -= vitesse;
 			Orientation = "haut";
@@ -307,7 +306,10 @@ public class Personnage {
 		if(StdDraw.isKeyPressed(81) && (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 0) 
 				&& (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 3) 
 				&& (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 2) 
-				&& (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 4)/* && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 2) && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 4) /*&& (Plateau_1.map[(int)(y)][(int)(x - vitesse/2)] != 0)*/)
+				&& (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 4)
+				/* && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 2) 
+				 * && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 4) 
+				 * && (Plateau_1.map[(int)(y)][(int)(x - vitesse/2)] != 0)*/)
 		{
 			x -= vitesse;
 			Orientation = "gauche";
