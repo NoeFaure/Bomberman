@@ -156,6 +156,25 @@ public class Personnage {
 				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 1 gauche.png",50,85);
 			}
 		}
+		else if (texture == "Images/Skin/Bomberman Perso 2.png")
+		{
+			if(Orientation == "bas")
+			{
+				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 2.png",50,85);
+			}
+			else if(Orientation == "haut")
+			{
+				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 2 dos.png",50,85);
+			}
+			else if(Orientation == "droite")
+			{
+				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 2 droite.png",50,85);
+			}
+			else if(Orientation == "gauche")
+			{
+				StdDraw.picture(50*x+25, 40*y+17, "Images/Skin/Bomberman Perso 2 gauche.png",50,85);
+			}
+		}
 		else
 		{
 			StdDraw.picture(50*x+25, 40*y+17, texture,50,85);
