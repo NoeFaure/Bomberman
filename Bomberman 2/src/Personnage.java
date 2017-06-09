@@ -42,13 +42,13 @@ public class Personnage {
 		Orientation = orientation;
 	}
 
-	
-	
-	public int getPortee() {
+	public int getPortee() 
+	{
 		return portee;
 	}
 
-	public void setPortee(int portee) {
+	public void setPortee(int portee) 
+	{
 		this.portee = portee;
 	}
 
@@ -318,23 +318,41 @@ public class Personnage {
 	
 	public void DeplacerJoueur2(Plateau Plateau_1)
 	{
-		if(StdDraw.isKeyPressed(39) && (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 0) && (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 2) && (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 4) && (Plateau_1.map[(int)(y)][(int)(x + vitesse)] != 2) && (Plateau_1.map[(int)(y)][(int)(x + vitesse)] != 4))
+		if(StdDraw.isKeyPressed(39) && (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 0) 
+				&& (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 2) 
+				&& (Plateau_1.map[Math.round(y)][Math.round(x + vitesse)] != 4) 
+				&& (Plateau_1.map[(int)(y)][(int)(x + vitesse)] != 2) 
+				&& (Plateau_1.map[(int)(y)][(int)(x + vitesse)] != 4))
 		{			
 			x += vitesse;
 			Orientation = "droite";
 		}
 		if(StdDraw.isKeyPressed(38) && (Plateau_1.map[Math.round(y - vitesse)][Math.round(x)] != 0)
-				/*&& (Plateau_1.map[Math.round(y - vitesse)][Math.round(x)] != 2)*/ /*&& (Plateau_1.map[Math.round(y - vitesse)][Math.round(x)] != 4)*/ && (Plateau_1.map[(int)(y - vitesse)][Math.round(x)] != 4) && (Plateau_1.map[(int)(y - vitesse)][Math.round(x)] != 2) && (Plateau_1.map[(int)(y - vitesse)][(int)(x)] != 4) && (Plateau_1.map[(int)(y - vitesse)][(int)(x)] != 2))
+				/*&& (Plateau_1.map[Math.round(y - vitesse)][Math.round(x)] != 2) 
+				 * && (Plateau_1.map[Math.round(y - vitesse)][Math.round(x)] != 4)*/ 
+				&& (Plateau_1.map[(int)(y - vitesse)][Math.round(x)] != 4) 
+				&& (Plateau_1.map[(int)(y - vitesse)][Math.round(x)] != 2) 
+				&& (Plateau_1.map[(int)(y - vitesse)][(int)(x)] != 4) 
+				&& (Plateau_1.map[(int)(y - vitesse)][(int)(x)] != 2))
 		{
 			y -= vitesse;
 			Orientation = "haut";
 		}
-		if(StdDraw.isKeyPressed(40) && (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 0) && (Plateau_1.map[(int)(y + vitesse)][(int)(x)] != 2) && (Plateau_1.map[(int)(y + vitesse)][(int)(x)] != 4) && (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 2) && (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 4))
+		if(StdDraw.isKeyPressed(40) && (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 0) 
+				&& (Plateau_1.map[(int)(y + vitesse)][(int)(x)] != 2) 
+				&& (Plateau_1.map[(int)(y + vitesse)][(int)(x)] != 4) 
+				&& (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 2) 
+				&& (Plateau_1.map[Math.round(y + vitesse)][Math.round(x)] != 4))
 		{
 			y += vitesse;
 			Orientation = "bas";
 		}
-		if(StdDraw.isKeyPressed(37) && (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 0) && (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 2) && (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 4)/* && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 2) && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 4) /*&& (Plateau_1.map[(int)(y)][(int)(x - vitesse/2)] != 0)*/)
+		if(StdDraw.isKeyPressed(37) && (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 0) 
+				&& (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 2) 
+				&& (Plateau_1.map[Math.round(y)][Math.round(x - vitesse - 0.2f)] != 4)
+				/* && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 2) 
+				 * && (Plateau_1.map[(int)(y)][(int)(x - vitesse + 0.25f)] != 4) 
+				 * && (Plateau_1.map[(int)(y)][(int)(x - vitesse/2)] != 0)*/)
 		{
 			x -= vitesse;
 			Orientation = "gauche";
@@ -587,7 +605,10 @@ public class Personnage {
 		int vitesseb = 1;
 		for(int i = 0; i < nbBombeMax; i++)
 		{
-			if(this.listeBombe[i] != null && (this.listeBombe[i].getOrientation() == "bas" || this.listeBombe[i].getOrientation() == "haut" || this.listeBombe[i].getOrientation() == "gauche" || this.listeBombe[i].getOrientation() == "droite")) // Verifie qu'un emplacement pour bombe est dispo
+			if(this.listeBombe[i] != null && (this.listeBombe[i].getOrientation() == "bas" 
+					|| this.listeBombe[i].getOrientation() == "haut" 
+					|| this.listeBombe[i].getOrientation() == "gauche" 
+					|| this.listeBombe[i].getOrientation() == "droite")) // Verifie qu'un emplacement pour bombe est dispo
 			{
 				bombe = this.listeBombe[i];
 			}
