@@ -253,6 +253,7 @@ public class Plateau {
 		{
 			StdDraw.picture(625, 345, "Images/Menu/Player 2 WIN.png");
 			StdDraw.picture(625, 345, "Images/Menu/Press Enter.png");
+			//Musique.getClip().stop();
 			StdDraw.show();
 			
 			while(boucle == true)
@@ -270,6 +271,7 @@ public class Plateau {
 		{
 			StdDraw.picture(625, 345, "Images/Menu/Player 1 WIN.png");
 			StdDraw.picture(625, 345, "Images/Menu/Press Enter.png");
+			//Musique.getClip().stop();
 			StdDraw.show();
 			
 			while(boucle == true)
@@ -287,6 +289,7 @@ public class Plateau {
 		{
 			StdDraw.picture(625, 345, "Images/Menu/Draw.png");
 			StdDraw.picture(625, 345, "Images/Menu/Press Enter.png");
+			//Musique.getClip().stop();
 			StdDraw.show();
 			
 			while(boucle == true)
