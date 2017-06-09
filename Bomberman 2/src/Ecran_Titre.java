@@ -198,7 +198,7 @@ public class Ecran_Titre {
 		
 		if(choix_skins_cursor_player_1 == 1)
 		{
-			Joueur1.setSkin("Images/Skin/Skin 404.png");
+			Joueur1.setSkin("Images/Skin/Bomberman Perso 2.png");
 		}
 		
 		if(choix_skins_cursor_player_1 == 2)
@@ -209,12 +209,12 @@ public class Ecran_Titre {
 		/// Joueur 2 ///
 		if(choix_skins_cursor_player_2 == 0)
 		{
-			Joueur2.setSkin("Images/Skin/Bomberman Perso 2.png");
+			Joueur2.setSkin("Images/Skin/Bomberman Perso 3.png");
 		}
 		
 		if(choix_skins_cursor_player_2 == 1)
 		{
-			Joueur2.setSkin("Images/Skin/Skin 404.png");
+			Joueur2.setSkin("Images/Skin/Bomberman Perso 2.png");
 		}
 		
 		if(choix_skins_cursor_player_2 == 2)
